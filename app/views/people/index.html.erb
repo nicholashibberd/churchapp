@@ -1,0 +1,15 @@
+<h1><%= @church.name %> People</h1>
+
+<% @people.each do |person| %>
+	<div class="index_item page_index_item">
+		<div class="controls">
+		  <%= link_to 'Edit', edit_person_path(@church, person) %>
+		  <%= link_to 'Delete', person_path(@church, person), :confirm => 'Are you sure?', :method => :delete %>
+		</div>
+		<%= link_to person.name, edit_person_path(@church, person) %>
+	</div>
+<% end %>
+
+<div class="button new_button">
+	<%= link_to 'New Person', new_person_path(@church) %>
+</div>

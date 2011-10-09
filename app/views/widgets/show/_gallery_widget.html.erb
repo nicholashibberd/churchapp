@@ -1,0 +1,30 @@
+<%= content_for :head do %>
+	<%= javascript_include_tag 'slimbox2' %>
+	<%= stylesheet_link_tag 'slimbox2' %>
+<% end %>
+
+<% if widget.display == 'Grid' %>
+
+	<div class="gallery" id="<%= widget.css_id %>">
+		<% widget.photos.asc(:position).in_groups_of(4, false).each do |row| %>
+			<div class="gallery_row">
+				<% row.each do |photo| %>
+					<div class="gallery_item">
+						<%= link_to (image_tag photo.photo.url(:thumb)), photo.photo.url, :rel => "lightbox-gallery", :title => photo.caption %>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
+<% else %>
+
+	<div class="gallery stacked_gallery" id="<%= widget.css_id %>">
+		<% widget.photos.asc(:position).each do |photo| %>
+			<div class="gallery_item_stacked">
+				<%= link_to (image_tag photo.photo.url(:stacked)), photo.photo.url, :title => photo.caption %>
+			</div>
+		<% end %>
+	</div>
+
+<% end %>

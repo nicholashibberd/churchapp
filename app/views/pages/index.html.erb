@@ -1,0 +1,16 @@
+<h1><%= @church.name %> Pages</h1>
+
+<% @pages.each do |page| %>
+	<div class="index_item page_index_item">
+		<div class="controls">
+		  <%= link_to 'View', church_page_path(@church, page) %>
+		  <%= link_to 'Edit', edit_page_path(@church, page) %>
+		  <%= link_to 'Delete', page_path(@church, page), :confirm => 'Are you sure?', :method => :delete %>
+		</div>
+		<%= link_to page.name, edit_page_path(@church, page) %>
+	</div>
+<% end %>
+
+<div class="button new_button">
+	<%= link_to 'New Page', new_page_path(@church) %>
+</div>

@@ -1,0 +1,23 @@
+<div class="field">
+  <%= f.label :display %><br />
+  <%= f.select :display, options_for_select(['Stacked', 'Grid'], @widget.display) %>
+</div>
+
+<div class="field">
+  <%= f.label :photos %><br />
+
+	<% @church.photos.in_groups_of(3, false).each do |row| %>
+		<div class="gallery_widget_row">
+			<% row.each do |photo| %>
+	    <div class="gallery_widget_form_item">
+				<div class="gallery_widget_form_item_details">
+			    <%= label_tag photo.caption %><br />
+					<%= check_box_tag 'gallery_widget[photo_ids][]', photo.id, @widget.photos.include?(photo) %>
+			
+				</div>
+				<%= image_tag photo.photo.url(:thumb) %><br />
+	    </div>
+			<% end %>
+		</div>
+	<% end %>
+</div>

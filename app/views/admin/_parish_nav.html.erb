@@ -1,0 +1,6 @@
+<div id="parish_nav">
+	<%= link_to 'Parish', church_admin_path %>
+	<% @parish.churches.each do |church| %>
+		<%= link_to church.name, church_admin_path(church) %>
+	<% end %>
+</div>

@@ -1,0 +1,24 @@
+<div class="profile" id="<%= widget.css_id %>">
+	<% widget.people.asc(:position).each do |person| %>
+		<div class="profile_person">
+			<div class="profile_person_image">
+				<%= image_tag person.image.thumb('100x100').url if person.image %>
+			</div>
+			<div class="profile_person_name">
+				<h3><%= person.name %></h3>
+			</div>
+			<div class="profile_person_role">
+				Role: <%= person.role %>
+			</div>
+			<div class="profile_person_email">
+				Email: <%= person.email %>
+			</div>
+			<div class="profile_person_phone">
+				Phone: <%= person.phone %>
+			</div>
+			<div class="profile_person_profile">
+				<%= person.profile.html_safe %>
+			</div>
+		</div>
+	<% end %>
+</div>

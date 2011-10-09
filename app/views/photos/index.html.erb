@@ -1,0 +1,42 @@
+<% content_for :head do %>
+	<%= javascript_include_tag 'jquery-ui' %>
+<% end %>
+
+<h1><%= @church.name %> Photos</h1>
+
+<div id="sortable_photos">
+	<% @church.photos.asc(:position).each do |photo| %>
+		<div class="index_item photo_index_item" id="photo_<%= photo.id %>">
+			<div class="controls">
+			  <%= link_to 'Edit', edit_photo_path(@church, photo) %>
+			  <%= link_to 'Delete', photo_path(@church, photo), :confirm => 'Are you sure?', :method => :delete %>
+			</div>
+			<div class="photos_index_image">
+				<%= image_tag photo.photo.url(:thumb) %>
+			</div>
+			<%= link_to photo.caption, edit_photo_path(@church, photo) %>
+		</div>
+	<% end %>
+</div>
+
+<div class="button new_button">
+	<%= link_to 'New Photo', new_photo_path(@church) %>
+</div>
+
+<%= javascript_tag do %>
+     $('#sortable_photos').sortable(
+	    {
+          axis: 'y', 
+		   dropOnEmpty:false, 
+	       items: 'div.photo_index_item',
+	       scroll: true,
+         update: function(){
+           $.ajax({
+           	 type: 'post', 
+             data: $('#sortable_photos').sortable('serialize') + '&id=<%= @church.id-%>',
+             dataType: 'script', 
+             url: '/admin/photos/order_photos'})
+         }	
+	
+	})
+<% end %>

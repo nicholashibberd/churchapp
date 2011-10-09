@@ -1,0 +1,54 @@
+<% content_for :head do -%>
+	<%= javascript_include_tag 'jquery-ui', 'ckeditor/ckeditor.js' %>
+	<%= stylesheet_link_tag "redmond/jquery-ui" %>
+	<%= javascript_tag do %>
+		$(function() {
+			$(".datepicker").datepicker({dateFormat: 'yy-mm-dd', firstDay: 1});
+		});
+	<% end %>
+<% end -%>
+
+<%= form_for(@article, form_path(@article)) do |f| %>
+	<%= form_hidden_field(f, @church) %>
+	<div class="field">
+	  <%= f.label :categories %><br />
+	  <% Category.all.each do |category| %>
+	    <div>
+	    <%= check_box_tag 'article[category_ids][]', category.id, @article.categories.include?(category) %>
+	    <%= label_tag category.name %>
+	    </div>
+	  <% end %>
+	</div>
+	<div class="field">
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label :body %><br />
+		<%= f.text_area :content %> <!-- :class => "ckeditor" to activate on its own-->
+	</div>
+	<div class="field">
+		<%= f.label :date %><br />
+		<%= f.text_field :date, :class => 'datepicker' %>
+	</div>
+	<div class="field">
+		<%= f.label :author %><br />
+		<%= f.collection_select :person_id, Person.all, :id, :name %>
+	</div>
+	<div class="field">
+		<% @article.comments.each do |comment| %>
+			<div class="article_comment">
+				<%= comment.message.html_safe %>
+				<div class="comment_name">
+					<%= comment.name %>					
+				</div>
+				<div class="controls">
+					<%= link_to 'Edit', edit_article_comment_path(@church, @article, comment) %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="button confirm_button">
+			<%= f.submit :submit %>
+	</div>
+<% end %>

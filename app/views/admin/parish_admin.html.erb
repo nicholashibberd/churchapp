@@ -1,0 +1,7 @@
+<h1>Admin</h1>
+
+<% @parish.churches.each do |church| %>
+	<div>
+		<%= link_to church.name, church_admin_path(church) %>
+	</div>
+<% end %>

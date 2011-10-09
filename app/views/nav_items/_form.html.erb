@@ -1,0 +1,20 @@
+<%#= form_for(@nav_item, form_path(@nav_item)) do |f| %>
+<%= form_for @nav_item, :url => path_for_nav_item(@nav_menu, @nav_item) do |f| %>
+	<%= f.hidden_field :nav_menu_id %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+	<div class="field">
+    <%= f.label :page %><br />
+		<%=f.select :page_id, options_from_collection_for_select(@church.pages, :id, :name, @nav_item.page_id),{:include_blank => 'External Link'}, :onchange => "checkForExternalLink(this.value);" %>
+		<%#=f.select :page_id, Event::REPEATS,{:include_blank => 'External Links'}, :onchange => "showPeriodAndFrequency(this.value);" %>
+  </div>
+  <div class="field" id="external_link_field">
+    <%= f.label :target %><br />
+    <%= f.text_field :target %>
+  </div>
+  <div class="button confirm_button">
+    <%= f.submit %>
+  </div>
+<% end %>

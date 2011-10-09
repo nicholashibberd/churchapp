@@ -1,0 +1,7 @@
+<%= nested_form_for @widget, :url => path_for_widget(@page, @widget) do |f| %>
+	<%= hidden_field_tag 'widget_type', @widget.widget_type %>
+	<%= render :partial => "widgets/form/#{@widget.widget_type}", :locals => {:f => f}  %>
+  <div class="button confirm_button">
+    <%= f.submit %>
+  </div>
+<% end %>

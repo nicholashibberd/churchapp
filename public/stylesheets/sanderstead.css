@@ -1,0 +1,422 @@
+/***********************************
+Common elements
+***********************************/
+
+a, a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a img {
+	border: none;
+}
+
+h1, h2, h3 {
+	color: #006699;
+}
+
+/***********************************
+Layout
+***********************************/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Lucida Grande, Arial;
+	font-size: 13px;
+	background-color: #FFF;
+}
+
+#wrapper {
+	margin: auto;
+	width: 1160px;
+}
+
+#footer_wrapper {
+	margin: auto;
+	width: 960px;
+}
+
+#background {
+	position: absolute;
+	z-index: -1;
+}
+
+#background_header {
+	height: 130px;
+	background: #3399CC url(/images/sanderstead/backgrounds/header.jpg) repeat-x;	
+	background: -webkit-gradient(linear, left top, left bottom, from(#85CBF9), to(#3399CC));
+	background: -moz-linear-gradient(top,  #85CBF9,  #3399CC);	
+	position: relative;
+	padding: 0 100px;	
+}
+
+#background_top_nav {
+	height: 50px;
+	background: #3399CC url(/images/sanderstead/backgrounds/top_nav.jpg) repeat-x;		
+	background: -webkit-gradient(linear, left top, left bottom, from(#FCFFFF), to(#BED9E4));
+	background: -moz-linear-gradient(top,  #FCFFFF,  #BED9E4);
+	border-bottom: 5px solid #FFCC00;
+}
+
+#background_image {
+	background: url(/images/sanderstead/backgrounds/valley_background.jpg);
+	height: 350px;
+	width: 1920px;
+}
+
+#footer {
+	background: #4DA9DA url(/images/sanderstead/backgrounds/footer.jpg) repeat-x;
+	padding: 80px 100px 20px;
+}
+
+/***********************************
+Content
+***********************************/
+
+.content {
+	padding: 60px 130px 50px 130px;
+	min-height: 400px;
+	background: url(/images/sanderstead/backgrounds/content.png) no-repeat;
+	background-position: center top;
+}
+
+* html .content {
+	height: 400px;
+}
+
+.content h1, .content h2 {
+	margin-bottom: 20px;
+}
+
+.content h3 {
+	margin: 10px 0;
+}
+
+.columnRight {
+	float: right;
+	margin-left: 30px;
+	padding: 20px;
+	background-color: #DDEBF1;
+  background: -webkit-linear-gradient(top, #F1F7F9, #DDEBF1);
+  background: -moz-linear-gradient(top, #F1F7F9, #DDEBF1);
+	width: 300px;
+}
+
+.columnLeft {
+	width: 550px;
+}
+
+
+/***********************************
+Header
+***********************************/
+
+#header {
+	height: 185px;
+	position: relative;
+	padding: 0 100px;	
+}
+
+#logo {
+	padding-top: 30px;
+	height: 100px;
+}
+
+#logo h1 {
+	height: 50px;
+}
+
+#top_nav {
+	
+}
+
+#top_nav a {
+	float: left;
+	display: block;
+	font-size: 16px;
+	color: #006699;
+	padding: 15px 20px 15px;
+}
+
+#top_nav a.selected {
+	background: #FFCC00;
+}
+
+#parish_nav {
+	position: absolute;
+	right: 100px;
+	top: 40px;
+}
+
+#parish_nav a {
+	display: block;
+	float: left;
+	margin-right: 30px;
+	color: #fff;
+	font-size: 16px;
+}
+
+/***********************************
+Admin Header
+***********************************/
+
+#admin_header {
+	height: 20px;
+	padding: 10px 100px;
+	width: 960px;
+	margin: auto;
+	color: #000;	
+}
+
+/***********************************
+Calendar
+***********************************/
+
+#calendar table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#calendar td {
+	width: 120px;
+	border: 1px solid #9FC7E6;
+	vertical-align: top;
+	height: 110px;
+	padding: 10px;
+}
+
+#calendar td.calendar_day_with_events {
+	background: #FCD436 url(/images/sanderstead/backgrounds/calendar_day_with_events.jpg) repeat-x;				
+	background: -webkit-gradient(linear, left top, left bottom, from(#F6E290), to(#FCD436));
+	background: -moz-linear-gradient(top,  #F6E290,  #FCD436);
+}
+
+#calendar td.calendar_day_without_events {
+	background: #EEF9FF url(/images/sanderstead/backgrounds/calendar_day_without_events.jpg) repeat-x;				
+	background: -webkit-gradient(linear, left top, left bottom, from(#F9FDFF), to(#EEF9FF));
+	background: -moz-linear-gradient(top,  #F9FDFF,  #EEF9FF);
+}
+
+#calendar .calendar_day_marker {
+	color: #9FC7E6;
+}
+
+#calendar td.otherMonth {
+	background-color: #E1EFF3;
+}
+
+#calendar .calendar_event {
+	padding: 5px 0;
+}
+
+.event_day {
+	margin-bottom: 20px;
+	min-height: 60px;
+}
+
+.event_widget_event {
+	font-size: 16px;
+	margin-bottom: 5px;
+	color: #666;	
+}
+
+* html .event_day {
+	height: 60px;
+}
+
+.date_icon {
+	width: 57px;
+	height: 56px;
+	text-align: center;
+	background: url(/images/sanderstead/backgrounds/date_icon.png);
+	float: left;
+	margin-right: 20px;
+}
+
+.date_icon .date_icon_month {
+	padding: 3px 0;
+	color: #FFF;
+}
+
+.date_icon .date_icon_day {
+	padding: 4px 0;
+	font-size: 18px;
+}
+
+
+
+/***********************************
+Gallery
+***********************************/
+
+.gallery_row {
+	height: 140px;
+	margin-bottom: 20px;
+	width: 920px;
+}
+
+.gallery_item {
+	width: 210px;
+	height: 140px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	float: left;
+}
+
+/***********************************
+Articles
+***********************************/
+#articles_archive {
+	float: right;
+	width: 200px;
+	background-color: #DDEBF1;
+  background: -webkit-linear-gradient(top, #F1F7F9, #DDEBF1);
+  background: -moz-linear-gradient(top, #F1F7F9, #DDEBF1);
+	padding: 20px;
+}
+
+.articles_archive_month {
+	margin-bottom: 10px;
+}
+
+.article {
+	margin-bottom: 50px;
+	width: 600px;
+}
+
+.article_details {
+	margin-top: 20px;
+	font-style: italic;
+	background-color: #DDEBF1;
+  background: -webkit-linear-gradient(top, #F1F7F9, #DDEBF1);
+  background: -moz-linear-gradient(top, #F1F7F9, #DDEBF1);
+	padding: 10px;
+}
+
+/****************************************************
+Flash
+*****************************************************/
+
+#flash {
+  margin-bottom: 20px;
+}
+
+ul#flash_list {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.flash_item {
+  padding: 10px;
+  color: #fff;
+}
+
+.flash_item.notice {
+  background-color: #FFCC00;
+  background: -webkit-linear-gradient(top, #FFF6D1, #FFCC00);
+  background: -moz-linear-gradient(top, #FFF6D1, #FFCC00);
+	color: #006699;
+}
+
+.flash_item.error {
+  background-color: #CC0000;
+  background: -webkit-linear-gradient(top, #FD8C8C, #CC0000);
+  background: -moz-linear-gradient(top, #FD8C8C, #CC0000);
+}
+
+/***********************************
+Widgets
+***********************************/
+
+.profile_person_image {
+	float: left;
+	margin-right: 20px;
+}
+
+#all_saints_pages_contact_us #content_widget_3 {
+	float: right;
+	background-color: #D9E8EF;
+  background: -webkit-linear-gradient(top, #F7FAFC, #D9E8EF);
+  background: -moz-linear-gradient(top, #F7FAFC, #D9E8EF);
+	margin-left: 20px;
+	width: 300px;
+	padding: 20px;  
+}
+
+.map_widget {
+	float: right;
+	background-color: #D9E8EF;
+  background: -webkit-linear-gradient(top, #F7FAFC, #D9E8EF);
+  background: -moz-linear-gradient(top, #F7FAFC, #D9E8EF);
+	padding: 20px;	
+	margin-left: 20px;
+}
+
+#map {
+	width: 420px;
+	height: 350px;
+	overflow: hidden;
+}
+
+/***********************************
+Inputs and Buttons
+***********************************/
+
+input[type=text] {
+	background: url(/images/admin/input_330_45.png);
+	width: 300px;
+	height: 35px;
+	padding: 5px 15px;
+	border: 1px solid #999;
+	font-size: 14px;
+}
+
+textarea {
+	width: 500px;
+	height: 200px;
+	background: url(/images/admin/textarea_800_600.png) no-repeat;	
+	border: 1px solid #999;	
+}
+
+.field, .fields {
+	margin-bottom: 20px;
+}
+
+.button {
+	height: 50px;
+	margin-top: 20px;
+}
+
+.button a {
+	padding: 10px 15px;
+}
+
+.button a, .button input {
+	display: block;
+	float: left;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.button input {
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 9px 15px;
+}
+
+.confirm_button input {
+	background: #84BE84;
+	background: -webkit-gradient(linear, left top, left bottom, from(#84BE84), to(#339933));
+	background: -moz-linear-gradient(top,  #84BE84,  #339933);
+}
+

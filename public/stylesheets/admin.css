@@ -1,0 +1,351 @@
+/***********************************
+Common elements
+***********************************/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a, a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a img {
+	border: none;
+}
+
+#spacer {
+	clear: both;
+}
+
+/***********************************
+Layout
+***********************************/
+
+body {
+	font-family: Lucida Grande, Arial;
+	background: #E2E7EC;
+}
+
+#wrapper {
+	margin: auto;
+	width: 960px;
+}
+
+#content_wrapper {
+	padding: 30px;
+	background-color: #fff;
+}
+
+.content {
+	margin-left: 250px;
+}
+
+.content h1 {
+	margin-bottom: 30px;
+}
+
+#background {
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+}
+
+#background_header {
+	height: 225px;
+	background: #3399CC;
+	background: -webkit-gradient(linear, left top, left bottom, from(#85CBF9), to(#3399CC));
+	background: -moz-linear-gradient(top,  #85CBF9,  #3399CC);
+	border-bottom: 1px solid #fff;
+}
+
+#background_content {
+	height: 15px;
+	background: -webkit-gradient(linear, 0 0 , 0 50%, from(#C9D0DC), to(#E2E7EC));
+	background: -moz-linear-gradient(top,  #C9D0DC,  #E2E7EC 50%);
+}
+
+.spacer {
+	clear: left;
+}
+
+/***********************************
+Left Nav
+***********************************/
+
+#left_nav { 
+	height: 300px;
+	width: 185px;
+	background: #DEE1E5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F3F4F5), to(#DEE1E5));
+	background: -moz-linear-gradient(top,  #F3F4F5,  #DEE1E5);
+	float: left;
+	padding: 20px;
+}
+
+#left_nav a {
+	display: block;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+/***********************************
+Header
+***********************************/
+
+#header {
+	height: 100px;
+	padding-top: 60px;
+}
+
+#parish_nav {
+	margin-top: 20px;
+}
+
+#parish_nav a {
+	display: block;
+	float: left;
+	margin-right: 30px;
+	color: #fff;
+}
+
+/***********************************
+Buttons
+***********************************/
+
+.button {
+	height: 50px;
+	margin-top: 20px;
+}
+
+.button a {
+	padding: 10px 15px;
+}
+
+.button a, .button input {
+	display: block;
+	float: left;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.button input {
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 9px 15px;
+}
+
+.confirm_button input {
+	background: #84BE84;
+	background: -webkit-gradient(linear, left top, left bottom, from(#84BE84), to(#339933));
+	background: -moz-linear-gradient(top,  #84BE84,  #339933);
+}
+
+.new_button a {
+	background: #3399CC;
+	background: -webkit-gradient(linear, left top, left bottom, from(#85CBF9), to(#3399CC));
+	background: -moz-linear-gradient(top,  #85CBF9,  #3399CC);	
+}
+
+.button.inline {
+	float: left;
+	margin-right: 20px;
+}
+
+a#add_new_marker {
+	background: #3399CC;
+	background: -webkit-gradient(linear, left top, left bottom, from(#85CBF9), to(#3399CC));
+	background: -moz-linear-gradient(top,  #85CBF9,  #3399CC);	
+	display: block;
+	color: #fff;
+	border-radius: 3px;
+	padding: 10px 15px;
+	width: 95px;
+}
+
+
+
+/***********************************
+Inputs
+***********************************/
+
+input[type=text] {
+	background: url(/images/admin/input_330_45.png);
+	width: 300px;
+	height: 35px;
+	padding: 5px 15px;
+	border: 1px solid #999;
+	font-size: 14px;
+}
+
+textarea {
+	width: 500px;
+	height: 200px;
+	background: url(/images/admin/textarea_800_600.png) no-repeat;	
+	border: 1px solid #999;	
+}
+
+.field, .fields {
+	margin-bottom: 20px;
+}
+
+.marker_address input, .marker_description input {
+	width: 250px;
+	background: url(/images/admin/input_280_45.png);	
+}
+
+/****************************************************
+Index
+*****************************************************/
+
+.index_item {
+	padding: 20px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.controls {
+	float: right;
+	margin: -5px -8px 0 20px;
+}
+
+.controls a {
+	float: left;
+	margin-right: 10px;
+	padding: 5px 10px;
+	background: #DEE1E5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F7F8), to(#DEE1E5));
+	background: -moz-linear-gradient(top,  #F5F7F8,  #DEE1E5);	
+	border-radius: 3px;
+	font-size: 14px;
+}
+
+.article_categories, .event_details {
+	font-size: 12px;
+	margin-top: 5px;
+	color: #666;
+}
+
+/***********************************
+Widgets
+***********************************/
+
+.edit_widget, .article_comment, .index_nav_item {
+	background: #eee;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+.edit_widget, .index_nav_item {
+	cursor: move;
+}
+
+.article_comment {
+	font-size: 14px;
+}
+
+.gallery_widget_row {
+	height: 225px;
+}
+
+.gallery_widget_form_item {
+	float: left;
+	margin-right: 20px;
+	width: 190px;
+}
+
+.gallery_widget_form_item img {
+	width: 180px;
+}
+
+.gallery_widget_form_item_details {
+	text-align: center;
+}
+
+.marker_address {
+	float: left;
+	margin-right: 10px;
+}
+
+.marker_remove {
+	padding-top: 30px;
+	float: right;
+	margin-left: -10px;
+}
+
+/***********************************
+Sortable
+***********************************/
+#widgets {
+	width: 1000px;
+}
+
+.widget_column {
+	width: 300px;
+	float: left;
+	padding: 10px;
+}
+
+#columnLeft {
+	margin-right: 15px;
+}
+
+#columnLeft, #columnRight {
+	min-height: 100px;
+	border: 2px dashed #ccc;
+}
+
+
+/****************************************************
+Flash
+*****************************************************/
+
+.photos_index_image {
+	float: left;
+	margin-right: 30px;
+	width: 100px;
+}
+
+.photos_index_image img {
+	height: 60px;
+}
+
+.photo_index_item {
+	height: 60px;
+}
+
+/****************************************************
+Flash
+*****************************************************/
+
+#flash {
+  margin-bottom: 20px;
+}
+
+ul#flash_list {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.flash_item {
+  padding: 10px;
+  color: #fff;
+}
+
+.flash_item.notice {
+  background-color: #2D572D;
+  background: -webkit-linear-gradient(top, #2D572D, #003300);
+  background: -moz-linear-gradient(top, #2D572D, #003300);
+}
+
+.flash_item.error {
+  background-color: #CC0000;
+  background: -webkit-linear-gradient(top, #FD8C8C, #CC0000);
+  background: -moz-linear-gradient(top, #FD8C8C, #CC0000);
+}

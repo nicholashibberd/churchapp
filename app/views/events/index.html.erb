@@ -1,0 +1,18 @@
+<h1><%= @church.name %> Events</h1>
+
+<% @church.events.limit(10).each do |event| %>
+	<div class="index_item page_index_item">
+		<div class="controls">
+		  <%= link_to 'Edit', edit_event_path(@church, event) %>
+		  <%= link_to 'Delete', event_path(@church, event), :confirm => 'Are you sure?', :method => :delete %>
+		</div>
+		<%= link_to event.title, edit_event_path(@church, event) %>
+		<div class='event_details'>
+			<%= event.category %> | <%= l event.start_date, :format => :long %>
+		</div>
+	</div>
+<% end %>
+
+<div class="button new_button">
+	<%= link_to 'New Event', new_event_path(@church) %>
+</div>

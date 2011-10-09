@@ -1,0 +1,8 @@
+<div class="field">
+  <%= f.label :category %><br />
+  <%= f.select :category_id, options_from_collection_for_select(Category.all, 'id', 'name') %>
+</div>
+<div class="field">
+  <%= f.label :number_to_display %><br />
+  <%= f.select :number_to_display, options_for_select([1,2,3,4,5,10,15,20], @widget.number_to_display) %>
+</div>

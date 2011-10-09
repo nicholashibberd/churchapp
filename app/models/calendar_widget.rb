@@ -1,0 +1,3 @@
+class CalendarWidget < Widget
+  
+end

@@ -1,0 +1,25 @@
+<div class="field">
+  <%= f.label :address %><br />
+  <%= f.text_field :address %>
+</div>
+<div class="field">
+  <%= f.label :zoom_level %><br />
+  <%= f.select :zoom, options_for_select((8..14).to_a, @widget.zoom) %>
+</div>
+<div class="field">
+  <%= f.label :markers %><br />
+	<%= f.fields_for :map_markers do |marker| %>
+		<div class="marker_remove controls">
+	  	<%= marker.link_to_remove "Delete" %>
+		</div>
+	  <div class="marker_address">
+			<%= f.label :address %><br />
+		  <%= marker.text_field :address %>
+		</div>
+		<div class="marker_description">
+		  <%= f.label :description %><br />
+			<%= marker.text_field :html %>
+		</div>
+	<% end %>
+	<%= f.link_to_add "Add marker", :map_markers, :id => 'add_new_marker' %>
+</div>

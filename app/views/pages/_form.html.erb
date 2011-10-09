@@ -1,0 +1,55 @@
+<%= form_for(@page, form_path(@page)) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+      <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<%= form_hidden_field(f, @church) %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+	<div id="widgets">
+		<div id="columnLeft" class="field widget_column connectedSortable" column="left">
+			<%= f.label :left_column %><br />
+			<% @page.widgets_by_column('left').each do |widget| %>
+				<div class="edit_widget edit_<%= widget.widget_type %>_widget" id="widget_<%= widget.id %>">
+					<%= link_to widget.widget_type.titleize, edit_page_widget_path(@church, @page, widget) %>
+					<div class="controls">
+						<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget) %>
+						<%= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+
+		<div id="columnRight" class="field widget_column connectedSortable" column="right">
+			<% @page.widgets_by_column('right').each do |widget| %>
+				<div class="edit_widget edit_<%= widget.widget_type %>_widget" id="widget_<%= widget.id %>">
+					<%= link_to widget.widget_type.titleize, edit_page_widget_path(@church, @page, widget) %>
+					<div class="controls">
+						<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget) %>
+						<%= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	
+	<div class="spacer"></div>
+
+  <div class="button confirm_button">
+    <%= f.submit %>
+  </div>
+<% end %>

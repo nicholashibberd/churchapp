@@ -1,0 +1,19 @@
+<% content_for :head do -%>
+	<%= javascript_include_tag 'ckeditor/ckeditor.js' %>
+<% end -%>
+
+<%= form_for comment, :url => path_for_comment(article, comment) do |f| %>
+	<%= hidden_field_tag :article_id, article.id %>
+	<%= hidden_field_tag :page_id, @page.id if @page %>
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_area :message %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="button confirm_button">
+    <%= f.submit %>
+  </div>
+<% end %>

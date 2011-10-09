@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag "sanderstead", 'application' %>
+  <%= javascript_include_tag "jquery", "rails", "application" %>
+  <%= csrf_meta_tag %>
+	<%= yield :head %>
+</head>
+<body>
+	<%= render 'admin/header' if @admin %>
+	<div id="background">
+		<div id="background_header">
+		</div>
+		<div id="background_top_nav">
+		</div>
+		<div id="background_image">
+		</div>
+	</div>
+	<div id='wrapper'>
+		<div id='header'>
+			<div id="logo">
+				<h1><%= logo %></h1>
+				<div id="sub_logo">
+					<%= sub_logo %>
+				</div>
+			</div>
+			<div id="parish_nav">
+				<%= render 'layouts/parish_nav' %>
+			</div>
+			<div id='top_nav'>
+				<%= render 'layouts/top_nav' %>
+			</div>
+		</div>
+		<div id="<%= page_id %>" class="content <%= request[:controller] %>_<%= request[:action] %>_content">
+			<%= render 'layouts/flash', :flash => flash %>
+			<%= yield %>
+		</div>
+	</div>
+	<div id="footer">
+		<div id="footer_wrapper">
+			<%= render 'layouts/footer' %>
+		</div>
+	</div>	
+</body>
+</html>

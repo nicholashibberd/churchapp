@@ -1,0 +1,14 @@
+<% content_for :head do -%>
+	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA2H7062pSEukI9x_6MbI8KBTO121Y3IxC7kmrEH_r5UrF6rjKQxTFZCHxZ4lqThgR-O0Vj-J-EALifw&amp;hl=en"></script>
+	<%= javascript_include_tag 'jquery_maps' %>
+
+	<script type="text/javascript">
+	$(function(){	
+			$("#map").gMap(<%= widget.map_to_json.html_safe %>);
+		});
+	</script>
+<% end -%>
+
+<div id="<%= widget.css_id %>" class="map_widget">
+	<div id="map"></div>
+</div>

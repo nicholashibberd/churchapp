@@ -1,0 +1,50 @@
+<% content_for :head do %>
+	<%= javascript_include_tag 'jquery-ui' %>
+<% end %>
+
+<%= form_for(@nav_menu, form_path(@nav_menu)) do |f| %>
+	<%= form_hidden_field(f, @church) %>
+	
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :menu_type %><br />
+    <%= f.select :menu_type, options_for_select(['custom', 'main_navigation', 'footer'], @nav_menu.menu_type) %>
+  </div>
+	
+	<div class="field" id="sortable_nav_items">
+		<% @nav_menu.nav_items.asc(:position).each do |nav_item| %>
+			<div class="index_nav_item" id="navitem_<%= nav_item.id %>">
+				<div class="controls">
+				  <%= link_to 'Edit', edit_nav_menu_nav_item_path(@church, @nav_menu, nav_item) %>
+				  <%= link_to 'Delete', nav_menu_nav_item_path(@church, @nav_menu, nav_item), :confirm => 'Are you sure?', :method => :delete %>
+				</div>
+				<%= link_to nav_item.name, edit_nav_menu_nav_item_path(@church, @nav_menu, nav_item) %>
+			</div>
+		<% end %>
+	</div>
+
+  <div class="button confirm_button">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= javascript_tag do %>
+     $('#sortable_nav_items').sortable(
+	    {
+          axis: 'y', 
+		   dropOnEmpty:false, 
+	       items: 'div.index_nav_item',
+	       scroll: true,
+         update: function(){
+           $.ajax({
+           	 type: 'post', 
+             data: $('#sortable_nav_items').sortable('serialize') + '&id=<%= @nav_menu.id-%>',
+             dataType: 'script', 
+             url: '/admin/nav_menus/order_nav_items'})
+         }	
+	
+	})
+<% end %>
