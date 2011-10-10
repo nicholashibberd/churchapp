@@ -6,6 +6,7 @@ gem 'sqlite3'
 
 # Deploy with Capistrano
 # gem 'capistrano'
+gem "capistrano-ext"
 
 gem 'mongoid', "~> 2.2.0"
 gem 'bson_ext'

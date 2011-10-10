@@ -35,6 +35,7 @@
 		</div>
 
 		<div id="columnRight" class="field widget_column connectedSortable" column="right">
+			<%= f.label :right_column %><br />			
 			<% @page.widgets_by_column('right').each do |widget| %>
 				<div class="edit_widget edit_<%= widget.widget_type %>_widget" id="widget_<%= widget.id %>">
 					<%= link_to widget.widget_type.titleize, edit_page_widget_path(@church, @page, widget) %>

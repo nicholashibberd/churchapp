@@ -48,6 +48,7 @@ body {
 #background {
 	position: absolute;
 	z-index: -1;
+	width: 100%;
 }
 
 #background_header {
@@ -70,7 +71,6 @@ body {
 #background_image {
 	background: url(/images/sanderstead/backgrounds/valley_background.jpg);
 	height: 350px;
-	width: 1920px;
 }
 
 #footer {
@@ -108,7 +108,7 @@ Content
 	background-color: #DDEBF1;
   background: -webkit-linear-gradient(top, #F1F7F9, #DDEBF1);
   background: -moz-linear-gradient(top, #F1F7F9, #DDEBF1);
-	width: 300px;
+	min-width: 300px;
 }
 
 .columnLeft {
@@ -342,29 +342,14 @@ Widgets
 	margin-right: 20px;
 }
 
-#all_saints_pages_contact_us #content_widget_3 {
-	float: right;
-	background-color: #D9E8EF;
-  background: -webkit-linear-gradient(top, #F7FAFC, #D9E8EF);
-  background: -moz-linear-gradient(top, #F7FAFC, #D9E8EF);
-	margin-left: 20px;
-	width: 300px;
-	padding: 20px;  
-}
-
-.map_widget {
-	float: right;
-	background-color: #D9E8EF;
-  background: -webkit-linear-gradient(top, #F7FAFC, #D9E8EF);
-  background: -moz-linear-gradient(top, #F7FAFC, #D9E8EF);
-	padding: 20px;	
-	margin-left: 20px;
-}
-
 #map {
 	width: 420px;
 	height: 350px;
 	overflow: hidden;
+}
+
+.widget {
+	margin-bottom: 20px;
 }
 
 /***********************************

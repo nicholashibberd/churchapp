@@ -2,14 +2,26 @@
 	<title><%= @page.title %></title>
 <% end %>
 
-<div class="columnRight">
-	<% @page.widgets_by_column('right').each do |widget| %>
-		<%= render_widget(@page, 'show', widget) %>
-	<% end %>
-</div>
+<% if !@page.widgets_by_column('left').empty? && !@page.widgets_by_column('right').empty? %>
 
-<div class="columnLeft">
-	<% @page.widgets_by_column('left').each do |widget| %>
-		<%= render_widget(@page, 'show', widget) %>
-	<% end %>
-</div>
+	<div class="columnRight">
+		<% @page.widgets_by_column('right').each do |widget| %>
+			<%= render_widget(@page, 'show', widget) %>
+		<% end %>
+	</div>
+
+	<div class="columnLeft">
+		<% @page.widgets_by_column('left').each do |widget| %>
+			<%= render_widget(@page, 'show', widget) %>
+		<% end %>
+	</div>
+
+<% else %>
+
+	<div>
+		<% @page.widgets.asc(:position).each do |widget| %>
+			<%= render_widget(@page, 'show', widget) %>
+		<% end %>
+	</div>
+
+<% end %>

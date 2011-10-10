@@ -3,7 +3,10 @@
 <% end %>
 
 <h1><%= @page.name %></h1>
-<%= link_to 'View page', church_page_path(@church, @page) %>
+
+<div class="top_right_button button">
+	<%= link_to 'View page', church_page_path(@church, @page) %>
+</div>
 
 <%= render 'form' %>
 
