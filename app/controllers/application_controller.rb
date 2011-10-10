@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   
   def setup_site
     @site = Site.where(:domain => request.domain(2)).first
+    @site ||= Site.first
     
     if @site.site_type == 'parish'
       @parish = @site.parish       
