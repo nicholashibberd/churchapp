@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :login_required, :only => ['signin', 'validate', 'new']
+  skip_before_filter :login_required, :except => ['show', 'edit', 'index']
   layout 'admin'
   def index
     @users = User.all
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-
     if @user.save
+      set_user_cookie @user
       redirect_to(@user, :notice => 'User was successfully created.')
     else
       render :action => "new"
@@ -52,6 +52,11 @@ class UsersController < ApplicationController
       set_user_cookie user
       redirect_to church_admin_path(@parish)
     end
+  end
+  
+  def signout
+    sign_out
+    redirect_to signin_path
   end
   
 end
