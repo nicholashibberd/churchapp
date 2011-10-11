@@ -188,7 +188,7 @@ a#add_new_marker {
 Inputs
 ***********************************/
 
-input[type=text] {
+input[type=text], input[type=password] {
 	background: url(/images/admin/input_330_45.png);
 	width: 300px;
 	height: 35px;
@@ -351,9 +351,9 @@ ul#flash_list {
 }
 
 .flash_item.notice {
-  background-color: #2D572D;
-  background: -webkit-linear-gradient(top, #2D572D, #003300);
-  background: -moz-linear-gradient(top, #2D572D, #003300);
+	background: #3399CC;
+	background: -webkit-gradient(linear, left top, left bottom, from(#85CBF9), to(#3399CC));
+	background: -moz-linear-gradient(top,  #85CBF9,  #3399CC);
 }
 
 .flash_item.error {

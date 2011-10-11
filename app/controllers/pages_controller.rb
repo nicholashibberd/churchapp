@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   layout :choose_layout
+  skip_before_filter :login_required, :only => 'show'
   
   def index
     @pages = @church.pages

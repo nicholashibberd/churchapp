@@ -1,5 +1,14 @@
 Churchapp::Application.routes.draw do
 
+  resources :users do 
+    collection do 
+      post :validate
+    end
+  end
+  match 'signin' => 'users#signin', :as => :signin
+  match 'register' => 'users#new', :as => :register
+  match '/signout' => 'users#signout', :as => :signout
+
   match "/", :to => 'pages#show', :as => :parish_home
   match "/:church_id/categories/:category_id", :to => 'categories#category_articles', :as => :category_articles
   
@@ -21,6 +30,8 @@ Churchapp::Application.routes.draw do
     resources :photos   
     resources :messages 
   end
+  
+  resources :users
   
   match "/admin/(:church_id)", :to => 'admin#church_admin', :as => :church_admin  
   match "/:church_id", :to => 'pages#show', :as => :church_home  

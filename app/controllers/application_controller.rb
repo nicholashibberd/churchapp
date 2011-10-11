@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :setup_site, :display_admin_header
+  before_filter :setup_site, :login_required
+  include UsersHelper
   
   def setup_site
     @site = Site.where(:domain => request.domain(2)).first
@@ -15,8 +16,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def display_admin_header
-    @admin = true
+  def login_required
+    if signed_in?
+      return true
+    end
+    
+    flash[:error]='Please login to continue'
+    redirect_to signin_path
+    return false
   end
   
 end
