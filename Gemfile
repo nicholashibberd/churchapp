@@ -5,7 +5,6 @@ gem 'rails', '3.0.10'
 gem 'sqlite3'
 
 # Deploy with Capistrano
-# gem 'capistrano'
 gem "capistrano-ext"
 
 gem 'mongoid', "~> 2.2.0"
@@ -18,4 +17,12 @@ gem 'dragonfly', '~>0.9.8'
 
 gem "nested_form"
 # end
-gem "mocha", :group => :test
+
+group :test, :development do
+	gem 'rspec-rails'
+	gem 'rspec', "~> 2.6.0"
+  #gem "mocha"
+	gem 'webrat'
+	gem "rcov", "~> 0.9.9"
+	gem "factory_girl_rails"
+end

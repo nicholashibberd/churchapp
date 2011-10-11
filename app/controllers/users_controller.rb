@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter :login_required, :except => ['show', 'edit', 'index']
   layout 'admin'
   def index
-    @users = User.all
+    @users = @parish.users
   end
 
   def show

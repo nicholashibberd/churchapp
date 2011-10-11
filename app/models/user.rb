@@ -5,6 +5,8 @@ class User
   field :encrypted_password
   field :salt
   field :remember_token
+  
+  belongs_to :parish
 
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
