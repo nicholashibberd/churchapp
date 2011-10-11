@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :login_required, :only => ['signin', 'validate']
+  skip_before_filter :login_required, :only => ['signin', 'validate', 'new']
   layout 'admin'
   def index
     @users = User.all
