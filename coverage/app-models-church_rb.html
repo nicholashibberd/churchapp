@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-church_rb.html">app/models/church.rb</a></td>
+            <td class='right_align'><tt>49</tt></td>
             <td class='right_align'><tt>39</tt></td>
-            <td class='right_align'><tt>31</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>58.97%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>57.14%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:59px"></div>
-            <div class="uncovered" style="width:41px"></div>
+            <div class="covered" style="width:57px"></div>
+            <div class="uncovered" style="width:43px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>51.61%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>51.28%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:52px"></div>
-            <div class="uncovered" style="width:48px"></div>
+            <div class="covered" style="width:51px"></div>
+            <div class="uncovered" style="width:49px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -87,31 +87,31 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line6">6</a>   has_many :nav_menus</pre></td>
+            <td><pre><a name="line6">6</a>   has_many :event_series</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line7">7</a>   has_many :photos</pre></td>
+            <td><pre><a name="line7">7</a>   has_many :nav_menus</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line8">8</a>   has_many :messages</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line9">9</a>   </pre></td>
+            <td><pre><a name="line8">8</a>   has_many :photos</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line10">10</a>   validates_uniqueness_of :name, :scope =&gt; :parish_id</pre></td>
+            <td><pre><a name="line9">9</a>   has_many :messages</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line10">10</a>   has_many :churches</pre></td>
           </tr>
         
           
@@ -123,175 +123,235 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line12">12</a>   field :name</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line13">13</a>   field :slug</pre></td>
+            <td><pre><a name="line12">12</a>   validates_uniqueness_of :name, :scope =&gt; :parish_id</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line14">14</a>     </pre></td>
+            <td><pre><a name="line13">13</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line15">15</a>   def events_by_date(category, number_to_display)</pre></td>
+            <td><pre><a name="line14">14</a>   field :name</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line16">16</a>     upcoming_events = events.upcoming.where(:category =&gt; category).limit(number_to_display)</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line15">15</a>   field :slug</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line17">17</a>     upcoming_events.group_by {|event| event.start_date}</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line18">18</a>   end</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line16">16</a>   field :church_type</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line19">19</a>   </pre></td>
+            <td><pre><a name="line17">17</a>     </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line20">20</a>   def articles_by_month(category_id, month)</pre></td>
+            <td><pre><a name="line18">18</a>   def events_by_date(category, number_to_display)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line21">21</a>     articles.where()</pre></td>
+            <td><pre><a name="line19">19</a>     upcoming_events = events.upcoming.where(:category =&gt; category).limit(number_to_display)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line22">22</a>   end</pre></td>
+            <td><pre><a name="line20">20</a>     upcoming_events.group_by {|event| event.start_date}</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line21">21</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line23">23</a>   </pre></td>
+            <td><pre><a name="line22">22</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line24">24</a>   def articles_by_category(category_id)</pre></td>
+            <td><pre><a name="line23">23</a>   def articles_by_month(category_id, month)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line25">25</a>     articles.where(:category_id =&gt; category_id)</pre></td>
+            <td><pre><a name="line24">24</a>     articles.where()</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line26">26</a>   end</pre></td>
+            <td><pre><a name="line25">25</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line27">27</a>   </pre></td>
+            <td><pre><a name="line26">26</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line28">28</a>   def find_events_by_month(month)</pre></td>
+            <td><pre><a name="line27">27</a>   def articles_by_category(category_id)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line29">29</a>     events.select {|event| event.start_date.month == month}</pre></td>
+            <td><pre><a name="line28">28</a>     articles.where(:category_id =&gt; category_id)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line30">30</a>   end  </pre></td>
+            <td><pre><a name="line29">29</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line31">31</a>   </pre></td>
+            <td><pre><a name="line30">30</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line32">32</a>   def order_photos(params)</pre></td>
+            <td><pre><a name="line31">31</a>   def find_events_by_month(month)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line33">33</a>     photos.each do |photo|</pre></td>
+            <td><pre><a name="line32">32</a>     events.select {|event| event.start_date.month == month}</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line34">34</a>       photo.position = params['photo'].index(photo.id.to_s) + 1</pre></td>
+            <td><pre><a name="line33">33</a>   end  </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line34">34</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line35">35</a>   def order_photos(params)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line35">35</a>       photo.save!</pre></td>
+            <td><pre><a name="line36">36</a>     photos.each do |photo|</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line36">36</a>     end</pre></td>
+            <td><pre><a name="line37">37</a>       photo.position = params['photo'].index(photo.id.to_s) + 1</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line37">37</a>   end</pre></td>
+            <td><pre><a name="line38">38</a>       photo.save!</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line38">38</a>   </pre></td>
+            <td><pre><a name="line39">39</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line39">39</a> end</pre></td>
+            <td><pre><a name="line40">40</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line41">41</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line42">42</a>   def max_photo_position</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line43">43</a>     existing_photos = photos.select {|photo| !photo.position.nil?}</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line44">44</a>     current_highest = existing_photos.map(&amp;:position).max</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line45">45</a>     current_highest ||= 0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line46">46</a>   end  </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line47">47</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line48">48</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line49">49</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Oct 16 14:26:26 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
+    <p>Generated on Sun Oct 16 22:32:59 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
 
   </body>
 </html>

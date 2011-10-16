@@ -3,8 +3,7 @@ class Event
   include Mongoid::MultiParameterAttributes
   
   belongs_to :event_series
-  belongs_to :church
-  belongs_to :parish
+  belongs_to :institution
   
   field :title
   field :location

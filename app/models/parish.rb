@@ -13,7 +13,6 @@ class Parish < Institution
   has_many :users
   has_many :messages
   has_many :photos
-  belongs_to :site
   
   def find_church(slug)
     Church.first(:conditions => {:parish_id => self.id, :slug => slug})

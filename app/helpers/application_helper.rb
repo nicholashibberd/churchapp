@@ -19,11 +19,6 @@ module ApplicationHelper
     {:url => {:controller => instance.class.to_s.tableize, :action => action, :church_id => church.slug}}
   end
   
-  def form_hidden_field(f, institution)
-    institution_id = institution.is_a?(Church) ? :church_id : :parish_id
-    f.hidden_field institution_id, :value => institution.id
-  end
-  
   def page_id
     request.path.gsub('/', '-').underscore[1..-1]
   end

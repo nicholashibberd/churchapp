@@ -28,8 +28,8 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-site_rb.html">app/models/site.rb</a></td>
-            <td class='right_align'><tt>8</tt></td>
-            <td class='right_align'><tt>7</tt></td>
+            <td class='right_align'><tt>12</tt></td>
+            <td class='right_align'><tt>9</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -87,25 +87,49 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line6">6</a>   has_one :church</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line7">7</a>   has_one :parish</pre></td>
+            <td><pre><a name="line6">6</a>   has_many :institutions</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line8">8</a> end</pre></td>
+            <td><pre><a name="line7">7</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line8">8</a>   def find_institution(church_id)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line9">9</a>     church_id ? institutions.where(:slug =&gt; church_id).first : institutions.select {|institution| institution.is_a?(Parish)}.first</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line10">10</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line11">11</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line12">12</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Oct 16 14:26:26 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
+    <p>Generated on Sun Oct 16 22:32:59 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
 
   </body>
 </html>

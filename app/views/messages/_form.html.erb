@@ -1,5 +1,5 @@
 <%= form_for(message, form_path(message, @church)) do |f| %>
-	<%= form_hidden_field(f, @church) %>
+	<%= f.hidden_field :institution_id, :value => @church.id %>
 	<%= hidden_field_tag :page_id, @page.id if @page %>
   <div class="field">
     <%= f.label :name %><br />

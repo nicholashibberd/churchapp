@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-helpers-nav_helper_rb.html">app/helpers/nav_helper.rb</a></td>
-            <td class='right_align'><tt>17</tt></td>
-            <td class='right_align'><tt>15</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>35.29%</tt></div>
+            <td class='right_align'><tt>33</tt></td>
+            <td class='right_align'><tt>29</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>69.70%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:35px"></div>
-            <div class="uncovered" style="width:65px"></div>
+            <div class="covered" style="width:70px"></div>
+            <div class="uncovered" style="width:30px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>26.67%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>65.52%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:27px"></div>
-            <div class="uncovered" style="width:73px"></div>
+            <div class="covered" style="width:66px"></div>
+            <div class="uncovered" style="width:34px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -152,14 +152,110 @@
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line17">17</a> end</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line17">17</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line18">18</a>   def admin_nav_item(church)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line19">19</a>     if church == @church || church == @parish</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line20">20</a>       link_to church.name, church_admin_path(church), :class =&gt; 'selected'</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line21">21</a>     else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line22">22</a>       link_to church.name, church_admin_path(church)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line23">23</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line24">24</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line25">25</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line26">26</a>   def admin_parish_nav_item</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line27">27</a>     if @parish == @church</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line28">28</a>       link_to 'Parish', church_admin_path, :class =&gt; &quot;selected&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line29">29</a>     else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line30">30</a>       link_to 'Parish', church_admin_path</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line31">31</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line32">32</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line33">33</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Oct 16 14:26:26 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
+    <p>Generated on Sun Oct 16 22:32:59 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
 
   </body>
 </html>

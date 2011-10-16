@@ -6,7 +6,7 @@ class User
   field :salt
   field :remember_token
   
-  belongs_to :parish
+  belongs_to :institution
 
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

@@ -12,25 +12,25 @@ describe EventsController do
     end
     
     it "should restrict access to the index action" do
-      get 'index', :church_id => @church.id
+      get 'index', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end  
 
     it "should restrict access to the new action" do
-      get 'new', :church_id => @church.id
+      get 'new', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end  
 
     it "should restrict access to the edit action" do
-      get 'edit', :church_id => @church.id, :id => @event.id
+      get 'edit', :church_id => @church.slug, :id => @event.id
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
     
     it "should not restrict access to the show action" do
-      get 'show', :church_id => @church.id, :id => @event.id
+      get 'show', :church_id => @church.slug, :id => @event.id
       response.should be_success
     end
   end
@@ -45,35 +45,35 @@ describe EventsController do
     end
     
     it "should allow access to the index action" do
-      get 'index', :church_id => @church.id
+      get 'index', :church_id => @church.slug
       response.should be_success    
     end
 
     it "should allow access to the new action" do
-      get 'new', :church_id => @church.id
+      get 'new', :church_id => @church.slug
       response.should be_success    
     end
 
     it "should allow access to the edit action" do
-      get 'edit', :church_id => @church.id, :id => @event.id
+      get 'edit', :church_id => @church.slug, :id => @event.id
       response.should be_success    
     end
     
     it "should correctly redirect and increase the event count when creating an event" do
       lambda do
-        post 'create', :event => Factory.attributes_for(:event)
+        post 'create', :event => Factory.attributes_for(:event), :church_id => @church.slug
         response.should be_redirect
-        response.location.should include events_path
+        response.location.should include events_path(@church)
       end.should change(Event, :count).by(1)
     end
 
     it "should create multiple events when event series is specified" do
       @event_series = Factory(:event_series)
       EventSeries.should_receive(:create).and_return @event_series
-      post 'create', :event => Factory.attributes_for(:event).merge(:period => 'Weekly')
+      post 'create', :event => Factory.attributes_for(:event).merge(:period => 'Weekly'), :church_id => @church.slug
       @event_series.events.count.should eql 2
       response.should be_redirect      
-      response.location.should include events_path
+      response.location.should include events_path(@church)
     end
 
     it "should correctly redirect and handle the update of an event when valid" do
@@ -94,7 +94,7 @@ describe EventsController do
     
     it "should correctly redirect and decrease the event count when deleting an event" do
       lambda do
-        delete 'destroy', :church_id => @church.id, :id => @event.id
+        delete 'destroy', :church_id => @church.slug, :id => @event.id
         response.should be_redirect
         response.location.should include events_path(@church)
       end.should change(Event, :count).by(-1)

@@ -13,25 +13,25 @@ describe PeopleController do
     end
     
     it "should block the edit page" do
-      get 'edit', :church_id => @church.id, :id => @person.id
+      get 'edit', :church_id => @church.slug, :id => @person.id
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
 
     it "should block the new page" do
-      get 'new', :church_id => @church.id
+      get 'new', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
     
     it "should block the index page" do
-      get 'index', :church_id => @church.id
+      get 'index', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
 
     it "should allow the show page" do
-      get 'show', :church_id => @church.id, :id => @person.id
+      get 'show', :church_id => @church.slug, :id => @person.id
       response.should be_success
     end
 
@@ -48,17 +48,17 @@ describe PeopleController do
     end
   
     it "should allow the edit page" do
-      get 'edit', :church_id => @church.id, :id => @person.id
+      get 'edit', :church_id => @church.slug, :id => @person.id
       response.should be_success
     end
 
     it "should allow the new page" do
-      get 'new', :church_id => @church.id
+      get 'new', :church_id => @church.slug
       response.should be_success
     end
 
     it "should allow the new page" do
-      get 'index', :church_id => @church.id
+      get 'index', :church_id => @church.slug
       response.should be_success
     end
 
@@ -82,7 +82,7 @@ describe PeopleController do
     
     it "should correctly redirect and decrease the person count when deleting an person" do
       lambda do
-        delete 'destroy', :church_id => @church.id, :id => @person.id
+        delete 'destroy', :church_id => @church.slug, :id => @person.id
         response.should be_redirect
         response.location.should include people_path(@parish)
       end.should change(Person, :count).by(-1)
@@ -90,7 +90,6 @@ describe PeopleController do
     
     it "should handle the update of an person" do
       Person.should_receive(:find).and_return(@person)
-      Church.should_receive(:find).and_return @church
       @person.should_receive(:update_attributes).and_return true
       put 'update', :id => @person.id, :person => Factory.attributes_for(:person)
       response.should be_redirect
@@ -98,10 +97,9 @@ describe PeopleController do
     end
 
     it "should display an error message and render the edit action if person is not valid on update" do
-      Person.should_receive(:find).and_return @person
-      Church.should_receive(:find).and_return @church      
+      Person.should_receive(:find).and_return @person     
       @person.should_receive(:update_attributes).and_return(false)
-      put 'update', :id => @person.id, :church_id => @church.id, :person => Factory.attributes_for(:person)
+      put 'update', :id => @person.id, :church_id => @church.slug, :person => Factory.attributes_for(:person)
       flash[:error].should == 'There was an error updating the person'
       response.should render_template('edit')
     end

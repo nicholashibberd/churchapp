@@ -6,13 +6,13 @@ class PhotosController < ApplicationController
   end
 
   def new
-    @photo = @church.photos.new
+    @photo = Photo.new
   end
   
   def create
     @photo = Photo.new(params[:photo])
     if @photo.save
-      redirect_to photos_path(@photo.church), :notice => "Successfully created photo."
+      redirect_to photos_path(@photo.institution), :notice => "Successfully created photo."
     else
       flash[:error] = "There was an error creating the photo"
       render :action => 'new'
@@ -41,8 +41,7 @@ class PhotosController < ApplicationController
   end
   
   def order_photos
-    church = Church.find(params[:id])
-    church.order_photos(params)
+    @church.order_photos(params)
     render :nothing => true
   end  
   

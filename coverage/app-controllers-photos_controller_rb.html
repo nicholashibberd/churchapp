@@ -30,15 +30,15 @@
             <td class="left_align"><a href="app-controllers-photos_controller_rb.html">app/controllers/photos_controller.rb</a></td>
             <td class='right_align'><tt>50</tt></td>
             <td class='right_align'><tt>40</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>86.00%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>32.00%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:86px"></div>
-            <div class="uncovered" style="width:14px"></div>
+            <div class="covered" style="width:32px"></div>
+            <div class="uncovered" style="width:68px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>87.50%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>22.50%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:88px"></div>
-            <div class="uncovered" style="width:12px"></div>
+            <div class="covered" style="width:23px"></div>
+            <div class="uncovered" style="width:77px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -80,13 +80,13 @@
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line5">5</a>     @photos = @church.photos.all</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line6">6</a>   end</pre></td>
           </tr>
         
@@ -104,13 +104,13 @@
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line9">9</a>     @photo = @church.photos.new</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line10">10</a>   end</pre></td>
           </tr>
         
@@ -128,49 +128,49 @@
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line13">13</a>     @photo = Photo.new(params[:photo])</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line14">14</a>     if @photo.save</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line15">15</a>       redirect_to photos_path(@photo.church), :notice =&gt; &quot;Successfully created photo.&quot;</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line16">16</a>     else</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line17">17</a>       flash[:error] = &quot;There was an error creating the photo&quot;</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line18">18</a>       render :action =&gt; 'new'</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line19">19</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line20">20</a>   end</pre></td>
           </tr>
         
@@ -188,13 +188,13 @@
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line23">23</a>     @photo = Photo.find(params[:id])</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line24">24</a>   end</pre></td>
           </tr>
         
@@ -212,49 +212,49 @@
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line27">27</a>     @photo = Photo.find(params[:id])</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line28">28</a>     if @photo.update_attributes(params[:photo])</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line29">29</a>       redirect_to photos_path(@church), :notice  =&gt; &quot;Successfully updated photo.&quot;</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line30">30</a>     else</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line31">31</a>       flash[:error] = &quot;There was an error updating the photo&quot;</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line32">32</a>       render :action =&gt; 'edit'</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line33">33</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line34">34</a>   end</pre></td>
           </tr>
         
@@ -272,31 +272,31 @@
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line37">37</a>     @photo = Photo.find(params[:id])</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line38">38</a>     @photo.destroy</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line39">39</a> </pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line40">40</a>     redirect_to(photos_path(@church))</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line41">41</a>   end</pre></td>
           </tr>
         
@@ -357,7 +357,7 @@
       </tbody>
     </table>
 
-    <p>Generated on Sun Oct 16 14:26:26 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
+    <p>Generated on Sun Oct 16 22:32:59 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
 
   </body>
 </html>

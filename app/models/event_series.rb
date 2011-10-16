@@ -3,8 +3,7 @@ class EventSeries
   include Mongoid::MultiParameterAttributes
   
   has_many :events, :dependent => :destroy
-  belongs_to :church
-  belongs_to :parish
+  belongs_to :institution
   
   field :title
   field :location

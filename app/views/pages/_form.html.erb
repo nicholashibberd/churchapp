@@ -9,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-	<%= form_hidden_field(f, @church) %>
+	<%= f.hidden_field :institution_id, :value => @church.id %>
 
   <div class="field">
     <%= f.label :name %><br />

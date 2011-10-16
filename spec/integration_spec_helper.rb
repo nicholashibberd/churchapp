@@ -18,5 +18,5 @@ end
 def setup_site
   @site = Factory(:site)
   @parish = Factory(:parish, :site_id => @site.id)
-  @church = Factory(:church, :parish_id => @parish.id)
+  @church = Factory(:church, :parish_id => @parish.id, :site_id => @site.id)
 end

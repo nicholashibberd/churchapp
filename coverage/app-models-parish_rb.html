@@ -30,15 +30,15 @@
             <td class="left_align"><a href="app-models-parish_rb.html">app/models/parish.rb</a></td>
             <td class='right_align'><tt>34</tt></td>
             <td class='right_align'><tt>28</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>73.53%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>67.65%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:74px"></div>
-            <div class="uncovered" style="width:26px"></div>
+            <div class="covered" style="width:68px"></div>
+            <div class="uncovered" style="width:32px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>71.43%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>64.29%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:71px"></div>
-            <div class="uncovered" style="width:29px"></div>
+            <div class="covered" style="width:64px"></div>
+            <div class="uncovered" style="width:36px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -111,37 +111,37 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line10">10</a>   has_many :articles</pre></td>
+            <td><pre><a name="line10">10</a>   has_many :event_series  </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line11">11</a>   has_many :people</pre></td>
+            <td><pre><a name="line11">11</a>   has_many :articles</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line12">12</a>   has_many :users</pre></td>
+            <td><pre><a name="line12">12</a>   has_many :people</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line13">13</a>   has_many :messages</pre></td>
+            <td><pre><a name="line13">13</a>   has_many :users</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line14">14</a>   has_many :photos</pre></td>
+            <td><pre><a name="line14">14</a>   has_many :messages</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line15">15</a>   belongs_to :site</pre></td>
+            <td><pre><a name="line15">15</a>   has_many :photos</pre></td>
           </tr>
         
           
@@ -158,13 +158,13 @@
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line18">18</a>     Church.first(:conditions =&gt; {:parish_id =&gt; self.id, :slug =&gt; slug})</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line19">19</a>   end</pre></td>
           </tr>
         
@@ -261,7 +261,7 @@
       </tbody>
     </table>
 
-    <p>Generated on Sun Oct 16 14:26:26 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
+    <p>Generated on Sun Oct 16 22:32:59 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
 
   </body>
 </html>

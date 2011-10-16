@@ -11,19 +11,19 @@ describe NavMenusController do
     end
 
     it "should not allow access to the new action" do
-      get 'new', :church_id => @church.id
+      get 'new', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
 
     it "should not allow access to the edit action" do
-      get 'edit', :church_id => @church.id, :id => @nav_menu.id
+      get 'edit', :church_id => @church.slug, :id => @nav_menu.id
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
 
     it "should not allow access to the index action" do
-      get 'index', :church_id => @church.id
+      get 'index', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
@@ -41,23 +41,23 @@ describe NavMenusController do
     end
 
     it "should allow access to the new action" do
-      get 'new', :church_id => @church.id
+      get 'new', :church_id => @church.slug
       response.should be_success
     end
 
     it "should allow access to the edit action" do
-      get 'edit', :church_id => @church.id, :id => @nav_menu.id
+      get 'edit', :church_id => @church.slug, :id => @nav_menu.id
       response.should be_success
     end
 
     it "should allow access to the index action" do
-      get 'index', :church_id => @church.id
+      get 'index', :church_id => @church.slug
       response.should be_success
     end
     
     it "should create nav_menu and redirect when valid" do
       lambda do
-        post 'create', :church_id => @church.id, :nav_menu => Factory.attributes_for(:nav_menu).merge(:church_id => @church.id)
+        post 'create', :church_id => @church.slug, :nav_menu => Factory.attributes_for(:nav_menu).merge(:church_id => @church.id)
         response.should be_redirect
         response.location.should include nav_menus_path(@nav_menu.church)
       end.should change(NavMenu, :count).by(1)
@@ -67,7 +67,7 @@ describe NavMenusController do
       lambda do
         NavMenu.should_receive(:new).and_return @nav_menu
         @nav_menu.should_receive(:save).and_return false
-        post 'create', :church_id => @church.id, :nav_menu => Factory.attributes_for(:nav_menu).merge(:church_id => @church.id)
+        post 'create', :church_id => @church.slug, :nav_menu => Factory.attributes_for(:nav_menu).merge(:church_id => @church.id)
         flash[:error].should == "Nav Menu could not be created"
         response.should render_template "new"
       end.should_not change(NavItem, :count)

@@ -6,13 +6,9 @@ class ApplicationController < ActionController::Base
   def setup_site
     @site = Site.where(:domain => request.domain(2)).first    
     @site ||= Site.first
-    if @site.site_type == 'parish'
-      @parish = @site.parish
-      @church = @parish.find_church(params[:church_id])
-      @church ||=  @parish
-    else
-      @church = @site.church
-    end
+    
+    @church = @site.find_institution(params[:church_id])
+    @parish = @church.is_a?(Parish) ? @church : @church.parish
   end
   
   def church

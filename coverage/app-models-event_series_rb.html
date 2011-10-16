@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-event_series_rb.html">app/models/event_series.rb</a></td>
-            <td class='right_align'><tt>68</tt></td>
-            <td class='right_align'><tt>58</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>75.00%</tt></div>
+            <td class='right_align'><tt>70</tt></td>
+            <td class='right_align'><tt>60</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>75.71%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:75px"></div>
-            <div class="uncovered" style="width:25px"></div>
+            <div class="covered" style="width:76px"></div>
+            <div class="uncovered" style="width:24px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>70.69%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>71.67%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:71px"></div>
-            <div class="uncovered" style="width:29px"></div>
+            <div class="covered" style="width:72px"></div>
+            <div class="uncovered" style="width:28px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -87,367 +87,367 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line6">6</a>   belongs_to :church  </pre></td>
+            <td><pre><a name="line6">6</a>   belongs_to :church</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line7">7</a>   belongs_to :parish</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line7">7</a>   </pre></td>
+            <td><pre><a name="line8">8</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line8">8</a>   field :title</pre></td>
+            <td><pre><a name="line9">9</a>   field :title</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line9">9</a>   field :start_time, :type =&gt; DateTime</pre></td>
+            <td><pre><a name="line10">10</a>   field :location</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line10">10</a>   field :end_time, :type =&gt; DateTime</pre></td>
+            <td><pre><a name="line11">11</a>   field :start_time, :type =&gt; DateTime</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line11">11</a>   field :summary</pre></td>
+            <td><pre><a name="line12">12</a>   field :end_time, :type =&gt; DateTime</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line12">12</a>   field :content</pre></td>
+            <td><pre><a name="line13">13</a>   field :summary</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line13">13</a>   field :description</pre></td>
+            <td><pre><a name="line14">14</a>   field :content</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line14">14</a>   field :all_day</pre></td>
+            <td><pre><a name="line15">15</a>   field :description</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line15">15</a>   field :period</pre></td>
+            <td><pre><a name="line16">16</a>   field :all_day</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line16">16</a>   field :frequency</pre></td>
+            <td><pre><a name="line17">17</a>   field :period</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line17">17</a>   field :series_id</pre></td>
+            <td><pre><a name="line18">18</a>   field :frequency</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line18">18</a>   field :category  </pre></td>
+            <td><pre><a name="line19">19</a>   field :series_id</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line19">19</a>   field :event_series_id  </pre></td>
+            <td><pre><a name="line20">20</a>   field :category  </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line21">21</a>   field :event_series_id  </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line20">20</a>   </pre></td>
+            <td><pre><a name="line22">22</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line21">21</a>   validates_presence_of :frequency</pre></td>
+            <td><pre><a name="line23">23</a>   validates_presence_of :frequency</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line22">22</a>   validates_presence_of :period</pre></td>
+            <td><pre><a name="line24">24</a>   validates_presence_of :period</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line23">23</a>   validates_presence_of :start_time</pre></td>
+            <td><pre><a name="line25">25</a>   validates_presence_of :start_time</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line24">24</a>   validates_presence_of :end_time</pre></td>
+            <td><pre><a name="line26">26</a>   validates_presence_of :end_time</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line25">25</a>   </pre></td>
+            <td><pre><a name="line27">27</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line26">26</a>   after_create :create_events</pre></td>
+            <td><pre><a name="line28">28</a>   after_create :create_events</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line27">27</a>       </pre></td>
+            <td><pre><a name="line29">29</a>       </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line28">28</a>   def new_datetime(date)</pre></td>
+            <td><pre><a name="line30">30</a>   def new_datetime(date)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line29">29</a>     DateTime.new(date.year, date.month, date.day, start_time.hour, start_time.min, start_time.sec)</pre></td>
+            <td><pre><a name="line31">31</a>     DateTime.new(date.year, date.month, date.day, start_time.hour, start_time.min, start_time.sec)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line30">30</a>   end</pre></td>
+            <td><pre><a name="line32">32</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line31">31</a>   </pre></td>
+            <td><pre><a name="line33">33</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line32">32</a>   def create_events</pre></td>
+            <td><pre><a name="line34">34</a>   def create_events</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line33">33</a>     st = start_time</pre></td>
+            <td><pre><a name="line35">35</a>     st = start_time</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line34">34</a>     et = end_time</pre></td>
+            <td><pre><a name="line36">36</a>     et = end_time</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line35">35</a>     p = recurrence_period(period)</pre></td>
+            <td><pre><a name="line37">37</a>     p = recurrence_period(period)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line36">36</a>     nst, net = st, et</pre></td>
+            <td><pre><a name="line38">38</a>     nst, net = st, et</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line37">37</a>     while frequency.to_i.send(p).from_now(st) &lt;= end_time</pre></td>
+            <td><pre><a name="line39">39</a>     while frequency.to_i.send(p).from_now(st) &lt;= end_time</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line38">38</a>       self.events.create(:title =&gt; title, :description =&gt; description, :all_day =&gt; all_day, :start_time =&gt; nst, :end_time =&gt; net, :category =&gt; category, :church_id =&gt; church_id)</pre></td>
+            <td><pre><a name="line40">40</a>       self.events.create(:title =&gt; title, :description =&gt; description, :all_day =&gt; all_day, :start_time =&gt; nst, :end_time =&gt; net, :category =&gt; category, :church_id =&gt; church_id, :parish_id =&gt; parish_id, :location =&gt; location)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line39">39</a>       nst = st = frequency.to_i.send(p).from_now(st)</pre></td>
+            <td><pre><a name="line41">41</a>       nst = st = frequency.to_i.send(p).from_now(st)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line40">40</a>       net = et = frequency.to_i.send(p).from_now(et)</pre></td>
+            <td><pre><a name="line42">42</a>       net = et = frequency.to_i.send(p).from_now(et)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line41">41</a>       if period.downcase == 'monthly' or period.downcase == 'yearly'</pre></td>
+            <td><pre><a name="line43">43</a>       if period.downcase == 'monthly' or period.downcase == 'yearly'</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line42">42</a>         begin </pre></td>
+            <td><pre><a name="line44">44</a>         begin </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line43">43</a>           nst = DateTime.parse(&quot;#{starttime.hour}:#{starttime.min}:#{starttime.sec}, #{starttime.day}-#{st.month}-#{st.year}&quot;)  </pre></td>
+            <td><pre><a name="line45">45</a>           nst = DateTime.parse(&quot;#{starttime.hour}:#{starttime.min}:#{starttime.sec}, #{starttime.day}-#{st.month}-#{st.year}&quot;)  </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line44">44</a>           net = DateTime.parse(&quot;#{endtime.hour}:#{endtime.min}:#{endtime.sec}, #{endtime.day}-#{et.month}-#{et.year}&quot;)</pre></td>
+            <td><pre><a name="line46">46</a>           net = DateTime.parse(&quot;#{endtime.hour}:#{endtime.min}:#{endtime.sec}, #{endtime.day}-#{et.month}-#{et.year}&quot;)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line45">45</a>         rescue</pre></td>
+            <td><pre><a name="line47">47</a>         rescue</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line46">46</a>           nst = net = nil</pre></td>
+            <td><pre><a name="line48">48</a>           nst = net = nil</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line47">47</a>         end</pre></td>
+            <td><pre><a name="line49">49</a>         end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line48">48</a>       end</pre></td>
+            <td><pre><a name="line50">50</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line49">49</a>     end</pre></td>
+            <td><pre><a name="line51">51</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line50">50</a>   end</pre></td>
+            <td><pre><a name="line52">52</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line51">51</a> </pre></td>
+            <td><pre><a name="line53">53</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line52">52</a>   def recurrence_period(period)</pre></td>
+            <td><pre><a name="line54">54</a>   def recurrence_period(period)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line53">53</a>     case period</pre></td>
+            <td><pre><a name="line55">55</a>     case period</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line54">54</a>       when 'Daily'</pre></td>
+            <td><pre><a name="line56">56</a>       when 'Daily'</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line55">55</a>       period = 'days'</pre></td>
+            <td><pre><a name="line57">57</a>       period = 'days'</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line56">56</a>       when &quot;Weekly&quot;</pre></td>
+            <td><pre><a name="line58">58</a>       when &quot;Weekly&quot;</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line57">57</a>       period = 'weeks'</pre></td>
+            <td><pre><a name="line59">59</a>       period = 'weeks'</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line58">58</a>       when &quot;Monthly&quot;</pre></td>
+            <td><pre><a name="line60">60</a>       when &quot;Monthly&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line59">59</a>       period = 'months'</pre></td>
+            <td><pre><a name="line61">61</a>       period = 'months'</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line60">60</a>       when &quot;Yearly&quot;</pre></td>
+            <td><pre><a name="line62">62</a>       when &quot;Yearly&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line61">61</a>       period = 'years'</pre></td>
+            <td><pre><a name="line63">63</a>       period = 'years'</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line62">62</a>     end</pre></td>
+            <td><pre><a name="line64">64</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line63">63</a>     return period</pre></td>
+            <td><pre><a name="line65">65</a>     return period</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line64">64</a>   end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line65">65</a>   </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line66">66</a>   </pre></td>
+            <td><pre><a name="line66">66</a>   end</pre></td>
           </tr>
         
           
@@ -459,13 +459,25 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line68">68</a> end</pre></td>
+            <td><pre><a name="line68">68</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line69">69</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line70">70</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Oct 16 14:26:26 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
+    <p>Generated on Sun Oct 16 22:32:59 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
 
   </body>
 </html>

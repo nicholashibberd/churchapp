@@ -4,8 +4,7 @@ class Page
   field :slug, :type => String
   field :title, :type => String
   
-  belongs_to :church
-  belongs_to :parish
+  belongs_to :institution
   has_many :widgets
   has_one :nav_item  
   
@@ -64,6 +63,12 @@ class Page
   
   def widgets_by_column(side)
     widgets.where(:column => side).asc(:position)
+  end
+  
+  def max_position
+    existing_widgets = widgets.select {|widget| !widget.position.nil?}
+    current_highest = existing_widgets.map(&:position).max
+    current_highest ||= 0
   end
   
 end

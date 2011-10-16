@@ -13,13 +13,13 @@ describe MessagesController do
     end
 
     it "should restrict access to the index action" do
-      get 'index', :church_id => @church.id
+      get 'index', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
     
     it "should restrict access to the show action" do
-      get 'show', :church_id => @church.id, :id => @message.id
+      get 'show', :church_id => @church.slug, :id => @message.id
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end

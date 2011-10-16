@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-page_rb.html">app/models/page.rb</a></td>
-            <td class='right_align'><tt>69</tt></td>
-            <td class='right_align'><tt>53</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>76.81%</tt></div>
+            <td class='right_align'><tt>75</tt></td>
+            <td class='right_align'><tt>58</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>78.67%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:77px"></div>
-            <div class="uncovered" style="width:23px"></div>
+            <div class="covered" style="width:79px"></div>
+            <div class="uncovered" style="width:21px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>69.81%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>72.41%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:70px"></div>
-            <div class="uncovered" style="width:30px"></div>
+            <div class="covered" style="width:72px"></div>
+            <div class="uncovered" style="width:28px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -464,14 +464,50 @@
         
           
           
+          <tr class="marked">
+            <td><pre><a name="line69">69</a>   def max_position</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line70">70</a>     existing_widgets = widgets.select {|widget| !widget.position.nil?}</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line71">71</a>     current_highest = existing_widgets.map(&amp;:position).max</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line72">72</a>     current_highest ||= 0</pre></td>
+          </tr>
+        
+          
+          
           <tr class="inferred">
-            <td><pre><a name="line69">69</a> end</pre></td>
+            <td><pre><a name="line73">73</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line74">74</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line75">75</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Oct 16 14:26:26 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
+    <p>Generated on Sun Oct 16 22:32:59 +0100 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.10</a></p>
 
   </body>
 </html>

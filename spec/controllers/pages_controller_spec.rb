@@ -11,25 +11,25 @@ describe PagesController do
     end
 
     it "should not allow access to the new action" do
-      get 'new', :church_id => @church.id
+      get 'new', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
 
     it "should not allow access to the edit action" do
-      get 'edit', :church_id => @church.id, :id => @page.id
+      get 'edit', :church_id => @church.slug, :id => @page.id
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
 
     it "should not allow access to the index action" do
-      get 'index', :church_id => @church.id
+      get 'index', :church_id => @church.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
     
     it "should allow access to the show action" do
-      get 'show', :church_id => @church.id
+      get 'show', :church_id => @church.slug
       response.should be_success
     end
     
@@ -60,7 +60,7 @@ describe PagesController do
     
     it "should create page and redirect when valid" do
       lambda do
-        post 'create', :church_id => @church.slug, :page => Factory.attributes_for(:page).merge(:church_id => @church.id, :name => "Test page 2")
+        post 'create', :church_id => @church.slug, :page => Factory.attributes_for(:page).merge(:church_id => @church.slug, :name => "Test page 2")
         response.should be_redirect
         response.location.should include pages_path(@page.church)
       end.should change(Page, :count).by(1)
@@ -71,7 +71,7 @@ describe PagesController do
       Page.should_receive(:new).and_return page
       page.should_receive(:save).and_return false
       lambda do
-        post 'create', :church_id => @church.slug, :page => Factory.attributes_for(:page).merge(:church_id => @church.id, :name => "Test page 2")
+        post 'create', :church_id => @church.slug, :page => Factory.attributes_for(:page).merge(:church_id => @church.slug, :name => "Test page 2")
         flash[:error].should == 'Page could not be created'
         response.should render_template 'new'
       end.should_not change(Page, :count)

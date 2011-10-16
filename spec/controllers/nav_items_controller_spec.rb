@@ -15,14 +15,14 @@ describe NavItemsController do
   
   it "should allow access to the new action" do
     NavMenu.should_receive(:find).and_return @nav_menu
-    get 'new', :nav_menu_id => @nav_menu.id, :church_id => @church.id
+    get 'new', :nav_menu_id => @nav_menu.id, :church_id => @church.slug
     response.should be_success
   end
 
   it "should allow access to the edit action" do
     NavMenu.should_receive(:find).and_return @nav_menu
     NavItem.should_receive(:find).and_return @nav_item1
-    get 'edit', :nav_menu_id => @nav_menu.id, :church_id => @church.id, :id => @nav_item1.id
+    get 'edit', :nav_menu_id => @nav_menu.id, :church_id => @church.slug, :id => @nav_item1.id
     response.should be_success
   end
   

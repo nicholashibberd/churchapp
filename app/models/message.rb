@@ -5,5 +5,5 @@ class Message
   field :phone, :type => String
   field :message, :type => String
   
-  belongs_to :church
+  belongs_to :institution
 end

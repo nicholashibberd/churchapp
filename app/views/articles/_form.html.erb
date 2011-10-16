@@ -9,7 +9,7 @@
 <% end -%>
 
 <%= form_for(@article, form_path(@article, @church)) do |f| %>
-	<%= form_hidden_field(f, @church) %>
+	<%= f.hidden_field :institution_id, :value => @church.id %>
 	<div class="field">
 	  <%= f.label :categories %><br />
 	  <% Category.all.each do |category| %>
