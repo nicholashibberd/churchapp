@@ -1,6 +1,6 @@
 class Person
   include Mongoid::Document
-  #include Mongoid::Paperclip
+  include Mongoid::Paperclip
   
   field :name, :type => String
   field :role, :type => String
@@ -14,11 +14,11 @@ class Person
   belongs_to :parish
   belongs_to :church
   
-  #has_mongoid_attached_file :photo, {
-      #:styles => {
-        #:thumb => "150"
-        #}
-    #}
+  has_mongoid_attached_file :photo, {
+      :styles => {
+        :thumb => "70"
+        }
+    }
   
   has_many :articles
 end
