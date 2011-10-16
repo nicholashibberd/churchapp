@@ -3,9 +3,11 @@ class EventSeries
   include Mongoid::MultiParameterAttributes
   
   has_many :events, :dependent => :destroy
-  belongs_to :church  
+  belongs_to :church
+  belongs_to :parish
   
   field :title
+  field :location
   field :start_time, :type => DateTime
   field :end_time, :type => DateTime
   field :summary
@@ -35,7 +37,7 @@ class EventSeries
     p = recurrence_period(period)
     nst, net = st, et
     while frequency.to_i.send(p).from_now(st) <= end_time
-      self.events.create(:title => title, :description => description, :all_day => all_day, :start_time => nst, :end_time => net, :category => category, :church_id => church_id)
+      self.events.create(:title => title, :description => description, :all_day => all_day, :start_time => nst, :end_time => net, :category => category, :church_id => church_id, :parish_id => parish_id)
       nst = st = frequency.to_i.send(p).from_now(st)
       net = et = frequency.to_i.send(p).from_now(et)
       if period.downcase == 'monthly' or period.downcase == 'yearly'

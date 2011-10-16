@@ -3,6 +3,7 @@ class Church < Institution
   has_many :pages  
   has_many :articles
   has_many :events
+  has_many :event_series
   has_many :nav_menus
   has_many :photos
   has_many :messages

@@ -27,9 +27,10 @@ class EventsController < ApplicationController
     if params[:event][:period] == "Does not repeat"      
       @event = Event.create(params[:event])
     else
+      events = EventSeries.new(params[:event])
       @event_series = EventSeries.create(params[:event])
     end
-    redirect_to events_path
+    redirect_to events_path(@church)
   end
 
   def update

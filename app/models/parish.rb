@@ -7,6 +7,7 @@ class Parish < Institution
   has_many :categories
   has_many :nav_menus
   has_many :events
+  has_many :event_series  
   has_many :articles
   has_many :people
   has_many :users

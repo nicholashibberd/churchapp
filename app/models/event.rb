@@ -7,6 +7,7 @@ class Event
   belongs_to :parish
   
   field :title
+  field :location
   field :start_time, :type => DateTime
   field :end_time, :type => DateTime
   field :summary
