@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  skip_before_filter :login_required, :only => 'show'
   layout 'admin'
 
   def index
@@ -22,6 +23,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to(people_path(@church), :notice => 'Person was successfully created.')
     else
+      flash[:error] = "There was an error creating the person"
       render :action => "new"
     end
   end
@@ -32,6 +34,7 @@ class PeopleController < ApplicationController
     if @person.update_attributes(params[:person])
       redirect_to(people_path(@church), :notice => 'Person was successfully updated.')
     else
+      flash[:error] = "There was an error updating the person"
       render :action => "edit"
     end
   end

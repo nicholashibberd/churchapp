@@ -9,16 +9,12 @@ class PhotosController < ApplicationController
     @photo = @church.photos.new
   end
   
-  def show
-    @photo = Photo.find(params[:id])
-  end
-
   def create
     @photo = Photo.new(params[:photo])
     if @photo.save
       redirect_to photos_path(@photo.church), :notice => "Successfully created photo."
     else
-      raise @photo.errors.inspect
+      flash[:error] = "There was an error creating the photo"
       render :action => 'new'
     end
   end
@@ -32,6 +28,7 @@ class PhotosController < ApplicationController
     if @photo.update_attributes(params[:photo])
       redirect_to photos_path(@church), :notice  => "Successfully updated photo."
     else
+      flash[:error] = "There was an error updating the photo"
       render :action => 'edit'
     end
   end

@@ -17,8 +17,9 @@ class Institution
     pages.select {|page| page.slug == slug}.first
   end
   
-  def main_navigation
-    nav_menus.where(:menu_type => 'main_navigation').first
+  def main_navigation_items
+    main_nav = nav_menus.where(:menu_type => 'main_navigation').first
+    main_nav.nav_items.asc(:position) rescue []
   end
   
   def find_events

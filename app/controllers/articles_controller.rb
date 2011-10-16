@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to(articles_path(@article.church), :notice => 'Article was successfully created.')
     else
+      flash[:error] = 'There was an error creating the article'
       render :action => "new"
     end
   end
@@ -33,14 +34,16 @@ class ArticlesController < ApplicationController
     if @article.update_attributes(params[:article])
       redirect_to(articles_path(church), :notice => 'Article was successfully updated.')
     else
+      flash[:error] = 'There was an error updating the article'      
       render :action => "edit"
     end
   end
 
   def destroy
     @article = Article.find(params[:id])
+    church = @article.church
     @article.destroy
-    redirect_to(articles_path(@church))
+    redirect_to(articles_path(church))
   end
   
   def choose_layout

@@ -23,7 +23,7 @@ module CalendarHelper
         xml.div day.day, :class => 'calendar_day_marker'
         events.each do |event|
           xml.div :class => 'calendar_event' do
-            xml.a(event.title, "href" => event_path(event))
+            xml.a(event.title, "href" => event_path(@church, event))
           end
         end
       end

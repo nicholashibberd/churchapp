@@ -4,16 +4,19 @@ class ApplicationController < ActionController::Base
   include UsersHelper
   
   def setup_site
-    @site = Site.where(:domain => request.domain(2)).first
+    @site = Site.where(:domain => request.domain(2)).first    
     @site ||= Site.first
-    
     if @site.site_type == 'parish'
-      @parish = @site.parish       
+      @parish = @site.parish
       @church = @parish.find_church(params[:church_id])
       @church ||=  @parish
     else
       @church = @site.church
     end
+  end
+  
+  def church
+    
   end
   
   def login_required

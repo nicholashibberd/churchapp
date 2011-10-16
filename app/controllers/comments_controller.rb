@@ -6,15 +6,6 @@ class CommentsController < ApplicationController
     @comment = @article.find_comment(params[:id])
   end
 
-  def new
-    @comment = Comment.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
-    end
-  end
-
   def create
     @article = Article.find(params[:article_id])
     @article.comments << Comment.new(params[:comment])

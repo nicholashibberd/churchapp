@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  skip_before_filter :login_required, :only => :create
   layout 'admin'
   
   def index
@@ -9,42 +10,22 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
-  def new
-    @message = @church.messages.new
-  end
-
-  def edit
-    @message = Message.find(params[:id])
-  end
-
   def create
     @message = Message.new(params[:message])
+    church = @message.church
     page = Page.find(params[:page_id])
     if @message.save
       notice = 'Thank you for your message!'
     else
       notice = 'There was an error sending this message'
     end
-    redirect_to church_page_path(@church, page), :notice => notice
-  end
-
-  def update
-    @message = Message.find(params[:id])
-
-    if @message.update_attributes(params[:message])
-      redirect_to(messages_path(@church), :notice => 'Message was successfully updated.')
-    else
-      render :action => "edit"
-    end
+    redirect_to church_page_path(church, page), :notice => notice
   end
 
   def destroy
     @message = Message.find(params[:id])
+    church = @message.church
     @message.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(messages_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to messages_path(church)
   end
 end

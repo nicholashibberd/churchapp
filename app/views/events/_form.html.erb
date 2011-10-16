@@ -1,4 +1,4 @@
-<%= form_for(@event, form_path(@event)) do |f| %>
+<%= form_for(@event, form_path(@event, @church)) do |f| %>
 	<%= form_hidden_field(f, @church) %>
   <div class="field">
     <%= f.label :title %><br />

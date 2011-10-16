@@ -1,5 +1,5 @@
 <%= render 'articles/articles_archive', :page => @page, :category => category %>
 
-<% articles.desc(:date).each do |article| %>
+<% articles.each do |article| %>
 	<%= render :partial => 'articles/article', :locals => {:article => article} %>
 <% end %>

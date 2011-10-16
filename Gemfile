@@ -21,8 +21,11 @@ gem "nested_form"
 group :test, :development do
 	gem 'rspec-rails'
 	gem 'rspec', "~> 2.6.0"
+	gem 'mongoid-rspec'
   #gem "mocha"
 	gem 'webrat'
 	gem "rcov", "~> 0.9.9"
 	gem "factory_girl_rails"
 end
+
+gem 'SystemTimer', '1.2.3'

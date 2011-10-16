@@ -48,13 +48,6 @@ class Page
     end
   end
 
-  def order_widgets1(params)
-    widgets.each do |widget|
-      widget.position = params['widget'].index(widget.id.to_s) + 1
-      widget.save!
-    end
-  end
-  
   def order_dishes
     dishes.each do |dish|
       dish.position = params['dish'].index(dish.id.to_s) + 1

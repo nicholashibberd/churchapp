@@ -2,7 +2,7 @@
 	<%= javascript_include_tag 'jquery-ui' %>
 <% end %>
 
-<%= form_for(@nav_menu, form_path(@nav_menu)) do |f| %>
+<%= form_for(@nav_menu, form_path(@nav_menu, @church)) do |f| %>
 	<%= form_hidden_field(f, @church) %>
 	
   <div class="field">

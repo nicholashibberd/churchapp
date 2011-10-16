@@ -6,6 +6,7 @@ class Article
   field :date, :type => Date, :default => Date.today
 
   belongs_to :church
+  belongs_to :parish  
   belongs_to :person
   embeds_many :comments
   has_and_belongs_to_many :categories

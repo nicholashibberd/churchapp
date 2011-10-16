@@ -12,6 +12,7 @@ class Person
   image_accessor :image
   
   belongs_to :parish
+  belongs_to :church
   
   #has_mongoid_attached_file :photo, {
       #:styles => {

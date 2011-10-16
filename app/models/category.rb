@@ -22,9 +22,9 @@ class Category
   
   def find_articles_by_church(church, month)
     if month
-      articles.select {|a| a.church_id == church.id && a.date.strftime('%m-%Y') == month}
+      articles.desc(:date).select {|a| a.church_id == church.id && a.date.strftime('%m-%Y') == month}
     else
-      articles.where(:church_id => church.id)
+      articles.where(:church_id => church.id).desc(:date)
     end
   end
 end

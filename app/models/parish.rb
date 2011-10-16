@@ -9,7 +9,9 @@ class Parish < Institution
   has_many :events
   has_many :articles
   has_many :people
-  has_many :users  
+  has_many :users
+  has_many :messages
+  has_many :photos
   belongs_to :site
   
   def find_church(slug)
