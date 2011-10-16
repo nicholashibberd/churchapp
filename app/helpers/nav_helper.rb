@@ -14,4 +14,20 @@ module NavHelper
       link_to church.name, church_home_path(church)
     end
   end
+  
+  def admin_nav_item(church)
+    if church == @church || church == @parish
+      link_to church.name, church_admin_path(church), :class => 'selected'
+    else
+      link_to church.name, church_admin_path(church)
+    end
+  end
+
+  def admin_parish_nav_item
+    if @parish == @church
+      link_to 'Parish', church_admin_path, :class => "selected"
+    else
+      link_to 'Parish', church_admin_path
+    end
+  end
 end

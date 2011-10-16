@@ -113,8 +113,13 @@ Header
 #parish_nav a {
 	display: block;
 	float: left;
-	margin-right: 30px;
 	color: #fff;
+	padding: 10px 20px;
+}
+
+#parish_nav a.selected {
+	color: #000;
+	background-color: #fff;
 }
 
 #user_status {
