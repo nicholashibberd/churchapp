@@ -20,11 +20,11 @@ class Category
     self.slug = name.gsub("'", "").parameterize
   end
   
-  def find_articles_by_church(church, month)
+  def find_articles_by_church(institution, month)
     if month
-      articles.desc(:date).select {|a| a.church_id == church.id && a.date.strftime('%m-%Y') == month}
+      articles.desc(:date).select {|a| a.institution_id == institution.id && a.date.strftime('%m-%Y') == month}
     else
-      articles.where(:church_id => church.id).desc(:date)
+      articles.where(:institution_id => institution.id).desc(:date)
     end
   end
 end

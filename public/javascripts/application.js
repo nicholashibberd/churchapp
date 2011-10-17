@@ -45,18 +45,6 @@ function checkForExternalLink(value){
 }
 
 
-$(function() {
-     if ($('textarea').length > 0)
-     {       
-       var data = $('textarea');
-       $.each(data, function(i)
-       {
-         CKEDITOR.replace(data[i].id);
-       }
-       );     
-     }  
-  });
-
 function assignColumnName(){
 	$('.edit_widget').each(function() {
 		var currentId = $(this).attr('id');

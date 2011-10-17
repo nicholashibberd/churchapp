@@ -12,7 +12,7 @@ class Page
   references_many :widgets, :order => :position
   
   
-  validates_uniqueness_of :name, :scope => :church_id
+  validates_uniqueness_of :name, :scope => :institution_id
   
   before_create :generate_slug
   

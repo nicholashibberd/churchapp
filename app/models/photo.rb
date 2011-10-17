@@ -12,11 +12,13 @@ class Photo
   
   has_mongoid_attached_file :photo, {
       :styles => {
+        :original => "900x600",
         :thumb => "210x140",
         :stacked => "370"
          }
     }
        
+       # "900x600" means maximum width in each case
        # # = exact aspect ratio
        # > = makes the largest size the size you specify
        

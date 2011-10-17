@@ -12,20 +12,20 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(params[:message])
-    church = @message.church
+    institution = @message.institution
     page = Page.find(params[:page_id])
     if @message.save
       notice = 'Thank you for your message!'
     else
       notice = 'There was an error sending this message'
     end
-    redirect_to church_page_path(church, page), :notice => notice
+    redirect_to church_page_path(institution, page), :notice => notice
   end
 
   def destroy
     @message = Message.find(params[:id])
-    church = @message.church
+    institution = @message.institution
     @message.destroy
-    redirect_to messages_path(church)
+    redirect_to messages_path(institution)
   end
 end

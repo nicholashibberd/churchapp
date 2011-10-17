@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(params[:article])
     if @article.save
-      redirect_to(articles_path(@article.church), :notice => 'Article was successfully created.')
+      redirect_to(articles_path(@article.institution), :notice => 'Article was successfully created.')
     else
       flash[:error] = 'There was an error creating the article'
       render :action => "new"
@@ -29,10 +29,10 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    church = Church.find(params[:article][:church_id])
+    institution = Institution.find(params[:article][:institution_id])
     @article = Article.find(params[:id])
     if @article.update_attributes(params[:article])
-      redirect_to(articles_path(church), :notice => 'Article was successfully updated.')
+      redirect_to(articles_path(institution), :notice => 'Article was successfully updated.')
     else
       flash[:error] = 'There was an error updating the article'      
       render :action => "edit"
@@ -41,9 +41,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    church = @article.church
+    institution = @article.institution
     @article.destroy
-    redirect_to(articles_path(church))
+    redirect_to(articles_path(institution))
   end
   
   def choose_layout

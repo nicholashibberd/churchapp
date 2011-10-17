@@ -17,7 +17,7 @@ class NavMenusController < ApplicationController
     @nav_menu = NavMenu.new(params[:nav_menu])
     
     if @nav_menu.save
-      redirect_to(nav_menus_path(@nav_menu.church), :notice => 'Nav menu was successfully created.')
+      redirect_to(nav_menus_path(@nav_menu.institution), :notice => 'Nav menu was successfully created.')
     else
       flash[:error] = "Nav Menu could not be created"
       render :action => "new"
@@ -37,10 +37,10 @@ class NavMenusController < ApplicationController
 
   def destroy
     @nav_menu = NavMenu.find(params[:id])
-    church = @nav_menu.church
+    institution = @nav_menu.institution
     @nav_menu.destroy
 
-    redirect_to(nav_menus_url(church))
+    redirect_to(nav_menus_url(institution))
   end
   
   def order_nav_items

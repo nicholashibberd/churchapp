@@ -22,7 +22,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     if @page.save
-      redirect_to(pages_path(@page.church), :notice => 'Page was successfully created.')
+      redirect_to(edit_page_path(@page.institution, @page), :notice => 'Page was successfully created.')
     else
       flash[:error] = "Page could not be created"
       render :action => "new"

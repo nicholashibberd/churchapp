@@ -1,7 +1,4 @@
-<% content_for :head do -%>
-	<%= javascript_include_tag 'ckeditor/ckeditor.js' %>
-<% end -%>
-
+<h2>Comments</h2>
 <%= form_for comment, :url => path_for_comment(article, comment) do |f| %>
 	<%= hidden_field_tag :article_id, article.id %>
 	<%= hidden_field_tag :page_id, @page.id if @page %>

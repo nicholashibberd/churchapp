@@ -46,9 +46,9 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    church = @event.church
+    institution = @event.institution
     @event.destroy
-    redirect_to events_path(church)
+    redirect_to events_path(institution)
   end
   
   def choose_layout

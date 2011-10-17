@@ -13,8 +13,8 @@ class NavItemsController < ApplicationController
   def create
     @nav_item = NavItem.new(params[:nav_item])
     if @nav_item.save
-      church = @nav_item.nav_menu.church
-      redirect_to edit_nav_menu_path(church, @nav_item.nav_menu)
+      institution = @nav_item.nav_menu.institution
+      redirect_to edit_nav_menu_path(institution, @nav_item.nav_menu)
     else
       flash[:error] = "Nav Item could not be created"
       render :action => "new"
@@ -35,9 +35,9 @@ class NavItemsController < ApplicationController
   def destroy
     @nav_item = NavItem.find(params[:id])
     nav_menu = @nav_item.nav_menu
-    church = nav_menu.church
+    institution = nav_menu.institution
     @nav_item.destroy
 
-    redirect_to(edit_nav_menu_path(church, nav_menu))
+    redirect_to(edit_nav_menu_path(institution, nav_menu))
   end
 end

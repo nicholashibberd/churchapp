@@ -1,6 +1,8 @@
 class Parish < Institution
   field :name
   field :slug
+  
+  has_many :churches
     
   def find_church(slug)
     Church.first(:conditions => {:parish_id => self.id, :slug => slug})
