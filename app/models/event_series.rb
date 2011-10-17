@@ -36,7 +36,7 @@ class EventSeries
     p = recurrence_period(period)
     nst, net = st, et
     while frequency.to_i.send(p).from_now(st) <= end_time
-      self.events.create(:title => title, :description => description, :all_day => all_day, :start_time => nst, :end_time => net, :category => category, :church_id => church_id, :parish_id => parish_id, :location => location)
+      self.events.create(:title => title, :description => description, :all_day => all_day, :start_time => nst, :end_time => net, :category => category, :institution_id => institution_id, :location => location)
       nst = st = frequency.to_i.send(p).from_now(st)
       net = et = frequency.to_i.send(p).from_now(et)
       if period.downcase == 'monthly' or period.downcase == 'yearly'

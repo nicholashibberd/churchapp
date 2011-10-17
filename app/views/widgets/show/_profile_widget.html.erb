@@ -2,7 +2,7 @@
 	<% widget.people.asc(:position).each do |person| %>
 		<div class="profile_person">
 			<div class="profile_person_image">
-				<%= image_tag person.image.thumb('100x100').url if person.image %>
+				<%= image_tag person.photo.url(:thumb) if person.photo.url %>
 			</div>
 			<div class="profile_person_name">
 				<h3><%= person.name %></h3>

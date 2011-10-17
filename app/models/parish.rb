@@ -1,19 +1,7 @@
 class Parish < Institution
   field :name
   field :slug
-  
-  has_many :churches
-  has_many :pages
-  has_many :categories
-  has_many :nav_menus
-  has_many :events
-  has_many :event_series  
-  has_many :articles
-  has_many :people
-  has_many :users
-  has_many :messages
-  has_many :photos
-  
+    
   def find_church(slug)
     Church.first(:conditions => {:parish_id => self.id, :slug => slug})
   end

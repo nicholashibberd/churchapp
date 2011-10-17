@@ -7,9 +7,6 @@ class Person
   field :profile, :type => String
   field :email, :type => String
   field :phone, :type => String
-  field :image_uid
-  
-  image_accessor :image
   
   belongs_to :institution
   
