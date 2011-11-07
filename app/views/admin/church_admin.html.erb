@@ -1,25 +1,29 @@
 <h1><%= @church.name %> Admin</h1>
 
-<div class="button new_button">
-	<%= link_to 'New Page', new_page_path(@church) %>
-</div>
+<% permitted_to? :create, :pages do %>
+	<%= link_to 'Pages', pages_path(@church), :class => 'admin_home_icon' %>
+<% end %>
 
-<div class="button new_button">
-	<%= link_to 'New Person', new_person_path(@church) %>
-</div>
+<% permitted_to? :create, :people do %>
+	<%= link_to 'People', people_path(@church), :class => 'admin_home_icon' %>
+<% end %>
 
-<div class="button new_button">
-	<%= link_to 'New Article', new_article_path(@church) %>
-</div>
+<% permitted_to? :create, :articles do %>
+	<%= link_to 'Articles', articles_path(@church), :class => 'admin_home_icon' %>
+<% end %>
 
-<div class="button new_button">
-	<%= link_to 'New Event', new_event_path(@church) %>
-</div>
+<% permitted_to? :create, :events do %>
+	<%= link_to 'Events', events_path(@church), :class => 'admin_home_icon' %>
+<% end %>
 
-<div class="button new_button">
-	<%= link_to 'New Photo', new_photo_path(@church) %>
-</div>
+<% permitted_to? :create, :photos do %>
+	<%= link_to 'Photos', photos_path(@church), :class => 'admin_home_icon' %>
+<% end %>
 
-<div class="button new_button">
-	<%= link_to 'New Navigation Menu', new_nav_menu_path(@church) %>
-</div>
+<% permitted_to? :create, :documents do %>
+	<%= link_to 'Documents', documents_path(@church), :class => 'admin_home_icon' %>
+<% end %>
+
+<% permitted_to? :create, :nav_menus do %>
+	<%= link_to 'Links', nav_menus_path(@church), :class => 'admin_home_icon' %>
+<% end %>

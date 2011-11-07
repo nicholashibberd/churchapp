@@ -42,15 +42,21 @@ body {
 #content_wrapper {
 	padding: 30px;
 	background-color: #fff;
+	position: relative;
 }
 
 .content {
-	margin-left: 250px;
 	position: relative;
 }
 
 .content h1 {
 	margin-bottom: 30px;
+	background: #eee;
+	padding: 20px;
+}
+
+#admin_church_admin_content {
+	margin-left: 0px;
 }
 
 #background {
@@ -78,24 +84,77 @@ body {
 }
 
 /***********************************
-Left Nav
+Admin Home
 ***********************************/
 
-#left_nav { 
-	height: 300px;
-	width: 185px;
-	background: #DEE1E5;
-	background: -webkit-gradient(linear, left top, left bottom, from(#F3F4F5), to(#DEE1E5));
-	background: -moz-linear-gradient(top,  #F3F4F5,  #DEE1E5);
+.admin_home_icon {
 	float: left;
+	margin: 0 20px 20px 0;
+}
+
+a.admin_home_icon {
+	background: #F0F0F0;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F0F0F0), to(#FFF));
+	background: -moz-linear-gradient(top,  #F0F0F0,  #FFF);
+	border: 1px solid #D9D9D9;
+	border-radius: 3px;	
+	width: 160px;
+	height: 30px;
 	padding: 20px;
 }
 
-#left_nav a {
-	display: block;
-	padding: 5px;
-	margin-bottom: 10px;
+/*
+***************************************************
+Admin dropdown
+***************************************************
+*/
+
+#admin_dropdown_wrapper {
+	position: absolute;
+	z-index: 1;
+	right: 50px;
+	top: 45px;
 }
+
+#admin_dropdown {
+	cursor: pointer;
+	font-size: 20px;
+	padding: 10px 20px;	
+	background: #d8d8d8 url(/images/admin/group_dropdown.jpg) repeat-x;				
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#d8d8d8));
+	background: -moz-linear-gradient(top,  #FFF,  #d8d8d8);
+	border: 1px solid #d8d8d8;
+	width: 200px;
+	color: #1F5F8B;
+	position: relative;
+}
+
+#admin_dropdown_hidden {
+	background: #d8d8d8 url(/images/admin/group_dropdown.jpg) repeat-x;					
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#d8d8d8));
+	background: -moz-linear-gradient(top,  #FFF,  #d8d8d8);
+	border: 1px solid #d8d8d8;
+	width: 240px;
+}
+
+#admin_dropdown_hidden a {
+	display: block;
+	width: 200px;
+	padding: 10px 20px;	
+	color: #1F5F8B;	
+}
+
+#admin_dropdown_hidden a:hover {
+	background-color: #ccc;
+}
+
+#admin_dropdown_arrow {
+	position: absolute;
+	right: 10px;
+	top: 8px;
+}
+
+
 
 /***********************************
 Header
@@ -186,7 +245,7 @@ a#add_new_marker {
 
 .top_right_button {
 	position: absolute;
-	top: -20px;
+	top: 75px;
 	right: 0px;
 }
 
@@ -307,12 +366,9 @@ Widgets
 /***********************************
 Sortable
 ***********************************/
-#widgets {
-	width: 700px;
-}
 
 .widget_column {
-	width: 300px;
+	width: 400px;
 	float: left;
 	padding: 10px;
 }
@@ -325,7 +381,6 @@ Sortable
 	min-height: 100px;
 	border: 2px dashed #ccc;
 }
-
 
 /****************************************************
 Flash

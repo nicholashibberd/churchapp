@@ -1,0 +1,17 @@
+<h1><%= @church.name %> Documents</h1>
+
+<div>
+	<% @church.documents.each do |document| %>
+		<div class="index_item document_index_item" id="document_<%= document.id %>">
+			<div class="controls">
+				<%= link_to 'Edit', edit_document_path(@church, document) if permitted_to? :edit, :documents %>
+				<%= link_to 'Delete', document_path(@church, document), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :documents %>
+			</div>
+			<%= display_permitted_to_link(:edit, :documents, document.caption, edit_document_path(@church, document)) %>
+		</div>
+	<% end %>
+</div>
+
+<div class="button new_button">
+	<%= link_to 'New Document', new_document_path(@church) %>
+</div>

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   skip_before_filter :login_required, :except => ['show', 'edit', 'index']
   layout 'admin'
+  filter_access_to :edit, :attribute_check => true
+    
   def index
     @users = @parish.users
   end
@@ -41,6 +43,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to(users_url)
+  end
+  
+  def change_password
+    @user = User.find(params[:id])    
   end
   
   def validate

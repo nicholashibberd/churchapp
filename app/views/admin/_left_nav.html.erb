@@ -1,10 +1,11 @@
 <div id="left_nav">
-	<%= link_to 'Pages', pages_path(@church) %>
-	<%= link_to 'People', people_path(@church) %>
-	<%= link_to 'Articles', articles_path(@church) %>
-	<%= link_to 'Events', events_path(@church) %>
-	<%= link_to 'Photos', photos_path(@church) %>
-	<%= link_to 'Nav Menus', nav_menus_path(@church) %>
-	<%= link_to 'Messages', messages_path(@church) %>
-	<%= link_to 'Users', users_path %>
+	<%= admin_left_nav_item('Pages', pages_path(@church), :read, :pages) %>
+	<%= admin_left_nav_item('People', people_path(@church), :read, :people) %>
+	<%= admin_left_nav_item('Articles', articles_path(@church), :read, :articles) %>
+	<%= admin_left_nav_item('Events', events_path(@church), :read, :events) %>
+	<%= admin_left_nav_item('Photos', photos_path(@church), :read, :photos) %>
+	<%= admin_left_nav_item('Documents', documents_path(@church), :read, :documents) %>
+	<%= admin_left_nav_item('Links', nav_menus_path(@church), :read, :nav_menus) %>
+	<%= admin_left_nav_item('Messages', messages_path(@church), :read, :messages) %>
+	<%= admin_left_nav_item('Site Admins', users_path(@church), :read, :users) %>
 </div>

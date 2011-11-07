@@ -1,0 +1,14 @@
+<%= form_for(@document, form_path(@document, @church), :html => {:multipart => true}) do |f| %>
+	<%= f.hidden_field :institution_id, :value => @church.id %>
+	<div class="field">
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label :document %><br />
+		<%= f.file_field :document %>
+	</div>  
+	<div class="button confirm_button">
+  	<%= f.submit %>
+	</div>
+<% end -%>

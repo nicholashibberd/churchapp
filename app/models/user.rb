@@ -7,8 +7,9 @@ class User
   field :remember_token
   
   belongs_to :institution
+  has_many :roles
 
-  EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/  
   
   attr_accessor :password
   
@@ -21,6 +22,11 @@ class User
   validates_length_of	:password, :within => 6..40, :on => :create
   
   before_save :encrypt_password
+  after_create :set_role
+  
+  def access_test
+    false
+  end
   
   def self.find_by_email(email)
     User.where(:email => email).first
@@ -43,6 +49,14 @@ class User
   def remember_me!
     self.remember_token = encrypt("#{salt}--#{id}")
     save(:validate => false)
+  end
+  
+  def role_symbols
+    (roles || []).map {|r| r.title.to_sym}
+  end
+  
+  def set_role
+    self.roles.create(:title => 'read_only')
   end
   
   private

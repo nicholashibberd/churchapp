@@ -38,5 +38,7 @@ module Churchapp
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    config.rakismet.key = 'your wordpress key'
+    config.rakismet.url = 'http://www.sanderstead-parish.org.uk/'
   end
 end

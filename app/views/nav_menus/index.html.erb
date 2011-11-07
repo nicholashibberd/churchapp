@@ -3,10 +3,10 @@
 <% @church.nav_menus.each do |nav_menu| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-		  <%= link_to 'Edit', edit_nav_menu_path(@church, nav_menu) %>
-		  <%= link_to 'Delete', nav_menu_path(@church, nav_menu), :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to 'Edit', edit_nav_menu_path(@church, nav_menu) if permitted_to? :edit, :nav_menus %>
+			<%= link_to 'Delete', nav_menu_path(@church, nav_menu), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :nav_menus %>			
 		</div>
-		<%= link_to nav_menu.name, edit_nav_menu_path(@church, nav_menu) %>
+		<%= display_permitted_to_link(:edit, :nav_menus, nav_menu.name, edit_nav_menu_path(@church, nav_menu)) %>
 	</div>
 <% end %>
 

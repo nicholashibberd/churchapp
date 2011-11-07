@@ -7,14 +7,6 @@
 	<%= yield :head %>
 </head>
 <body>
-	<div id="background">
-		<div id="background_header">
-		</div>
-		<div id="background_top_nav">
-		</div>
-		<div id="background_image">
-		</div>
-	</div>
 	<div id='wrapper'>
 		<div id='header'>
 			<div id="logo">
@@ -26,9 +18,12 @@
 			<div id="parish_nav">
 				<%= render 'layouts/parish_nav' %>
 			</div>
-			<div id='top_nav'>
-				<%= render 'layouts/top_nav' %>
-			</div>
+		</div>
+		<div id='top_nav'>
+			<%= render 'layouts/top_nav' %>
+		</div>		
+		<div id="background_image">
+			<%= yield :background_image %>
 		</div>
 		<div id="<%= page_id %>" class="content <%= request[:controller] %>_<%= request[:action] %>_content">
 			<%= render 'layouts/flash', :flash => flash %>

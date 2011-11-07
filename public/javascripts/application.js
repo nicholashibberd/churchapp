@@ -55,3 +55,11 @@ function assignColumnName(){
 	});
 	
 }
+
+jQuery(document).ready(function($) {
+	$('#admin_dropdown_hidden').hide();
+	$('#admin_dropdown').click(function() {
+	  $('#admin_dropdown_hidden').slideToggle( 200 );
+	});
+	
+})

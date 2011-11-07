@@ -3,11 +3,12 @@
 <% @pages.each do |page| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-		  <%= link_to 'View', church_page_path(@church, page) %>
-		  <%= link_to 'Edit', edit_page_path(@church, page) %>
-		  <%= link_to 'Delete', page_path(@church, page), :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to 'View', church_page_path(@church, page) if display_link? :read, :pages %>
+			<%#= link_to 'View', church_page_path(@church, page) if permitted_to? :read, :pages %>
+			<%= link_to 'Edit', edit_page_path(@church, page)  if display_link? :edit, :pages %>
+			<%= link_to 'Delete', page_path(@church, page), :method => :delete, :confirm => 'Are you sure?' if display_link? :delete, :pages %>
 		</div>
-		<%= link_to page.name, edit_page_path(@church, page) %>
+		<%= display_permitted_to_link(:edit, :pages, page.name, edit_page_path(@church, page)) %>
 	</div>
 <% end %>
 

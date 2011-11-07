@@ -3,10 +3,10 @@
 <% @users.each do |user| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-		  <%= link_to 'Edit', edit_user_path(user) %>
-		  <%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to 'Edit', edit_user_path(user) if permitted_to? :edit, :users %>
+			<%= link_to 'Delete', user_path(user), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :users %>
 		</div>
-		<%= link_to user.name, edit_user_path(user) %>
+		<%= display_permitted_to_link(:edit, :users, user.name, edit_user_path(user)) %>
 	</div>
 <% end %>
 

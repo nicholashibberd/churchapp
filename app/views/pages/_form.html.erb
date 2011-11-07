@@ -1,4 +1,5 @@
 <%= form_for(@page, form_path(@page, @church)) do |f| %>
+<%#= form_for(@page, {:url=>{:action=>"update", :institution_id=>"all-saints", :controller=>"pages"}}) do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -19,6 +20,15 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+	<div class="field">
+	  <%= f.label :background_images %><br />
+	  <% @church.background_images.each do |background_image| %>
+	    <div>
+	    <%= check_box_tag 'page[background_image_ids][]', background_image.id, @page.background_images.include?(background_image) %>
+	    <%= label_tag background_image.name %>
+	    </div>
+	  <% end %>
+	</div>
 
 	<% unless @page.new_record? %>
 

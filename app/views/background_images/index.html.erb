@@ -1,0 +1,19 @@
+<h1><%= @church.name %> Background Images</h1>
+
+<div>
+	<% @church.background_images.each do |background_image| %>
+		<div class="index_item background_image_index_item" id="background_image_<%= background_image.id %>">
+			<div class="controls">
+				<%= link_to 'Edit', edit_background_image_path(@church, background_image) if permitted_to? :edit, :background_images %>
+				<%= link_to 'Delete', background_image_path(@church, background_image), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :background_images %>
+			</div>
+			<div class="background_images_index_image">
+				<%= image_tag background_image.image.url(:preview) %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<div class="button new_button">
+	<%= link_to 'New Background Image', new_background_image_path(@church) %>
+</div>

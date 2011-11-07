@@ -2,6 +2,10 @@
 	<title><%= @page.title %></title>
 <% end %>
 
+<%= content_for :background_image do %>
+	<%= background_image(@page) %>	
+<% end %>
+
 <% if !@page.widgets_by_column('left').empty? && !@page.widgets_by_column('right').empty? %>
 
 	<div class="columnRight">

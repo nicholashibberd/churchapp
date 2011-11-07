@@ -8,13 +8,13 @@
 	<% @church.photos.asc(:position).each do |photo| %>
 		<div class="index_item photo_index_item" id="photo_<%= photo.id %>">
 			<div class="controls">
-			  <%= link_to 'Edit', edit_photo_path(@church, photo) %>
-			  <%= link_to 'Delete', photo_path(@church, photo), :confirm => 'Are you sure?', :method => :delete %>
+				<%= link_to 'Edit', edit_photo_path(@church, photo) if permitted_to? :edit, :photos %>
+				<%= link_to 'Delete', photo_path(@church, photo), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :photos %>
 			</div>
 			<div class="photos_index_image">
 				<%= image_tag photo.photo.url(:thumb) %>
 			</div>
-			<%= link_to photo.caption, edit_photo_path(@church, photo) %>
+			<%= display_permitted_to_link(:edit, :photos, photo.caption, edit_photo_path(@church, photo)) %>
 		</div>
 	<% end %>
 </div>

@@ -36,7 +36,7 @@ module CalendarHelper
     date = Date.new(year,month,1)
     other_month = state == 'previous' ? date - 1.month : date + 1.month
 
-    link_to other_month.strftime('%b'), calendar_other_month_path(:month => other_month.month, :year => other_month.year), :remote => true
+    link_to other_month.strftime('%b'), calendar_other_month_path(:month => other_month.month, :year => other_month.year), :remote => true, :class => 'calendar_other_month_link', :id => "calendar_other_month_link_#{state}"
   end
   
   def date_icon(date)

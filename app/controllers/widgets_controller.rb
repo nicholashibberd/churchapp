@@ -40,4 +40,9 @@ class WidgetsController < ApplicationController
     @widget.destroy
     redirect_to edit_page_path(@church, page)
   end
+  
+  def download_pdf 
+    return send_file Rails.root.join("public", "pdf", "sanderstead", "making_space27jan11.pdf"), :type => "application/pdf", :filename => "making_space.pdf"
+  end
+  
 end

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     @site = Site.where(:domain => request.domain(2)).first    
     @site ||= Site.first
     
-    @church = @site.find_institution(params[:church_id])
+    @church = @site.find_institution(params[:institution_id])
     @parish = @church.is_a?(Parish) ? @church : @church.parish
   end
   

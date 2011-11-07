@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   layout :choose_layout
   skip_before_filter :login_required, :only => 'show'
+  filter_access_to :edit, :attribute_check => true, :load_method => lambda { @church.find_page(params[:id]) }
   
   def index
     @pages = @church.pages

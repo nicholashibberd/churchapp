@@ -1,5 +1,7 @@
 class Page
   include Mongoid::Document
+  include Mongoid::Paperclip
+  
   field :name, :type => String
   field :slug, :type => String
   field :title, :type => String
@@ -7,15 +9,14 @@ class Page
   belongs_to :institution
   has_many :widgets
   has_one :nav_item  
+  has_and_belongs_to_many :background_images
   
-  #embeds_one :map_widget
   references_many :widgets, :order => :position
-  
-  
+    
   validates_uniqueness_of :name, :scope => :institution_id
   
   before_create :generate_slug
-  
+    
   def generate_slug
     self.slug = name.gsub("'", "").parameterize
   end

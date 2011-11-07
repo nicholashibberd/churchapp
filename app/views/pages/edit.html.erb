@@ -34,6 +34,9 @@
 <div class="button new_button inline">
 	<%= link_to 'Add Contact Form', new_page_widget_path(@church, @page, :widget_type => 'contact_form_widget') %>
 </div>
+<div class="button new_button inline">
+	<%= link_to 'Add PDF', new_page_widget_path(@church, @page, :widget_type => 'pdf_widget') %>
+</div>
 
 <%= javascript_tag do %>
      $('#columnLeft').sortable(

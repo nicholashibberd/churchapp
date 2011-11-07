@@ -3,11 +3,11 @@
 <% @church.articles.desc(:date).limit(10).each do |article| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-			<%= link_to 'View', article_path(@church, article) %>
-		  <%= link_to 'Edit', edit_article_path(@church, article) %>
-		  <%= link_to 'Delete', article_path(@church, article), :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to 'View', single_article_path(@church.slug, article.id) if permitted_to? :read, :articles %>
+			<%= link_to 'Edit', edit_article_path(@church, article) if permitted_to? :edit, :articles %>			
+			<%= link_to 'Delete', article_path(@church, article), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :articles %>
 		</div>
-		<%= link_to article.title, edit_article_path(@church, article) %>
+		<%= display_permitted_to_link(:edit, :articles, article.title, edit_article_path(@church, article)) %>			
 		<div class='article_categories'>
 			<%= article.display_categories %> | <%= l article.date, :format => :long %>
 		</div>

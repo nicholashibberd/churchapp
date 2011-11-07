@@ -5,8 +5,8 @@ class Site
   
   has_many :institutions
   
-  def find_institution(church_id)
-    church = institutions.where(:slug => church_id).first
+  def find_institution(institution_id)
+    church = institutions.where(:slug => institution_id).first
     church ||= institutions.select {|institution| institution.is_a?(Parish)}.first
     church
   end

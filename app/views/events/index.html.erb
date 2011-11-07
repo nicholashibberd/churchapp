@@ -3,10 +3,10 @@
 <% @church.events.limit(10).each do |event| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-		  <%= link_to 'Edit', edit_event_path(@church, event) %>
-		  <%= link_to 'Delete', event_path(@church, event), :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to 'Edit', edit_event_path(@church, event) if permitted_to? :edit, event %>
+			<%= link_to 'Delete', event_path(@church, event), :confirm => 'Are you sure?', :method => :delete if permitted_to? :delete, event %>
 		</div>
-		<%= link_to event.title, edit_event_path(@church, event) %>
+		<%= display_permitted_to_link(:edit, :events, event.title, edit_event_path(@church, event)) %>
 		<div class='event_details'>
 			<%= event.category %> | <%= l event.start_date, :format => :long %>
 		</div>

@@ -3,6 +3,7 @@ class Institution
   
   belongs_to :site
   has_many :photos
+  has_many :background_images
   has_many :pages  
   has_many :articles
   has_many :events
@@ -11,6 +12,9 @@ class Institution
   has_many :photos
   has_many :messages
   has_many :churches
+  has_many :users
+  has_many :documents
+  has_many :people
   
   field :name
   

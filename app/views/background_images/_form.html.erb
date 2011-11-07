@@ -1,0 +1,17 @@
+<%= form_for(@background_image, form_path(@background_image, @church), :html => {:multipart => true}) do |f| %>
+	<%= f.hidden_field :institution_id, :value => @church.id %>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= image_tag @background_image.image.url(:preview) %>
+	</div>
+  <div class="field">
+    <%= f.label :file %><br />
+    <%= f.file_field :image %>
+  </div>
+	<div class="button confirm_button">
+  	<%= f.submit %>
+	</div>
+<% end %>

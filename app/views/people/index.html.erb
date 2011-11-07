@@ -3,10 +3,10 @@
 <% @people.each do |person| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-		  <%= link_to 'Edit', edit_person_path(@church, person) %>
-		  <%= link_to 'Delete', person_path(@church, person), :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to 'Edit', edit_person_path(@church, person) if permitted_to? :edit, :people %>
+			<%= link_to 'Delete', person_path(@church, person), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :people %>
 		</div>
-		<%= link_to person.name, edit_person_path(@church, person) %>
+		<%= display_permitted_to_link(:edit, :people, person.name, edit_person_path(@church, person)) %>
 	</div>
 <% end %>
 

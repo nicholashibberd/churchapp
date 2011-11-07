@@ -14,6 +14,9 @@ gem 'later_dude'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.9.8'
+gem 'declarative_authorization'
+gem 'ruby-debug'
+gem 'rakismet', '>= 1.0.0'
 
 gem "nested_form"
 # end
