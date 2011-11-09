@@ -3,12 +3,12 @@
 	<%= hidden_field_tag :article_id, article.id %>
 	<%= hidden_field_tag :page_id, @page.id if @page %>
   <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_area :message %>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
   </div>
   <div class="button confirm_button">
     <%= f.submit %>
