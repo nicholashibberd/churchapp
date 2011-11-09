@@ -112,8 +112,8 @@ Admin dropdown
 #admin_dropdown_wrapper {
 	position: absolute;
 	z-index: 1;
-	right: 50px;
-	top: 45px;
+	right: 15px;
+	top: 15px;
 }
 
 #admin_dropdown {

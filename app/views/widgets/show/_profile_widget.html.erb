@@ -2,22 +2,24 @@
 	<% widget.people.asc(:position).each do |person| %>
 		<div class="profile_person">
 			<div class="profile_person_image">
-				<%= image_tag person.photo.url(:thumb) if person.photo.url %>
+				<%= image_tag person.photo.url(:original) if person.photo.url %>
 			</div>
-			<div class="profile_person_name">
-				<h3><%= person.name %></h3>
-			</div>
-			<div class="profile_person_role">
-				Role: <%= person.role %>
-			</div>
-			<div class="profile_person_email">
-				Email: <%= person.email %>
-			</div>
-			<div class="profile_person_phone">
-				Phone: <%= person.phone %>
-			</div>
-			<div class="profile_person_profile">
-				<%= person.profile.html_safe %>
+			<div class="profile_person_details">
+				<div class="profile_person_name">
+					<h3><%= person.name %></h3>
+				</div>
+				<div class="profile_person_role">
+					<span class="profile_person_label">Role:</span> <%= person.role %>
+				</div>
+				<div class="profile_person_email">
+					<span class="profile_person_label">Email:</span> <%= person.email %>
+				</div>
+				<div class="profile_person_phone">
+					<span class="profile_person_label">Phone:</span> <%= person.phone %>
+				</div>
+				<div class="profile_person_profile">
+					<%= person.profile.html_safe %>
+				</div>
 			</div>
 		</div>
 	<% end %>

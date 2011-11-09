@@ -53,8 +53,8 @@ body {
 }
 
 #footer {
-	background: #4DA9DA url(/images/sanderstead/backgrounds/footer.jpg) repeat-x;
-	padding: 80px 100px 20px;
+	padding: 20px 100px 40px 100px;
+	margin-top: 20px;
 }
 
 /***********************************
@@ -64,8 +64,15 @@ Content
 .content {
 	padding: 40px 130px 50px 130px;
 	min-height: 400px;
-	background: url(/images/sanderstead/backgrounds/content.png) no-repeat;
 	position: relative;
+}
+
+.content.background_image_layout {
+	background: url(/images/sanderstead/backgrounds/content.png) no-repeat;	
+}
+
+.content.full_page_layout {
+	margin-top: 30px;
 }
 
 * html .content {
@@ -120,7 +127,7 @@ Header
 #top_nav {
 	height: 50px;
 	position: absolute;
-	width: 960px;
+	width: 1000px;
 	padding: 0 100px;
 }
 
@@ -137,13 +144,22 @@ Header
 	color: #000;
 }
 
-#top_nav_background {
+#top_nav_background_image_layout {
 	background-color: #000;
 	opacity: 0.6;
-	position: absolute;
+}
+
+#top_nav_full_page_layout {
+	background-color: #2F3D4F;
+  background: -webkit-linear-gradient(top, #5C6775, #2F3D4F);
+  background: -moz-linear-gradient(top, #5C6775, #2F3D4F);
+}
+
+.top_nav_background {
 	height: 50px;	
 	width: 1160px;
-	margin-left: -100px;
+	margin-left: -100px;	
+	position: absolute;	
 }
 
 #top_nav_links {
@@ -182,7 +198,7 @@ tr.month_names {
 	border: 1px solid #9FC7E6;
 	vertical-align: top;
 	height: 110px;
-	padding: 10px;
+	padding: 5px;
 }
 
 #calendar td.calendar_day_with_events {
@@ -206,7 +222,12 @@ tr.month_names {
 }
 
 #calendar .calendar_event {
-	padding: 5px 0;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.calendar_event .event_time {
+	color: #666;
 }
 
 .event_day {
@@ -334,9 +355,25 @@ ul#flash_list {
 Widgets
 ***********************************/
 
+.profile_person {
+	margin-bottom: 30px;
+}
+
 .profile_person_image {
 	float: left;
 	margin-right: 20px;
+}
+
+.profile_person_details {
+	margin-left: 120px;
+}
+
+span.profile_person_label {
+	font-weight: bold;
+}
+
+.profile_person_details div {
+	margin-bottom: 5px;
 }
 
 #map {

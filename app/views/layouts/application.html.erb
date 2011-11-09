@@ -22,10 +22,8 @@
 		<div id='top_nav'>
 			<%= render 'layouts/top_nav' %>
 		</div>		
-		<div id="background_image">
-			<%= yield :background_image %>
-		</div>
-		<div id="<%= page_id %>" class="content <%= request[:controller] %>_<%= request[:action] %>_content">
+		<%= yield :background_image %>
+		<div id="<%= page_id %>" class="content <%= request[:controller] %>_<%= request[:action] %>_content <%= content_layout %>">
 			<%= render 'layouts/flash', :flash => flash %>
 			<%= yield %>
 		</div>
