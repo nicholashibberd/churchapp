@@ -32,35 +32,82 @@
 
 	<% unless @page.new_record? %>
 
+		<!--
 		<div id="widgets">
-			<div id="columnLeft" class="field widget_column connectedSortable" column="left">
-				<%= f.label :left_column %><br />
-				<% @page.widgets_by_column('left').each do |widget| %>
-					<div class="edit_widget edit_<%= widget.widget_type %>_widget" id="widget_<%= widget.id %>">
-						<%= link_to widget.widget_type.titleize, edit_page_widget_path(@church, @page, widget) %>
-						<div class="controls">
-							<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget) %>
-							<%= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>
-						</div>
+					<div id="columnLeft" class="field widget_column connectedSortable" column="left">
+						<%#= f.label :left_column %><br />
+						<%# @page.widgets_by_column('left').each do |widget| %>
+							<div class="edit_widget edit_<%#= widget.widget_type %>_widget" id="widget_<%#= widget.id %>">
+								<%#= link_to widget.widget_type.titleize, edit_page_widget_path(@church, @page, widget) %>
+								<%#= render "widgets/show/#{widget.widget_type}", :widget => widget %>
+								<div class="controls">
+									<%#= link_to 'Edit', edit_page_widget_path(@church, @page, widget) %>
+									<%#= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>
+								</div>
+							</div>
+						<%# end %>
 					</div>
-				<% end %>
-			</div>
 
-			<div id="columnRight" class="field widget_column connectedSortable" column="right">
-				<%= f.label :right_column %><br />			
-				<% @page.widgets_by_column('right').each do |widget| %>
-					<div class="edit_widget edit_<%= widget.widget_type %>_widget" id="widget_<%= widget.id %>">
-						<%= link_to widget.widget_type.titleize, edit_page_widget_path(@church, @page, widget) %>
-						<div class="controls">
-							<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget) %>
-							<%= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>
+					<div id="columnRight" class="field widget_column connectedSortable" column="right">
+						<%#= f.label :right_column %><br />			
+						<%# @page.widgets_by_column('right').each do |widget| %>
+							<div class="edit_widget edit_<%#= widget.widget_type %>_widget" id="widget_<%#= widget.id %>">
+								<%#= link_to widget.widget_type.titleize, edit_page_widget_path(@church, @page, widget) %>
+								<div class="controls">
+									<%#= link_to 'Edit', edit_page_widget_path(@church, @page, widget) %>
+									<%#= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>
+								</div>
+							</div>
+						<%# end %>
+					</div>
+				</div>-->
+		
+		
+		<div id="admin_page_widgets">
+			<% if !@page.widgets_by_column('left').empty? && !@page.widgets_by_column('right').empty? %>
+
+				<div class="columnRight">
+					<% @page.widgets_by_column('right').each do |widget| %>
+					<div class="admin_widget_wrapper">
+						<div class="admin_widget_controls">
+							<%= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>							
+							<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget), :class => 'fancybox' %>
+							<%= widget.widget_type.titleize %>
+						</div>
+						<div class="admin_widget">
+							<%= render_widget(@page, 'show', widget) %>
 						</div>
 					</div>
-				<% end %>
-			</div>
-		</div>
+					<% end %>
+				</div>
+
+				<div class="columnLeft">
+					<% @page.widgets_by_column('left').each do |widget| %>
+						<div class="admin_widget_wrapper">
+							<div class="admin_widget_controls">
+								<%= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>								
+								<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget), :class => 'fancybox' %>
+								<%= widget.widget_type.titleize %>								
+							</div>
+							<div class="admin_widget">
+								<%= render_widget(@page, 'show', widget) %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+
+			<% else %>
+
+				<div>
+					<% @page.widgets.asc(:position).each do |widget| %>
+						<%= render_widget(@page, 'show', widget) %>
+					<% end %>
+				</div>
+
+			<% end %>
 	
-		<div class="spacer"></div>
+			<div class="spacer"></div>
+		</div>
 	
 	<% end %>
 

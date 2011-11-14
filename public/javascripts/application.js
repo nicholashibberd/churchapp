@@ -56,10 +56,20 @@ function assignColumnName(){
 	
 }
 
+function modifyLightboxLinks(){
+	$('a.fancybox').each(function() {
+		var currentLink = $(this).attr('href');
+		var lightboxLink = currentLink + (currentLink.indexOf('?') != -1 ? '&lightbox=true' : '?lightbox=true')
+		$(this).attr('href', lightboxLink);
+	});
+}
+
 jQuery(document).ready(function($) {
 	$('#admin_dropdown_hidden').hide();
 	$('#admin_dropdown').click(function() {
 	  $('#admin_dropdown_hidden').slideToggle( 200 );
 	});
+	
+	modifyLightboxLinks();
 	
 })

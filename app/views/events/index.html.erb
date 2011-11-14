@@ -1,4 +1,4 @@
-<h1><%= @church.name %> Events</h1>
+<h1 class="admin_header"><%= @church.name %> Events</h1>
 
 <% @church.events.limit(10).each do |event| %>
 	<div class="index_item page_index_item">

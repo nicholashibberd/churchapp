@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Churchapp</title>
-  <%= stylesheet_link_tag 'admin' %>
+  <%= stylesheet_link_tag 'sanderstead', 'admin' %>
   <%= javascript_include_tag "jquery", "rails", "application", "nested_form" %>
   <%= csrf_meta_tag %>
 	<%= yield :head %>
@@ -14,19 +14,19 @@
 		<div id="background_content">
 		</div>
 	</div>
-	<div id='wrapper'>
+	<div id='admin_wrapper'>
 		<div id="user_status">
 			<%= link_to "#{current_user.name}: Sign out", signout_path, :id => 'signout_link' if current_user %>
 		</div>
-		<div id="header">
-			<div id="logo">
+		<div id="admin_header">
+			<div id="admin_logo">
 				<%= link_to (image_tag 'sanderstead/parish_admin_logo.png'), church_admin_path %>
 			</div>
 			<%= render 'admin/parish_nav' if current_user %>
 		</div>
 		<div id="content_wrapper">
 			<%= render 'layouts/flash', :flash => flash %>			
-			<div id="<%= request[:controller] %>_<%= request[:action] %>_content" class="content">
+			<div id="<%= request[:controller] %>_<%= request[:action] %>_content" class="admin_content">
 				<%= render 'admin/admin_dropdown' if current_user %>				
 				<%= yield %>
 			</div>

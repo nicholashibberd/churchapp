@@ -17,6 +17,7 @@ gem 'dragonfly', '~>0.9.8'
 gem 'declarative_authorization'
 gem 'ruby-debug'
 gem 'rakismet', '>= 1.0.0'
+gem 'ckeditor'
 
 gem "nested_form"
 # end

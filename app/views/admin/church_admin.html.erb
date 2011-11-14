@@ -1,4 +1,4 @@
-<h1><%= @church.name %> Admin</h1>
+<h1 class="admin_header"><%= @church.name %> Admin</h1>
 
 <% permitted_to? :create, :pages do %>
 	<%= link_to 'Pages', pages_path(@church), :class => 'admin_home_icon' %>
@@ -9,7 +9,9 @@
 <% end %>
 
 <% permitted_to? :create, :articles do %>
-	<%= link_to 'Articles', articles_path(@church), :class => 'admin_home_icon' %>
+	<% Category.all.each do |category| %>
+		<%= link_to category.name, category_path(@church, category), :class => 'admin_home_icon' %>
+	<% end %>
 <% end %>
 
 <% permitted_to? :create, :events do %>

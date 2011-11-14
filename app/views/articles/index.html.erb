@@ -1,4 +1,4 @@
-<h1>Articles index page</h1>
+<h1 class="admin_header">Articles index page</h1>
 
 <% @church.articles.desc(:date).limit(10).each do |article| %>
 	<div class="index_item page_index_item">
@@ -9,7 +9,7 @@
 		</div>
 		<%= display_permitted_to_link(:edit, :articles, article.title, edit_article_path(@church, article)) %>			
 		<div class='article_categories'>
-			<%= article.display_categories %> | <%= l article.date, :format => :long %>
+			<%= article.category.name %> | <%= l article.date, :format => :long %>
 		</div>
 	</div>
 <% end %>

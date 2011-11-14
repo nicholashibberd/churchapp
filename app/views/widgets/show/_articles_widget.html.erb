@@ -1,1 +1,1 @@
-<%= render 'articles/articles_panel', :articles => widget.category.articles, :category => widget.category %>
+<%= render 'articles/articles_panel', :articles => widget.category.articles.desc(:date), :category => widget.category %>

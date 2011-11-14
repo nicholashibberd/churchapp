@@ -19,6 +19,7 @@ class WidgetsController < ApplicationController
   def edit
     @page = @church.find_page(params[:page_id])
     @widget = @page.find_widget(params[:id])
+    render :layout => false if params[:lightbox]
   end
 
   def create

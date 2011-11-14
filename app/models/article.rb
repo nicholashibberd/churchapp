@@ -8,7 +8,7 @@ class Article
   belongs_to :institution  
   belongs_to :person
   embeds_many :comments
-  has_and_belongs_to_many :categories
+  belongs_to :category
   validates_presence_of :date
   
   def add_comment(params)

@@ -11,7 +11,7 @@ Churchapp::Application.routes.draw do
   match 'download_pdf' => 'widgets#download_pdf', :as => :download_pdf
 
   match "/", :to => 'pages#show', :as => :parish_home
-  match "/(:institution_id)/categories/:category_id", :to => 'categories#category_articles', :as => :category_articles
+  match "/(:institution_id)/cat/:category_id", :to => 'categories#category_articles', :as => :category_articles
   
   scope '/admin/(:institution_id)' do
     resources :nav_items

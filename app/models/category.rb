@@ -4,7 +4,7 @@ class Category
   field :slug
   
   before_create :generate_slug
-  has_and_belongs_to_many  :articles
+  has_many :articles
   
   validates_uniqueness_of :name
   

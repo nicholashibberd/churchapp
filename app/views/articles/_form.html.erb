@@ -10,15 +10,7 @@
 
 <%= form_for(@article, form_path(@article, @church)) do |f| %>
 	<%= f.hidden_field :institution_id, :value => @church.id %>
-	<div class="field">
-	  <%= f.label :categories %><br />
-	  <% Category.all.each do |category| %>
-	    <div>
-	    <%= check_box_tag 'article[category_ids][]', category.id, @article.categories.include?(category) %>
-	    <%= label_tag category.name %>
-	    </div>
-	  <% end %>
-	</div>
+	<%= f.hidden_field :category_id, :value => @category.id %>
 	<div class="field">
 		<%= f.label :title %><br />
 		<%= f.text_field :title %>
@@ -38,9 +30,9 @@
 	<div class="field">
 		<% @article.comments.each do |comment| %>
 			<div class="article_comment">
-				<%= comment.message.html_safe %>
+				<%= comment.content.html_safe %>
 				<div class="comment_name">
-					<%= comment.name %>					
+					<%= comment.author %>					
 				</div>
 				<div class="controls">
 					<%= link_to 'Edit', edit_article_comment_path(@church, @article, comment) %>

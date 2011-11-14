@@ -1,10 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1 class="admin_header"><%= @category.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+<% @articles.desc(:date).each do |article| %>
+	<div class="index_item page_index_item">
+		<div class="controls">
+			<%= link_to 'View', single_article_path(@church.slug, article.id) if permitted_to? :read, :articles %>
+			<%= link_to 'Edit', edit_article_path(@church, article) if permitted_to? :edit, :articles %>			
+			<%= link_to 'Delete', article_path(@church, article), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :articles %>
+		</div>
+		<%= display_permitted_to_link(:edit, :articles, article.title, edit_article_path(@church, article)) %>			
+		<div class='article_categories'>
+			<%= l article.date, :format => :long %>
+		</div>
+	</div>
+<% end %>
 
+<div class="button new_button">
+	<%= link_to "New #{@category.name.singularize}", new_article_path(@church, :category_id => @category.slug) %>
+</div>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>

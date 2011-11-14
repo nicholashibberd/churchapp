@@ -1,8 +1,9 @@
 <% content_for :head do %>
-	<%= javascript_include_tag 'jquery-ui' %>
+	<%= javascript_include_tag 'jquery-ui', 'fancybox/fancybox', 'fancybox/fancybox_web' %>
+	<%= stylesheet_link_tag 'fancybox.css' %>	
 <% end %>
 
-<h1><%= @page.name %></h1>
+<h1 class="admin_header"><%= @page.name %></h1>
 
 <div class="top_right_button button">
 	<%= link_to 'View page', church_page_path(@church, @page) %>

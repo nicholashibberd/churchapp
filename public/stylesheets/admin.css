@@ -33,7 +33,7 @@ body {
 	background: #E2E7EC;
 }
 
-#wrapper {
+#admin_wrapper {
 	margin: auto;
 	width: 960px;
 	position: relative;
@@ -45,11 +45,11 @@ body {
 	position: relative;
 }
 
-.content {
+.admin_content {
 	position: relative;
 }
 
-.content h1 {
+h1.admin_header {
 	margin-bottom: 30px;
 	background: #eee;
 	padding: 20px;
@@ -80,7 +80,7 @@ body {
 }
 
 .spacer {
-	clear: left;
+	clear: both;
 }
 
 /***********************************
@@ -101,6 +101,7 @@ a.admin_home_icon {
 	width: 160px;
 	height: 30px;
 	padding: 20px;
+	font-size: 16px;
 }
 
 /*
@@ -112,8 +113,8 @@ Admin dropdown
 #admin_dropdown_wrapper {
 	position: absolute;
 	z-index: 1;
-	right: 15px;
-	top: 15px;
+	right: 13px;
+	top: 13px;
 }
 
 #admin_dropdown {
@@ -160,23 +161,24 @@ Admin dropdown
 Header
 ***********************************/
 
-#header {
+#admin_header {
 	height: 100px;
 	padding-top: 60px;
 }
 
-#parish_nav {
-	margin-top: 20px;
+#admin_parish_nav {
+	margin-top: 23px;
+	font-size: 16px;	
 }
 
-#parish_nav a {
+#admin_parish_nav a {
 	display: block;
 	float: left;
 	color: #fff;
 	padding: 10px 20px;
 }
 
-#parish_nav a.selected {
+#admin_parish_nav a.selected {
 	color: #000;
 	background-color: #fff;
 }
@@ -361,6 +363,37 @@ Widgets
 	padding-top: 30px;
 	float: right;
 	margin-left: -10px;
+}
+
+#admin_wrapper .widget {
+	border: 5px solid #eee;
+	padding: 10px;
+}
+
+#admin_wrapper .columnRight {
+	background: none;
+	padding: 0;
+	margin-left: 0px;
+}
+
+#admin_wrapper .columnLeft {
+	width: 490px;
+}
+
+.admin_widget_controls {
+	height: 20px;
+	background-color: #eee;
+	padding: 10px 0 0 15px;
+}
+
+.admin_widget_controls a {
+	float: right;
+	padding-right: 20px;
+}
+
+#admin_page_widgets {
+	margin-top: 30px;
+	padding: 20px 0;
 }
 
 /***********************************

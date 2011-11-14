@@ -2,7 +2,7 @@
 	<%= javascript_include_tag 'jquery-ui' %>
 <% end %>
 
-<h1><%= @church.name %> Photos</h1>
+<h1 class="admin_header"><%= @church.name %> Photos</h1>
 
 <div id="sortable_photos">
 	<% @church.photos.asc(:position).each do |photo| %>
