@@ -4,8 +4,10 @@
 	<%= link_to 'Pages', pages_path(@church), :class => 'admin_home_icon' %>
 <% end %>
 
-<% permitted_to? :create, :people do %>
-	<%= link_to 'People', people_path(@church), :class => 'admin_home_icon' %>
+<% display_for_parish_only(@church) do %>
+	<% permitted_to? :create, :people do %>
+		<%= link_to 'People', people_path(@church), :class => 'admin_home_icon' %>
+	<% end %>
 <% end %>
 
 <% permitted_to? :create, :articles do %>
@@ -18,8 +20,10 @@
 	<%= link_to 'Events', events_path(@church), :class => 'admin_home_icon' %>
 <% end %>
 
-<% permitted_to? :create, :photos do %>
-	<%= link_to 'Photos', photos_path(@church), :class => 'admin_home_icon' %>
+<% display_for_parish_only(@church) do %>
+	<% permitted_to? :create, :photos do %>
+		<%= link_to 'Photos', photos_path(@church), :class => 'admin_home_icon' %>
+	<% end %>
 <% end %>
 
 <% permitted_to? :create, :documents do %>
@@ -27,5 +31,9 @@
 <% end %>
 
 <% permitted_to? :create, :nav_menus do %>
-	<%= link_to 'Links', nav_menus_path(@church), :class => 'admin_home_icon' %>
+	<%= link_to 'Links', edit_nav_menu_path(@church, @church.main_nav), :class => 'admin_home_icon' %>
+<% end %>
+
+<% display_for_parish_only(@church) do %>
+	<%= link_to 'Parish Information', parish_information_path, :class => 'admin_home_icon' %>
 <% end %>

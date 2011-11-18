@@ -5,7 +5,10 @@ jQuery(document).ready(function() {
 	*/
 	
 	$("a.fancybox").fancybox({
-		'titleShow'     : false
+		'titleShow'     	: false,
+		'autoDimensions'	: false,
+		'width'						: 850,
+		'height'					: 600
 	});
 		
 

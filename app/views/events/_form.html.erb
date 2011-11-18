@@ -13,10 +13,6 @@
     <%= f.datetime_select :start_time, :default => 24.hours.from_now, :minute_step => 15 %>
   </div>
   <div class="field">
-    <%= f.label :all_day %><br />
-    <%= f.check_box :all_day %>
-  </div>
-  <div class="field">
 	  <%=f.label :period, "Repeats" %>
 	  <%=f.select :period, Event::REPEATS,{}, :onchange => "showPeriodAndFrequency(this.value);" %>
 	</div>
@@ -24,9 +20,13 @@
   	<%=f.label :frequency, "Repeat every" %>
 	  <%=f.select :frequency, (1..30).to_a %> <span id = "period"></span>
 	</div>
+	<div id="position" style="display:none;" class="field">
+  	<%=f.label :position, "Repeat every" %>
+	  <%=f.select :position, ([['First', 0], ['Second', 1], ['Third', 2], ['Fourth', 3], ['Last', -1]]) %> <span id = "period_other"></span>
+	</div>
 	<div class="field" style="display:none;" id="end_date">
     <%= f.label :until %><br />
-    <%= f.datetime_select :end_time, :default => 24.hours.from_now, :minute_step => 15 %>
+    <%= f.datetime_select :end_time, :default => 24.hours.from_now, :minute_step => 10 %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

@@ -272,7 +272,7 @@ input[type=text], input[type=password] {
 }
 
 textarea {
-	width: 500px;
+	width: 430px;
 	height: 200px;
 	background: url(/images/admin/textarea_800_600.png) no-repeat;	
 	border: 1px solid #999;	
@@ -455,6 +455,7 @@ ul#flash_list {
 	background: #3399CC;
 	background: -webkit-gradient(linear, left top, left bottom, from(#85CBF9), to(#3399CC));
 	background: -moz-linear-gradient(top,  #85CBF9,  #3399CC);
+	color: #fff;
 }
 
 .flash_item.error {

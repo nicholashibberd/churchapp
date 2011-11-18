@@ -1,6 +1,8 @@
 class Parish < Institution
+  #include Mongoid::Document  
   field :name
   field :slug
+  field :footer_content
   
   has_many :churches
     

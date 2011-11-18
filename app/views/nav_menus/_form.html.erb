@@ -5,15 +5,6 @@
 <%= form_for(@nav_menu, form_path(@nav_menu, @church)) do |f| %>
 	<%= f.hidden_field :institution_id, :value => @church.id %>
 	
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :menu_type %><br />
-    <%= f.select :menu_type, options_for_select(['custom', 'main_navigation', 'footer'], @nav_menu.menu_type) %>
-  </div>
-	
 	<div class="field" id="sortable_nav_items">
 		<% @nav_menu.nav_items.asc(:position).each do |nav_item| %>
 			<div class="index_nav_item" id="navitem_<%= nav_item.id %>">

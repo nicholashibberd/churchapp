@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  include ChurchesHelper
   layout :choose_layout
   skip_before_filter :login_required, :only => 'show'
   filter_access_to :edit, :attribute_check => true, :load_method => lambda { @church.find_page(params[:id]) }
@@ -8,8 +9,9 @@ class PagesController < ApplicationController
   end
 
   def show
-    page_slug = params[:id] ||= 'welcome'
+    page_slug = on_church_homepage?(request.path, @church) ? 'welcome' : params[:id]
     @page = @church.find_page(page_slug)
+    return page_not_found unless @page
   end
 
   def new

@@ -15,6 +15,7 @@ class Event
   field :all_day
   field :period
   field :frequency
+  field :position  
   field :series_id
   field :category
   
@@ -30,7 +31,14 @@ class Event
               "Daily"          ,
               "Weekly"         ,
               "Monthly"        ,
-              "Yearly"         
+              "Yearly"         ,
+              "Monday"         ,
+              "Tuesday"        ,
+              "Wednesday"      ,
+              "Thursday"       ,
+              "Friday"         ,
+              "Saturday"       ,
+              "Sunday"         ,
   ]
   
   CATEGORIES = [

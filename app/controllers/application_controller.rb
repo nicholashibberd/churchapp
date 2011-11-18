@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
     return false
   end
   
+  def page_not_found
+    render :template => 'errors/page_not_found', :status => 404, :layout => 'application'
+  end
+  
 end

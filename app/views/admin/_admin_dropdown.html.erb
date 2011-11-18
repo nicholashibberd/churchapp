@@ -7,10 +7,14 @@
 	</div>
 	<div id="admin_dropdown_hidden">
 		<%= admin_left_nav_item('Pages', pages_path(@church), :read, :pages) %>
-		<%= admin_left_nav_item('People', people_path(@church), :read, :people) %>
+		<% display_for_parish_only(@church) do %>
+			<%= admin_left_nav_item('People', people_path(@church), :read, :people) %>
+		<% end %>
 		<%= admin_left_nav_item('Articles', articles_path(@church), :read, :articles) %>
 		<%= admin_left_nav_item('Events', events_path(@church), :read, :events) %>
-		<%= admin_left_nav_item('Photos', photos_path(@church), :read, :photos) %>
+		<% display_for_parish_only(@church) do %>
+			<%= admin_left_nav_item('Photos', photos_path(@church), :read, :photos) %>
+		<% end %>
 		<%= admin_left_nav_item('Documents', documents_path(@church), :read, :documents) %>
 		<%= admin_left_nav_item('Links', nav_menus_path(@church), :read, :nav_menus) %>
 		<%= admin_left_nav_item('Messages', messages_path(@church), :read, :messages) %>

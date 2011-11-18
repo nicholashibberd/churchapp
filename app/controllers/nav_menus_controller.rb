@@ -28,7 +28,7 @@ class NavMenusController < ApplicationController
     @nav_menu = NavMenu.find(params[:id])
 
     if @nav_menu.update_attributes(params[:nav_menu])
-      redirect_to(nav_menus_path(@church), :notice => 'Nav menu was successfully updated.')
+      redirect_to(church_admin_path(@church), :notice => 'Nav menu was successfully updated.')
     else
       flash[:error] = "Nav Menu could not be updated"
       render :action => "edit"

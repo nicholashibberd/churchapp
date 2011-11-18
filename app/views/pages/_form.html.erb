@@ -100,7 +100,16 @@
 
 				<div>
 					<% @page.widgets.asc(:position).each do |widget| %>
-						<%= render_widget(@page, 'show', widget) %>
+						<div class="admin_widget_wrapper">
+							<div class="admin_widget_controls">
+								<%= link_to 'Delete', page_widget_path(@church, @page, widget), :confirm => 'Are you sure?', :method => :delete %>								
+								<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget), :class => 'fancybox' %>
+								<%= widget.widget_type.titleize %>								
+							</div>
+							<div class="admin_widget">
+								<%= render_widget(@page, 'show', widget) %>
+							</div>
+						</div>
 					<% end %>
 				</div>
 

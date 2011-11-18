@@ -24,10 +24,47 @@ function showPeriodAndFrequency(value){
             $('#frequency').show();
 						$('#end_date').show();
             break;
+        case 'Monday':
+            $('#period_other').html('Monday in the month');
+            $('#position').show();
+						$('#end_date').show();
+            break;
+        case 'Tuesday':
+            $('#period_other').html('Tuesday in the month');
+            $('#position').show();
+						$('#end_date').show();
+            break;
+        case 'Wednesday':
+            $('#period_other').html('Wednesday in the month');
+            $('#position').show();
+						$('#end_date').show();
+            break;
+        case 'Thursday':
+            $('#period_other').html('Thursday in the month');
+            $('#position').show();
+						$('#end_date').show();
+            break;
+        case 'Friday':
+            $('#period_other').html('Friday in the month');
+            $('#position').show();
+						$('#end_date').show();
+            break;
+        case 'Saturday':
+            $('#period_other').html('Saturday in the month');
+            $('#position').show();
+						$('#end_date').show();
+            break;
+        case 'Sunday':
+            $('#period_other').html('Sunday in the month');
+            $('#position').show();
+						$('#end_date').show();
+            break;
             
         default:
             $('#frequency').hide();
+						$('#position').hide();
 						$('#end_date').hide();
+						
     }
         
 }

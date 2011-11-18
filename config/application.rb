@@ -40,5 +40,6 @@ module Churchapp
     config.filter_parameters += [:password]
     config.rakismet.key = '94ee465f6b44'
     config.rakismet.url = 'http://nicholashibberd.co.uk'
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
