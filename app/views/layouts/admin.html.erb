@@ -3,7 +3,7 @@
 <head>
   <title>Churchapp</title>
   <%= stylesheet_link_tag 'sanderstead', 'admin' %>
-  <%= javascript_include_tag "jquery", "rails", "application", "nested_form" %>
+  <%= javascript_include_tag "jquery", 'jquery-ui-full', "rails", "application", "nested_form" %>
   <%= csrf_meta_tag %>
 	<%= yield :head %>
 </head>
@@ -27,7 +27,6 @@
 		<div id="content_wrapper">
 			<%= render 'layouts/flash', :flash => flash %>			
 			<div id="<%= request[:controller] %>_<%= request[:action] %>_content" class="admin_content">
-				<%= render 'admin/admin_dropdown' if current_user %>				
 				<%= yield %>
 			</div>
 			<div class="spacer"></div>

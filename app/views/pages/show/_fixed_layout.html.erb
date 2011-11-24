@@ -1,0 +1,7 @@
+<div id="show_page_widgets">
+	<% @page.widgets.asc(:position).each do |widget| %>
+		<div class="show_page_widget" id="<%= widget.id %>">
+			<%= render_widget(@page, 'show', widget) %>
+		</div>
+	<% end %>
+</div>

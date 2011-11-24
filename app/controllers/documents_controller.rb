@@ -9,7 +9,7 @@ class DocumentsController < ApplicationController
   end
   
   def edit
-    
+    @document = Document.find(params[:id])
   end
   
   def index
@@ -17,6 +17,16 @@ class DocumentsController < ApplicationController
   end
   
   def create
+    @document = Document.new(params[:document])
+    if @document.save
+      redirect_to documents_path(@document.institution), :notice => "Successfully created document"
+    else
+      flash[:error] = "There was an error creating the document"
+      render :action => 'new'
+    end
+  end
+  
+  def create1
     attachment_param = params[:document]
     new_filename = "test_doc.pdf"
     

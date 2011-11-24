@@ -1,0 +1,7 @@
+<div id="show_page_widgets" style="height: <%= @page.widget_area_height %>px">
+	<% @page.widgets.asc(:position).each do |widget| %>
+		<div class="show_page_widget" id="<%= widget.id %>" style="height: <%= widget.height %>px; width: <%= widget.width %>px; position: absolute; top: <%= widget.top %>px; left: <%= widget.left %>px;">
+			<%= render_widget(@page, 'show', widget) %>
+		</div>
+	<% end %>
+</div>

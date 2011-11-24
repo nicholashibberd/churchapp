@@ -35,7 +35,8 @@ class PagesController < ApplicationController
   def update
     @page = @church.find_page(params[:id])
     if @page.update_attributes(params[:page])
-      redirect_to(pages_path(@church), :notice => 'Page was successfully updated.')
+      redirect_link = params[:page][:content_layout] ? edit_page_path(@church, @page) : pages_path(@church)
+      redirect_to(redirect_link, :notice => 'Page was successfully updated.')
     else
       flash[:error] = "Page could not be updated"
       render :action => "edit"
@@ -53,6 +54,18 @@ class PagesController < ApplicationController
     page.order_widgets(params)
     render :nothing => true
   end  
+  
+  def position_widgets
+    widget = Widget.find(params[:id])
+    widget.update_attributes(params)
+    render :nothing => true    
+  end
+  
+  def set_widget_area_height
+    page = Page.find(params[:id])
+    page.update_attributes(:widget_area_height => params[:height])
+    render :nothing => true
+  end
   
   def choose_layout
     request[:action] == 'show' ? 'application' : 'admin'  

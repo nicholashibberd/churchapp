@@ -46,6 +46,8 @@ Churchapp::Application.routes.draw do
   match "/admin/(:institution_id)", :to => 'admin#church_admin', :as => :church_admin  
   match "/:institution_id", :to => 'pages#show', :as => :church_home  
   match "admin/pages/order_widgets", :to => 'pages#order_widgets', :as => :order_widgets
+  match "admin/pages/position_widgets", :to => 'pages#position_widgets', :as => :position_widgets
+  match "admin/pages/set_widget_area_height", :to => 'pages#set_widget_area_height', :as => :set_widget_area_height
   match "admin/photos/order_photos", :to => 'photos#order_photos', :as => :order_photos
   match "admin/nav_menus/order_nav_items", :to => 'nav_menus#order_nav_items', :as => :order_nav_items
   match "/:institution_id/photos/:id", :to => 'photos#show', :as => :original_photo

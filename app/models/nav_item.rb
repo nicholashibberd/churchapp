@@ -3,6 +3,7 @@ class NavItem
   field :name
   field :target
   field :position
+  field :link_type
   
   belongs_to :page 
   belongs_to :nav_menu

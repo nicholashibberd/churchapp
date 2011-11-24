@@ -6,26 +6,7 @@
 	<%= background_image(@page) %>	
 <% end %>
 
-<% if !@page.widgets_by_column('left').empty? && !@page.widgets_by_column('right').empty? %>
+<%= link_to 'Download PDF', download_pdf_path %>
+<!--<iframe src="/system/pdfs/4ece52186c97d95178000011/original/the_ivy_floor_plan.pdf" width="60%" height="400px"></iframe>-->
 
-	<div class="columnRight">
-		<% @page.widgets_by_column('right').each do |widget| %>
-			<%= render_widget(@page, 'show', widget) %>
-		<% end %>
-	</div>
-
-	<div class="columnLeft">
-		<% @page.widgets_by_column('left').each do |widget| %>
-			<%= render_widget(@page, 'show', widget) %>
-		<% end %>
-	</div>
-
-<% else %>
-
-	<div>
-		<% @page.widgets.asc(:position).each do |widget| %>
-			<%= render_widget(@page, 'show', widget) %>
-		<% end %>
-	</div>
-
-<% end %>
+<%= fluid_or_fixed_layout(@page, 'show') %>

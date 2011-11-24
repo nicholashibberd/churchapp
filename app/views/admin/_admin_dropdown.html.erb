@@ -1,23 +1,33 @@
-<div id="admin_dropdown_wrapper">
-	<div id="admin_dropdown">
-	  Admin
-		<div id="admin_dropdown_arrow">
-			<%= image_tag 'admin/admin_dropdown_arrow.gif' %>
-		</div>
-	</div>
-	<div id="admin_dropdown_hidden">
-		<%= admin_left_nav_item('Pages', pages_path(@church), :read, :pages) %>
-		<% display_for_parish_only(@church) do %>
-			<%= admin_left_nav_item('People', people_path(@church), :read, :people) %>
+<div class="admin_parish_nav_item" id="<%= church.slug %>">
+	  <%= if church == @church
+      link_to church.name, church_admin_path(church), :class => 'admin_parish_nav_item_header selected', :id => church.slug
+    else
+      link_to church.name, church_admin_path(church), :class => 'admin_parish_nav_item_header', :id => church.slug
+    end
+     %>
+	<div class="admin_dropdown_hidden" id="admin_dropdown_hidden_<%= church.slug %>">
+		<%= admin_left_nav_item('Pages', pages_path(church), :read, :pages) %>
+		
+		<% display_for_parish_only(church) do %>
+			<%= admin_left_nav_item('People', people_path(church), :read, :people) %>
 		<% end %>
-		<%= admin_left_nav_item('Articles', articles_path(@church), :read, :articles) %>
-		<%= admin_left_nav_item('Events', events_path(@church), :read, :events) %>
-		<% display_for_parish_only(@church) do %>
-			<%= admin_left_nav_item('Photos', photos_path(@church), :read, :photos) %>
+		
+		<% Category.all.each do |category| %>
+			<%= admin_left_nav_item(category.name, category_path(church, category), :read, :articles) %>
 		<% end %>
-		<%= admin_left_nav_item('Documents', documents_path(@church), :read, :documents) %>
-		<%= admin_left_nav_item('Links', nav_menus_path(@church), :read, :nav_menus) %>
-		<%= admin_left_nav_item('Messages', messages_path(@church), :read, :messages) %>
-		<%= admin_left_nav_item('Site Admins', users_path(@church), :read, :users) %>
+		
+		<%= admin_left_nav_item('Events', events_path(church), :read, :events) %>
+		
+		<% display_for_parish_only(church) do %>
+			<%= admin_left_nav_item('Photos', photos_path(church), :read, :photos) %>
+		<% end %>
+		
+		<%= admin_left_nav_item('Documents', documents_path(church), :read, :documents) %>
+		
+		<%= admin_left_nav_item('Links', edit_nav_menu_path(church, church.main_nav), :read, :nav_menus) %>
+		
+		<%= admin_left_nav_item('Messages', messages_path(church), :read, :messages) %>
+		
+		<%= admin_left_nav_item('Site Admins', users_path(church), :read, :users) %>
 	</div>
 </div>

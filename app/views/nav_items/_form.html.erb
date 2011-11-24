@@ -5,9 +5,13 @@
     <%= f.text_field :name %>
   </div>
 	<div class="field">
+	    <%= f.label :link_type %><br />
+			<%= f.radio_button :link_type , 'internal_link', {:onchange => "checkForLinkType(this.value)"} %> Internal Link<br />
+			<%= f.radio_button 'link_type', 'external_link', {:onchange => "checkForLinkType(this.value)"} %> External Link
+	</div>
+	<div class="field" id="internal_link_field">
     <%= f.label :page %><br />
-		<%=f.select :page_id, options_from_collection_for_select(@church.pages, :id, :name, @nav_item.page_id),{:include_blank => 'External Link'}, :onchange => "checkForExternalLink(this.value);" %>
-		<%#=f.select :page_id, Event::REPEATS,{:include_blank => 'External Links'}, :onchange => "showPeriodAndFrequency(this.value);" %>
+		<%=f.select :page_id, options_from_collection_for_select(@church.pages, :id, :name, @nav_item.page_id), {:include_blank => true} %>
   </div>
   <div class="field" id="external_link_field">
     <%= f.label :target %><br />

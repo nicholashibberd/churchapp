@@ -40,7 +40,7 @@ body {
 }
 
 #content_wrapper {
-	padding: 30px;
+	padding: 25px;
 	background-color: #fff;
 	position: relative;
 }
@@ -49,7 +49,7 @@ body {
 	position: relative;
 }
 
-h1.admin_header {
+.admin_header {
 	margin-bottom: 30px;
 	background: #eee;
 	padding: 20px;
@@ -110,51 +110,55 @@ Admin dropdown
 ***************************************************
 */
 
-#admin_dropdown_wrapper {
+a.admin_parish_nav_item_header.selected {
+	color: #000;
+	background-color: #fff;
+}
+
+.admin_parish_nav_item {
+	float: left;
+	color: #fff;
+	position: relative;
+	float: left;
+	margin-right: 10px;
+}
+
+.admin_parish_nav_item a {
+	display: block;
+	padding: 13px 20px;
+}
+
+.admin_parish_nav_item:hover {
+	background: #fff;
+	color: #000;
+}
+
+.admin_dropdown_hidden {
+	background: #eee url(/images/admin/group_dropdown.jpg) repeat-x;					
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#d8d8d8));
+	background: -moz-linear-gradient(top,  #FFF,  #d8d8d8);	
+	width: 240px;
 	position: absolute;
 	z-index: 1;
-	right: 13px;
-	top: 13px;
+	top: 41px;
 }
 
-#admin_dropdown {
-	cursor: pointer;
-	font-size: 20px;
-	padding: 10px 20px;	
-	background: #d8d8d8 url(/images/admin/group_dropdown.jpg) repeat-x;				
-	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#d8d8d8));
-	background: -moz-linear-gradient(top,  #FFF,  #d8d8d8);
-	border: 1px solid #d8d8d8;
-	width: 200px;
-	color: #1F5F8B;
-	position: relative;
-}
-
-#admin_dropdown_hidden {
-	background: #d8d8d8 url(/images/admin/group_dropdown.jpg) repeat-x;					
-	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#d8d8d8));
-	background: -moz-linear-gradient(top,  #FFF,  #d8d8d8);
-	border: 1px solid #d8d8d8;
-	width: 240px;
-}
-
-#admin_dropdown_hidden a {
+.admin_dropdown_hidden a {
 	display: block;
 	width: 200px;
 	padding: 10px 20px;	
 	color: #1F5F8B;	
 }
 
-#admin_dropdown_hidden a:hover {
-	background-color: #ccc;
+.admin_dropdown_hidden a:hover {
+	background-color: #eee;
 }
 
-#admin_dropdown_arrow {
+.admin_dropdown_arrow {
 	position: absolute;
 	right: 10px;
 	top: 8px;
 }
-
 
 
 /***********************************
@@ -167,20 +171,9 @@ Header
 }
 
 #admin_parish_nav {
-	margin-top: 23px;
+	margin-top: 20px;
 	font-size: 16px;	
-}
-
-#admin_parish_nav a {
-	display: block;
-	float: left;
-	color: #fff;
-	padding: 10px 20px;
-}
-
-#admin_parish_nav a.selected {
-	color: #000;
-	background-color: #fff;
+	padding-left: 10px;
 }
 
 #user_status {
@@ -229,6 +222,23 @@ Buttons
 	background: -moz-linear-gradient(top,  #85CBF9,  #3399CC);	
 }
 
+.delete_button a {
+	background: #CC0000;
+	background: -webkit-gradient(linear, left top, left bottom, from(#BF5E5E), to(#CC0000));
+	background: -moz-linear-gradient(top,  #BF5E5E,  #CC0000);
+}
+
+.delete_button.lightbox a {
+	margin-bottom: 30px;
+}
+
+.grey_button a {
+	background: #DEE1E5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F7F8), to(#DEE1E5));
+	background: -moz-linear-gradient(top,  #F5F7F8,  #DEE1E5);
+	color: #000;	
+}
+
 .button.inline {
 	float: left;
 	margin-right: 20px;
@@ -247,8 +257,8 @@ a#add_new_marker {
 
 .top_right_button {
 	position: absolute;
-	top: 75px;
-	right: 0px;
+	top: -2px;
+	right: 15px;
 }
 
 .top_right_button a {
@@ -272,10 +282,14 @@ input[type=text], input[type=password] {
 }
 
 textarea {
-	width: 430px;
+	width: 800px;
 	height: 200px;
 	background: url(/images/admin/textarea_800_600.png) no-repeat;	
 	border: 1px solid #999;	
+}
+
+.contact_form_widget textarea {
+	width: 480px;
 }
 
 .field, .fields {
@@ -365,35 +379,80 @@ Widgets
 	margin-left: -10px;
 }
 
-#admin_wrapper .widget {
-	border: 5px solid #eee;
+.admin_widget {
+	background-color: #FaFaFa;
+	box-shadow: 1px 1px 5px #888888;
 	padding: 10px;
+	position: relative;
+	overflow: hidden;
 }
 
-#admin_wrapper .columnRight {
-	background: none;
-	padding: 0;
-	margin-left: 0px;
+.admin_widget:hover {
+	cursor: move;
 }
 
-#admin_wrapper .columnLeft {
-	width: 490px;
+.admin_widget_fixed {
+	margin-bottom: 20px;
 }
 
-.admin_widget_controls {
+a.admin_page_widget_edit_button {
 	height: 20px;
-	background-color: #eee;
-	padding: 10px 0 0 15px;
+	background: #DEE1E5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F7F8), to(#DEE1E5));
+	background: -moz-linear-gradient(top,  #F5F7F8,  #DEE1E5);
+	color: #000;	
+	padding: 7px 10px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }
 
 .admin_widget_controls a {
 	float: right;
-	padding-right: 20px;
+	margin-left: 15px;
 }
 
-#admin_page_widgets {
+.admin_page_widgets {
 	margin-top: 30px;
-	padding: 20px 0;
+	border: 5px solid #ccc;	
+	background: #eee;	
+}
+
+#admin_page_widgets_fluid {
+	position: relative;
+	min-height: 300px;
+}
+
+#loadingIcon {
+	height: 500px;
+	width: 500px;
+	background: red;
+}
+
+#add_widgets_section {
+	background: #ccc;
+	padding: 0 20px 10px 20px;
+	margin-bottom: 30px;	
+}
+
+.admin_page_background_image_item {
+	float: left;
+	margin: 0 50px 20px 0;
+	position: relative;
+}
+
+.admin_page_background_image_item_checkbox {
+	position: absolute;
+	right: -20px;
+	top: 20px;
+}
+
+#admin_edit_page_submit_button {
+	margin-bottom: 30px;
+}
+
+#fancybox-outer {
+	padding: 20px;
 }
 
 /***********************************

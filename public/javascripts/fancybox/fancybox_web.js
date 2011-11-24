@@ -6,10 +6,10 @@ jQuery(document).ready(function() {
 	
 	$("a.fancybox").fancybox({
 		'titleShow'     	: false,
-		'autoDimensions'	: false,
-		'width'						: 850,
-		'height'					: 600
+		'autoDimensions'	: true,
 	});
+	
+	
 		
 
 });

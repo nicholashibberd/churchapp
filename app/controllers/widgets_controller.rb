@@ -14,6 +14,7 @@ class WidgetsController < ApplicationController
     @widget_class = params[:widget_type].classify.constantize
     @widget = @widget_class.new
     3.times { @widget.map_markers.build } if @widget.is_a?(MapWidget)
+    render :layout => false if params[:lightbox]    
   end
 
   def edit
@@ -43,7 +44,7 @@ class WidgetsController < ApplicationController
   end
   
   def download_pdf 
-    return send_file Rails.root.join("public", "pdf", "sanderstead", "making_space27jan11.pdf"), :type => "application/pdf", :filename => "making_space.pdf"
+    return send_file Rails.root.join("public", "pdf", "sanderstead", "making_space27jan11.pdf"), :type => "application/pdf", :filename => "making_space.pdf", :disposition => 'inline'
   end
   
 end

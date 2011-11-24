@@ -1,0 +1,29 @@
+<% content_for :head do %>
+<script type="text/javascript">
+		$(function() {
+			$('#admin_page_widgets_fixed').sortable(
+				{
+		   	 dropOnEmpty:true, 
+		     items: 'div.admin_widget',
+		     scroll: true,
+		     update: function(){
+		        $.ajax({
+		        	type: 'post', 
+		        	data: $('#admin_page_widgets_fixed').sortable('serialize') + '&id=<%= @page.id-%>',
+		          dataType: 'script', 
+		          url: '/admin/pages/order_widgets'})
+		      }
+			})
+		});	
+</script>
+<% end %>
+
+
+<div class="admin_page_widgets" id="admin_page_widgets_fixed">
+	<% @page.widgets.asc(:position).each do |widget| %>
+		<div class="admin_widget admin_widget_fixed" id="widget_<%= widget.id %>">
+				<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget), :class => 'fancybox admin_page_widget_edit_button grey_button' %>					
+			<%= render_widget(@page, 'show', widget) %>
+		</div>
+	<% end %>
+</div>

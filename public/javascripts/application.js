@@ -69,18 +69,35 @@ function showPeriodAndFrequency(value){
         
 }
 
-function checkForExternalLink(value){
-	
+function checkForExternalLink(value){	
 	if (value == '') {
 		$('#external_link_field').show();
 	}
-
 	else {
 		$('#external_link_field').hide();
-	}
-        
+	}     
 }
 
+function checkForLinkType(value){
+	if (value == 'internal_link') {
+		$('#internal_link_field').show();
+		$('#external_link_field').hide();
+	}
+	else {
+		$('#external_link_field').show();
+		$('#internal_link_field').hide();
+	}
+}
+
+$(function($) {
+	var status = $('#nav_item_link_type_internal_link').attr("checked");
+	if (status == true) {
+			$('#external_link_field').hide();
+	}
+	else {
+			$('#internal_link_field').hide();
+	}
+})
 
 function assignColumnName(){
 	$('.edit_widget').each(function() {
@@ -101,10 +118,18 @@ function modifyLightboxLinks(){
 	});
 }
 
-jQuery(document).ready(function($) {
-	$('#admin_dropdown_hidden').hide();
-	$('#admin_dropdown').click(function() {
-	  $('#admin_dropdown_hidden').slideToggle( 200 );
+$(function($) { 
+	
+	$('.admin_dropdown_hidden').hide();
+	
+	$('.admin_parish_nav_item').mouseenter(function() {
+		var dropdownId = $(this).attr("id");
+	  $('#admin_dropdown_hidden_' + dropdownId).show();
+	});
+
+	$('.admin_parish_nav_item').mouseleave(function() {
+		var dropdownId = $(this).attr("id");
+	  $('#admin_dropdown_hidden_' + dropdownId).hide();
 	});
 	
 	modifyLightboxLinks();

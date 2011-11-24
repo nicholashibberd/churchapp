@@ -5,6 +5,8 @@ class Page
   field :name, :type => String
   field :slug, :type => String
   field :title, :type => String
+  field :widget_area_height, :type => Integer
+  field :content_layout, :default => 'fixed'
   
   belongs_to :institution
   has_many :widgets
@@ -16,6 +18,8 @@ class Page
   validates_uniqueness_of :name, :scope => :institution_id
   
   before_create :generate_slug
+  before_save :set_fluid_layout  
+  before_save :set_widget_area_height
     
   def generate_slug
     self.slug = name.gsub("'", "").parameterize
@@ -48,14 +52,6 @@ class Page
     end
   end
 
-  def order_dishes
-    dishes.each do |dish|
-      dish.position = params['dish'].index(dish.id.to_s) + 1
-      dish.save
-    end
-    render :nothing => true
-  end
-  
   def max_widget_number
     widgets_with_ids = widgets.select {|widget| !widget.css_id.nil?}
     widget_numbers = widgets_with_ids.map {|widget| widget.css_id.gsub("#{widget.widget_type}_", "")}
@@ -70,6 +66,23 @@ class Page
     existing_widgets = widgets.select {|widget| !widget.position.nil?}
     current_highest = existing_widgets.map(&:position).max
     current_highest ||= 0
+  end
+  
+  def set_widget_area_height
+    unless content_layout == 'fixed'
+      #raise widgets.map {|widget| widget.top.to_i + widget.height.to_i}.inspect
+      max_height = widgets.map {|widget| widget.top.to_i + widget.height.to_i}.max
+      self.widget_area_height = max_height + 50
+    end
+  end
+  
+  def set_fluid_layout
+    return unless self.content_layout_changed? && self.content_layout == 'fluid'
+    widgets.each_with_index do |widget, index|
+      top = index * 190
+      widget.update_attributes(:width => 880, :height => 150, :top => top, :left => 0)
+    end
+    
   end
   
 end

@@ -1,5 +1,5 @@
 <div id="admin_parish_nav">
-	<%= admin_parish_nav_item %>
+	<%= admin_nav_item(@parish) %>
 	<% @parish.churches.each do |church| %>
 		<%= admin_nav_item(church) %>
 	<% end %>

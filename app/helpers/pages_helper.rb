@@ -15,4 +15,10 @@ module PagesHelper
     end
   end
   
+  def fluid_or_fixed_layout(page, action)
+    partial = page.content_layout == 'fluid' ? "pages/#{action}/fluid_layout" : "pages/#{action}/fixed_layout"
+      render partial, :page => page
+      
+  end
+  
 end

@@ -1,6 +1,6 @@
 <% content_for :head do %>
-	<%= javascript_include_tag 'jquery-ui', 'fancybox/fancybox', 'fancybox/fancybox_web', "ckeditor/ckeditor.js" %>
-	<%= stylesheet_link_tag 'fancybox.css' %>	
+	<%= javascript_include_tag 'fancybox/fancybox', 'fancybox/fancybox_web', "ckeditor/ckeditor.js" %>
+	<%= stylesheet_link_tag 'fancybox.css', 'jquery-ui.css' %>	
 <% end %>
 
 <h1 class="admin_header"><%= @page.name %></h1>
@@ -11,62 +11,44 @@
 
 <%= render 'form' %>
 
-<div class="button new_button inline">
-	<%= link_to 'Add Text', new_page_widget_path(@church, @page, :widget_type => 'content_widget') %>
-</div>
-<div class="button new_button inline">
-	<%= link_to 'Add Map', new_page_widget_path(@church, @page, :widget_type => 'map_widget') %>
-</div>
-<div class="button new_button inline">
-	<%= link_to 'Add Events', new_page_widget_path(@church, @page, :widget_type => 'events_widget') %>
-</div>
-<div class="button new_button inline">
-	<%= link_to 'Add Calendar', new_page_widget_path(@church, @page, :widget_type => 'calendar_widget') %>
-</div>
-<div class="button new_button inline">
-	<%= link_to 'Add Profile', new_page_widget_path(@church, @page, :widget_type => 'profile_widget') %>
-</div>
-<div class="button new_button inline">
-	<%= link_to 'Add Gallery', new_page_widget_path(@church, @page, :widget_type => 'gallery_widget') %>
-</div>
-<div class="button new_button inline">
-	<%= link_to 'Add Articles', new_page_widget_path(@church, @page, :widget_type => 'articles_widget') %>
-</div>
-<div class="button new_button inline">
-	<%= link_to 'Add Contact Form', new_page_widget_path(@church, @page, :widget_type => 'contact_form_widget') %>
-</div>
-<div class="button new_button inline">
-	<%= link_to 'Add PDF', new_page_widget_path(@church, @page, :widget_type => 'pdf_widget') %>
-</div>
-
-<%= javascript_tag do %>
-     $('#columnLeft').sortable(
-	    {
-         connectWith: ".connectedSortable",
-		   	 dropOnEmpty:true, 
-	       items: 'div.edit_widget',
-	       scroll: true,
-         update: function(){
-           $.ajax({
-           	 type: 'post', 
-             data: $('#columnLeft').sortable('serialize') + '&id=<%= @page.id-%>' + '&column=left',
-             dataType: 'script', 
-             url: '/admin/pages/order_widgets'})
-         }	
-			})
-
-     $('#columnRight').sortable(
-	    {
-         connectWith: ".connectedSortable",
-		   	 dropOnEmpty:true, 
-	       items: 'div.edit_widget',
-	       scroll: true,
-         update: function(){
-           $.ajax({
-           	 type: 'post', 
-             data: $('#columnRight').sortable('serialize') + '&id=<%= @page.id-%>' + '&column=right',
-             dataType: 'script', 
-             url: '/admin/pages/order_widgets'})
-         }	
-			})
-<% end %>
+<h2 class="admin_header">Page Content</h2>
+		<div id="admin_edit_page_layout">
+		  <%= form_for(@page, form_path(@page, @church)) do |f| -%>
+				<%= f.radio_button :content_layout, :fixed %> <%= f.label :fixed_layout %>
+				<%= f.radio_button :content_layout, :fluid %> <%= f.label :fluid_layout %>
+				<%= f.submit :Update_layout %>
+		  <% end -%>
+		</div>
+		
+		<%= fluid_or_fixed_layout(@page, 'edit') %>
+		
+		<div id="add_widgets_section">
+			<div class="button inline grey_button">
+				<%= link_to 'Text', new_page_widget_path(@church, @page, :widget_type => 'content_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">				
+				<%= link_to 'Map', new_page_widget_path(@church, @page, :widget_type => 'map_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">
+				<%= link_to 'Events', new_page_widget_path(@church, @page, :widget_type => 'events_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">				
+				<%= link_to 'Calendar', new_page_widget_path(@church, @page, :widget_type => 'calendar_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">				
+				<%= link_to 'Profile', new_page_widget_path(@church, @page, :widget_type => 'profile_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">				
+				<%= link_to 'Gallery', new_page_widget_path(@church, @page, :widget_type => 'gallery_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">				
+				<%= link_to 'Articles', new_page_widget_path(@church, @page, :widget_type => 'articles_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">				
+				<%= link_to 'Contact Form', new_page_widget_path(@church, @page, :widget_type => 'contact_form_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">				
+				<%= link_to 'PDF', new_page_widget_path(@church, @page, :widget_type => 'pdf_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="spacer"></div>
+		</div>
