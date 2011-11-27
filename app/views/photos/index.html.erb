@@ -23,6 +23,24 @@
 	<%= link_to 'New Photo', new_photo_path(@church) %>
 </div>
 
+<h2 class="admin_header"><%= @church.name %> Background Images</h2>
+<% @church.background_images.each do |background_image| %>
+  <div class="index_item photo_index_item">
+		<div class="controls">
+			<%= link_to 'Edit', edit_background_image_path(@church, background_image) if permitted_to? :edit, :background_images %>
+			<%= link_to 'Delete', background_image_path(@church, background_image), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :background_images %>
+		</div>
+		<div class="photos_index_image">
+			<%= image_tag background_image.image.url(:preview) %>
+		</div>
+  </div>
+<% end %>
+
+<div class="button new_button">
+	<%= link_to 'New Background Image', new_background_image_path(@church) %>
+</div>
+
+
 <%= javascript_tag do %>
      $('#sortable_photos').sortable(
 	    {

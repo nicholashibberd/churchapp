@@ -1,6 +1,6 @@
 authorization do
   role :administrator do
-    has_permission_on [:pages, :people, :articles, :events, :photos, :nav_menus, :messages, :users, :documents], :to => :manage
+    has_permission_on [:pages, :people, :articles, :events, :photos, :nav_menus, :messages, :users, :documents, :background_images], :to => :manage
   end
   
   role :author do    
@@ -8,7 +8,7 @@ authorization do
   end  
     
   role :read_only do
-    has_permission_on [:pages, :people, :articles, :events, :photos, :nav_menus, :messages, :users, :documents], :to => :read
+    has_permission_on [:pages, :people, :articles, :events, :photos, :nav_menus, :messages, :users, :documents, :background_images], :to => :read
   end
 end
 
