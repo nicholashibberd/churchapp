@@ -4,7 +4,7 @@
 		<h2><%= link_to article.title, single_article_path(@church, article) %></h2>
 	</div>
 	<div class="article_content">
-		<%= article.content.html_safe %>
+		<%= truncate_html article.content, :length => snippet_size, :omission => link_to(' ...(read more)', single_article_path(@church, article)) %>
 	</div>
 	<div class="article_details">
 		<div class="article_author">

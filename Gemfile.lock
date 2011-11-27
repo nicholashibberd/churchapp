@@ -144,6 +144,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    truncate_html (0.5.1)
     tzinfo (0.3.29)
     webrat (0.7.3)
       nokogiri (>= 1.2.0)
@@ -175,4 +176,5 @@ DEPENDENCIES
   rspec-rails
   ruby-debug
   sqlite3
+  truncate_html
   webrat

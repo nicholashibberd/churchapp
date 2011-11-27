@@ -18,6 +18,7 @@ gem 'declarative_authorization'
 gem 'ruby-debug'
 gem 'rakismet', '>= 1.0.0'
 gem 'ckeditor'
+gem "truncate_html"
 
 gem "nested_form"
 # end
