@@ -1,23 +1,21 @@
-<h1 class="admin_header">Listing messages</h1>
+<h1 class="admin_header">Messages</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Message</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @messages.each do |message| %>
-  <tr>
-    <td><%= message.name %></td>
-    <td><%= message.email %></td>
-    <td><%= message.phone %></td>
-    <td><%= message.message %></td>
-    <td><%= link_to 'Edit', edit_message_path(@church, message) %></td>
-    <td><%= link_to 'Destroy', message_path(@church, message), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% @church.messages.each do |message| %>
+	<div class="index_item page_index_item">
+		<div class="controls">
+			<%= link_to 'Delete', message_path(@church, message), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :messages %>
+		</div>
+		<%= message.message %>
+		<div class="message_details">
+			<div class="message_details_item">
+				Name: <%= message.name %>
+			</div>
+			<div class="message_details_item">
+				Email: <%= message.email %>
+			</div>
+			<div class="message_details_item">
+				Phone: <%= message.phone %>
+			</div>
+		</div>
+	</div>
 <% end %>
-</table>

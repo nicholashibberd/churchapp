@@ -18,7 +18,8 @@ class DocumentsController < ApplicationController
   
   def show
     @document = Document.find(params[:id])
-    return send_file @document.pdf.path, :type => "application/pdf", :filename => "making_space.pdf", :disposition => 'inline'
+    #raise @document.pdf.path.inspect
+    return send_file @document.pdf.path(:original), :type => "application/pdf", :filename => "making_space.pdf", :disposition => 'inline'
   end
   
   def create
