@@ -30,9 +30,10 @@
 			<%= link_to 'Edit', edit_background_image_path(@church, background_image) if permitted_to? :edit, :background_images %>
 			<%= link_to 'Delete', background_image_path(@church, background_image), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :background_images %>
 		</div>
-		<div class="photos_index_image">
+		<div class="background_image_index_image">
 			<%= image_tag background_image.image.url(:preview) %>
 		</div>
+		<%= background_image.name %>
   </div>
 <% end %>
 

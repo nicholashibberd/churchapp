@@ -4,6 +4,7 @@
 	<% @church.documents.each do |document| %>
 		<div class="index_item document_index_item" id="document_<%= document.id %>">
 			<div class="controls">
+				<%= link_to 'View', document_path(@church, document) if permitted_to? :read, :documents %>
 				<%= link_to 'Edit', edit_document_path(@church, document) if permitted_to? :edit, :documents %>
 				<%= link_to 'Delete', document_path(@church, document), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :documents %>
 			</div>
