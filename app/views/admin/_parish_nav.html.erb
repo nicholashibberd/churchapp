@@ -1,6 +1,6 @@
-<div id="admin_parish_nav">
-	<%= admin_nav_item(@parish) %>
-	<% @parish.churches.each do |church| %>
+<div id="admin_parish_nav">	
+	<%= admin_nav_item(@root) %>
+	<% @root.churches.each do |church| %>
 		<%= admin_nav_item(church) %>
 	<% end %>
 </div>

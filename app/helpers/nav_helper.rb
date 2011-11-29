@@ -1,7 +1,7 @@
 module NavHelper
   
   def nav_link(nav_item)
-    link_target = nav_item.page ? church_page_path(@church, nav_item.page) : nav_item.target
+    link_target = nav_item.page ? church_page_path(@institution, nav_item.page) : nav_item.target
     if nav_item.page == @page
       link_to nav_item.name, link_target, :class => 'selected'
     else
@@ -9,19 +9,19 @@ module NavHelper
     end
   end
   
-  def parish_nav_item(church)
-    unless church == @church
-      link_to church.name, church_home_path(church)
+  def parish_nav_item(institution)
+    unless institution == @institution
+      link_to institution.name, church_home_path(institution)
     end
   end
   
-  def admin_nav_item(church)
-    return nil unless access_to_institution?(church)    
-	  render 'admin/admin_dropdown', :church => church
+  def admin_nav_item(institution)
+    return nil unless access_to_institution?(institution)    
+	  render 'admin/admin_dropdown', :institution => institution
   end
 
   def admin_left_nav
-    unless request[:action] == 'church_admin'
+    unless request[:action] == 'institution_admin'
       render 'admin/left_nav' if current_user
     end
   end

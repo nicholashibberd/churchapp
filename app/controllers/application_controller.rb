@@ -1,14 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :setup_site, :login_required
+
+  include ApplicationHelper
   include UsersHelper
   
   def setup_site
-    @site = Site.where(:domain => request.domain(2)).first    
+    @site = Site.where(:domain => request.domain(2)).first
     @site ||= Site.first
-    
-    @church = @site.find_institution(params[:institution_id])
-    @parish = @church.is_a?(Parish) ? @church : @church.parish
+
+    @institution = @site.find_institution(params[:institution_id])    
+    @root = @site.root
   end
   
   def church
@@ -26,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
   
   def page_not_found
-    render :template => 'errors/page_not_found', :status => 404, :layout => 'application'
+    render :template => 'errors/page_not_found', :status => 404, :layout => default_layout
   end
-  
+    
 end

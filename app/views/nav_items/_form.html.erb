@@ -11,7 +11,7 @@
 	</div>
 	<div class="field" id="internal_link_field">
     <%= f.label :page %><br />
-		<%=f.select :page_id, options_from_collection_for_select(@church.pages, :id, :name, @nav_item.page_id), {:include_blank => true} %>
+		<%=f.select :page_id, options_from_collection_for_select(@institution.pages, :id, :name, @nav_item.page_id), {:include_blank => true} %>
   </div>
   <div class="field" id="external_link_field">
     <%= f.label :target %><br />

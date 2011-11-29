@@ -17,19 +17,19 @@ describe ArticlesController do
     end
   
     it "should block the edit page" do
-      get 'edit', :church_id => @church.slug, :id => @article.id
+      get 'edit', :church_id => @institution.slug, :id => @article.id
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
 
     it "should block the new page" do
-      get 'new', :church_id => @church.slug
+      get 'new', :church_id => @institution.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
     
     it "should block the index page" do
-      get 'index', :church_id => @church.slug
+      get 'index', :church_id => @institution.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
@@ -42,21 +42,21 @@ describe ArticlesController do
       setup_site
       @request.host = 'www.example.com'
       controller.stub!(:signed_in?).and_return true
-      @article = Factory(:article, :church_id => @church.id)
+      @article = Factory(:article, :church_id => @institution.id)
     end
   
     it "should allow the show page" do
-      get 'show', :church_id => @church.slug, :id => @article.id
+      get 'show', :church_id => @institution.slug, :id => @article.id
       response.should be_success
     end
 
     it "should allow the edit page" do
-      get 'edit', :church_id => @church.slug, :id => @article.id
+      get 'edit', :church_id => @institution.slug, :id => @article.id
       response.should be_success
     end
 
     it "should allow the new page" do
-      get 'new', :church_id => @church.slug
+      get 'new', :church_id => @institution.slug
       response.should be_success
     end
 
@@ -80,26 +80,26 @@ describe ArticlesController do
     
     it "should correctly redirect and decrease the article count when deleting an article" do
       lambda do
-        delete 'destroy', :church_id => @church.slug, :id => @article.id
+        delete 'destroy', :church_id => @institution.slug, :id => @article.id
         response.should be_redirect
-        response.location.should include articles_path(@church)
+        response.location.should include articles_path(@institution)
       end.should change(Article, :count).by(-1)
     end
     
     it "should handle the update of an article" do
       Article.should_receive(:find).and_return(@article)
-      Church.should_receive(:find).and_return @church
+      Church.should_receive(:find).and_return @institution
       @article.should_receive(:update_attributes).and_return true
-      put 'update', :id => @article.id, :church_id => @church.slug, :article => Factory.attributes_for(:article)
+      put 'update', :id => @article.id, :church_id => @institution.slug, :article => Factory.attributes_for(:article)
       response.should be_redirect
-      response.location.should include articles_path(@church)
+      response.location.should include articles_path(@institution)
     end
 
     it "should display an error message and render the edit action if article is not valid on update" do
       Article.should_receive(:find).and_return @article
-      Church.should_receive(:find).and_return @church      
+      Church.should_receive(:find).and_return @institution      
       @article.should_receive(:update_attributes).and_return(false)
-      put 'update', :id => @article.id, :church_id => @church.slug, :article => Factory.attributes_for(:article)
+      put 'update', :id => @article.id, :church_id => @institution.slug, :article => Factory.attributes_for(:article)
       flash[:error].should == 'There was an error updating the article'
       response.should render_template('edit')
     end

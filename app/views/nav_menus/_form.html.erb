@@ -2,17 +2,17 @@
 	<%= javascript_include_tag 'jquery-ui' %>
 <% end %>
 
-<%= form_for(@nav_menu, form_path(@nav_menu, @church)) do |f| %>
-	<%= f.hidden_field :institution_id, :value => @church.id %>
+<%= form_for(@nav_menu, form_path(@nav_menu, @institution)) do |f| %>
+	<%= f.hidden_field :institution_id, :value => @institution.id %>
 	
 	<div class="field" id="sortable_nav_items">
 		<% @nav_menu.nav_items.asc(:position).each do |nav_item| %>
 			<div class="index_nav_item" id="navitem_<%= nav_item.id %>">
 				<div class="controls">
-				  <%= link_to 'Edit', edit_nav_menu_nav_item_path(@church, @nav_menu, nav_item) %>
-				  <%= link_to 'Delete', nav_menu_nav_item_path(@church, @nav_menu, nav_item), :confirm => 'Are you sure?', :method => :delete %>
+				  <%= link_to 'Edit', edit_nav_menu_nav_item_path(@institution, @nav_menu, nav_item) %>
+				  <%= link_to 'Delete', nav_menu_nav_item_path(@institution, @nav_menu, nav_item), :confirm => 'Are you sure?', :method => :delete %>
 				</div>
-				<%= link_to nav_item.name, edit_nav_menu_nav_item_path(@church, @nav_menu, nav_item) %>
+				<%= link_to nav_item.name, edit_nav_menu_nav_item_path(@institution, @nav_menu, nav_item) %>
 			</div>
 		<% end %>
 	</div>

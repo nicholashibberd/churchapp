@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   skip_before_filter :login_required, :only => :show
   
   def index   
-    @events = @church.events
+    @events = @institution.events
   end
 
   def show
@@ -30,13 +30,13 @@ class EventsController < ApplicationController
       events = EventSeries.new(params[:event])
       @event_series = EventSeries.create(params[:event])
     end
-    redirect_to events_path(@church)
+    redirect_to events_path(@institution)
   end
 
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(params[:event])
-      redirect_to(events_path(@church), :notice => 'Event was successfully updated.')
+      redirect_to(events_path(@institution), :notice => 'Event was successfully updated.')
     else
       flash[:error] = "There was an error updating the event"
       render :action => "edit"
@@ -52,7 +52,7 @@ class EventsController < ApplicationController
   end
   
   def choose_layout
-    request[:action] == 'show' ? 'application' : 'admin'  
+    request[:action] == 'show' ? default_layout : 'admin'  
   end
   
 end

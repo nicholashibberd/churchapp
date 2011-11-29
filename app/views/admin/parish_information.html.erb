@@ -6,7 +6,7 @@
 <%= form_tag update_parish_info_path do -%>
 	<div class="field">
 	  <%= label_tag :footer_content %><br />
-		<%= cktext_area_tag 'parish[footer_content]', @parish.footer_content %>
+		<%= cktext_area_tag 'parish[footer_content]', @root.footer_content %>
 	</div>
   <div class="button confirm_button">
     <%= submit_tag %>

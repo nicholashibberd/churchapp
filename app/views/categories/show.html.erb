@@ -3,11 +3,11 @@
 <% @articles.desc(:date).each do |article| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-			<%= link_to 'View', single_article_path(@church.slug, article.id) if permitted_to? :read, :articles %>
-			<%= link_to 'Edit', edit_article_path(@church, article) if permitted_to? :edit, :articles %>			
-			<%= link_to 'Delete', article_path(@church, article), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :articles %>
+			<%= link_to 'View', single_article_path(@institution.slug, article.id) if permitted_to? :read, :articles %>
+			<%= link_to 'Edit', edit_article_path(@institution, article) if permitted_to? :edit, :articles %>			
+			<%= link_to 'Delete', article_path(@institution, article), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :articles %>
 		</div>
-		<%= display_permitted_to_link(:edit, :articles, article.title, edit_article_path(@church, article)) %>			
+		<%= display_permitted_to_link(:edit, :articles, article.title, edit_article_path(@institution, article)) %>			
 		<div class='article_categories'>
 			<%= l article.date, :format => :long %>
 		</div>
@@ -15,6 +15,6 @@
 <% end %>
 
 <div class="button new_button">
-	<%= link_to "New #{@category.name.singularize}", new_article_path(@church, :category_id => @category.slug) %>
+	<%= link_to "New #{@category.name.singularize}", new_article_path(@institution, :category_id => @category.slug) %>
 </div>
 

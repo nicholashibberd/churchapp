@@ -2,33 +2,33 @@
 	<%= javascript_include_tag 'jquery-ui' %>
 <% end %>
 
-<h1 class="admin_header"><%= @church.name %> Photos</h1>
+<h1 class="admin_header"><%= @institution.name %> Photos</h1>
 
 <div id="sortable_photos">
-	<% @church.photos.asc(:position).each do |photo| %>
+	<% @institution.photos.asc(:position).each do |photo| %>
 		<div class="index_item photo_index_item" id="photo_<%= photo.id %>">
 			<div class="controls">
-				<%= link_to 'Edit', edit_photo_path(@church, photo) if permitted_to? :edit, :photos %>
-				<%= link_to 'Delete', photo_path(@church, photo), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :photos %>
+				<%= link_to 'Edit', edit_photo_path(@institution, photo) if permitted_to? :edit, :photos %>
+				<%= link_to 'Delete', photo_path(@institution, photo), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :photos %>
 			</div>
 			<div class="photos_index_image">
 				<%= image_tag photo.photo.url(:thumb) %>
 			</div>
-			<%= display_permitted_to_link(:edit, :photos, photo.caption, edit_photo_path(@church, photo)) %>
+			<%= display_permitted_to_link(:edit, :photos, photo.caption, edit_photo_path(@institution, photo)) %>
 		</div>
 	<% end %>
 </div>
 
 <div class="button new_button">
-	<%= link_to 'New Photo', new_photo_path(@church) %>
+	<%= link_to 'New Photo', new_photo_path(@institution) %>
 </div>
 
-<h2 class="admin_header"><%= @church.name %> Background Images</h2>
-<% @church.background_images.each do |background_image| %>
+<h2 class="admin_header"><%= @institution.name %> Background Images</h2>
+<% @institution.background_images.each do |background_image| %>
   <div class="index_item photo_index_item">
 		<div class="controls">
-			<%= link_to 'Edit', edit_background_image_path(@church, background_image) if permitted_to? :edit, :background_images %>
-			<%= link_to 'Delete', background_image_path(@church, background_image), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :background_images %>
+			<%= link_to 'Edit', edit_background_image_path(@institution, background_image) if permitted_to? :edit, :background_images %>
+			<%= link_to 'Delete', background_image_path(@institution, background_image), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :background_images %>
 		</div>
 		<div class="background_image_index_image">
 			<%= image_tag background_image.image.url(:preview) %>
@@ -38,7 +38,7 @@
 <% end %>
 
 <div class="button new_button">
-	<%= link_to 'New Background Image', new_background_image_path(@church) %>
+	<%= link_to 'New Background Image', new_background_image_path(@institution) %>
 </div>
 
 
@@ -52,7 +52,7 @@
          update: function(){
            $.ajax({
            	 type: 'post', 
-             data: $('#sortable_photos').sortable('serialize') + '&id=<%= @church.id-%>',
+             data: $('#sortable_photos').sortable('serialize') + '&id=<%= @institution.id-%>',
              dataType: 'script', 
              url: '/admin/photos/order_photos'})
          }	

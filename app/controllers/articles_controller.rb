@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   
   def new
     @category = Category.find_by_slug(params[:category_id])
-    @article = @church.articles.new
+    @article = @institution.articles.new
   end
   
   def show
@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
   end
   
   def choose_layout
-    ['show'].include?(request[:action]) ? 'application' : 'admin'
+    ['show'].include?(request[:action]) ? default_layout : 'admin'
   end
   
 end

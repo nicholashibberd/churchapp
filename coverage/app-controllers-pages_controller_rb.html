@@ -87,7 +87,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line6">6</a>     @pages = @church.pages</pre></td>
+            <td><pre><a name="line6">6</a>     @pages = @institution.pages</pre></td>
           </tr>
         
           
@@ -117,7 +117,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line11">11</a>     @page = @church.find_page(page_slug)</pre></td>
+            <td><pre><a name="line11">11</a>     @page = @institution.find_page(page_slug)</pre></td>
           </tr>
         
           
@@ -141,7 +141,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line15">15</a>     @page = @church.pages.new</pre></td>
+            <td><pre><a name="line15">15</a>     @page = @institution.pages.new</pre></td>
           </tr>
         
           
@@ -165,7 +165,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line19">19</a>     @page = @church.find_page(params[:id])</pre></td>
+            <td><pre><a name="line19">19</a>     @page = @institution.find_page(params[:id])</pre></td>
           </tr>
         
           
@@ -249,7 +249,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line33">33</a>     @page = @church.find_page(params[:id])</pre></td>
+            <td><pre><a name="line33">33</a>     @page = @institution.find_page(params[:id])</pre></td>
           </tr>
         
           
@@ -261,7 +261,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line35">35</a>       redirect_to(pages_path(@church), :notice =&gt; 'Page was successfully updated.')</pre></td>
+            <td><pre><a name="line35">35</a>       redirect_to(pages_path(@institution), :notice =&gt; 'Page was successfully updated.')</pre></td>
           </tr>
         
           
@@ -309,7 +309,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line43">43</a>     @page = @church.find_page(params[:id])</pre></td>
+            <td><pre><a name="line43">43</a>     @page = @institution.find_page(params[:id])</pre></td>
           </tr>
         
           
@@ -321,7 +321,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line45">45</a>     redirect_to(pages_path(@church))</pre></td>
+            <td><pre><a name="line45">45</a>     redirect_to(pages_path(@institution))</pre></td>
           </tr>
         
           

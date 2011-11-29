@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   filter_access_to :edit, :attribute_check => true
     
   def index
-    @users = @parish.users
+    @users = @root.users
   end
 
   def show
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     redirect_to signin_path
     else
       set_user_cookie user
-      redirect_to church_admin_path(@parish)
+      redirect_to church_admin_path(@root)
     end
   end
   

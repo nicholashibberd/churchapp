@@ -7,6 +7,7 @@ class User
   field :remember_token
   
   belongs_to :institution
+  belongs_to :site
   has_many :roles
 
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/  

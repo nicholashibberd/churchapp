@@ -1,8 +1,11 @@
 class CalendarController < ApplicationController
+  skip_before_filter :login_required
+  
   def index
   end
   
   def other_month
+
   end
 
 end

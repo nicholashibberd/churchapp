@@ -2,24 +2,24 @@ class PagesController < ApplicationController
   include ChurchesHelper
   layout :choose_layout
   skip_before_filter :login_required, :only => 'show'
-  filter_access_to :edit, :attribute_check => true, :load_method => lambda { @church.find_page(params[:id]) }
+  filter_access_to :edit, :attribute_check => true, :load_method => lambda { @institution.find_page(params[:id]) }
   
   def index
-    @pages = @church.pages
+    @pages = @institution.pages
   end
 
   def show
-    page_slug = on_church_homepage?(request.path, @church) ? 'welcome' : params[:id]
-    @page = @church.find_page(page_slug)
+    page_slug = on_institution_homepage?(request.path, @institution) ? 'welcome' : params[:id]
+    @page = @institution.find_page(page_slug)
     return page_not_found unless @page
   end
 
   def new
-    @page = @church.pages.new
+    @page = @institution.pages.new
   end
 
   def edit
-    @page = @church.find_page(params[:id])
+    @page = @institution.find_page(params[:id])
   end
 
   def create
@@ -33,9 +33,9 @@ class PagesController < ApplicationController
   end
 
   def update
-    @page = @church.find_page(params[:id])
+    @page = @institution.find_page(params[:id])
     if @page.update_attributes(params[:page])
-      redirect_link = params[:page][:content_layout] ? edit_page_path(@church, @page) : pages_path(@church)
+      redirect_link = params[:page][:content_layout] ? edit_page_path(@institution, @page) : pages_path(@institution)
       redirect_to(redirect_link, :notice => 'Page was successfully updated.')
     else
       flash[:error] = "Page could not be updated"
@@ -44,9 +44,9 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @page = @church.find_page(params[:id])
+    @page = @institution.find_page(params[:id])
     @page.destroy
-    redirect_to(pages_path(@church))
+    redirect_to(pages_path(@institution))
   end
   
   def order_widgets
@@ -68,6 +68,6 @@ class PagesController < ApplicationController
   end
   
   def choose_layout
-    request[:action] == 'show' ? 'application' : 'admin'  
+    request[:action] == 'show' ? default_layout : 'admin'  
   end
 end

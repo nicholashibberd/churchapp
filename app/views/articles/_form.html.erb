@@ -8,8 +8,8 @@
 	<% end %>
 <% end -%>
 
-<%= form_for(@article, form_path(@article, @church)) do |f| %>
-	<%= f.hidden_field :institution_id, :value => @church.id %>
+<%= form_for(@article, form_path(@article, @institution)) do |f| %>
+	<%= f.hidden_field :institution_id, :value => @institution.id %>
 	<%= f.hidden_field :category_id, :value => @category.id %>
 	<div class="field">
 		<%= f.label :title %><br />
@@ -35,7 +35,7 @@
 					<%= comment.author %>					
 				</div>
 				<div class="controls">
-					<%= link_to 'Edit', edit_article_comment_path(@church, @article, comment) %>
+					<%= link_to 'Edit', edit_article_comment_path(@institution, @article, comment) %>
 				</div>
 			</div>
 		<% end %>

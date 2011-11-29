@@ -7,6 +7,6 @@
 <% end %>
 <% unless @widget.new_record? %>
 	<div class="button delete_button lightbox">
-		<%= link_to 'Delete', page_widget_path(@church, @page, @widget), :confirm => 'Are you sure?', :method => :delete %>
+		<%= link_to 'Delete', page_widget_path(@institution, @page, @widget), :confirm => 'Are you sure?', :method => :delete %>
 	</div>
 <% end %>

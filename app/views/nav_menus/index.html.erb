@@ -1,15 +1,15 @@
 <h1 class="admin_header">Listing nav_menus</h1>
 
-<% @church.nav_menus.each do |nav_menu| %>
+<% @institution.nav_menus.each do |nav_menu| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-			<%= link_to 'Edit', edit_nav_menu_path(@church, nav_menu) if permitted_to? :edit, :nav_menus %>
-			<%= link_to 'Delete', nav_menu_path(@church, nav_menu), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :nav_menus %>			
+			<%= link_to 'Edit', edit_nav_menu_path(@institution, nav_menu) if permitted_to? :edit, :nav_menus %>
+			<%= link_to 'Delete', nav_menu_path(@institution, nav_menu), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :nav_menus %>			
 		</div>
-		<%= display_permitted_to_link(:edit, :nav_menus, nav_menu.name, edit_nav_menu_path(@church, nav_menu)) %>
+		<%= display_permitted_to_link(:edit, :nav_menus, nav_menu.name, edit_nav_menu_path(@institution, nav_menu)) %>
 	</div>
 <% end %>
 
 <div class="button new_button">
-	<%= link_to 'New Navigation Menu', new_nav_menu_path(@church) %>
+	<%= link_to 'New Navigation Menu', new_nav_menu_path(@institution) %>
 </div>

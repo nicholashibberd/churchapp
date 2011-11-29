@@ -1,5 +1,5 @@
 <div id='admin_header'>
 	<%= link_to "Admin -", church_admin_path(nil) %>
-	<%= link_to "#{@church.name} Admin -", church_admin_path(@church) if @church.is_a?(Church) %>
-	<%= link_to 'Edit this page', edit_page_path(@church, @page) if @page %>
+	<%= link_to "#{@institution.name} Admin -", church_admin_path(@institution) if @institution.is_a?(Church) %>
+	<%= link_to 'Edit this page', edit_page_path(@institution, @page) if @page %>
 </div>

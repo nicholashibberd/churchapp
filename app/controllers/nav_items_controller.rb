@@ -25,7 +25,7 @@ class NavItemsController < ApplicationController
     @nav_item = NavItem.find(params[:id])
 
     if @nav_item.update_attributes(params[:nav_item])
-      redirect_to edit_nav_menu_path(@church, @nav_item.nav_menu)
+      redirect_to edit_nav_menu_path(@institution, @nav_item.nav_menu)
     else
       flash[:error] = "Nav Item could not be updated"      
       render :action => "edit"

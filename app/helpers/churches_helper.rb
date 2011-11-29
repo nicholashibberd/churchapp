@@ -6,8 +6,8 @@ module ChurchesHelper
     end
   end
   
-  def on_church_homepage?(path, church)
-    if church.is_a?(Parish)
+  def on_institution_homepage?(path, institution)
+    if institution.is_root?
       path == '/'
     else
       path == church_home_path(church)

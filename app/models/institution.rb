@@ -17,6 +17,8 @@ class Institution
   has_many :people
   
   field :name
+  field :slug
+  field :institution_type
   
   before_create :generate_slug
   
@@ -55,6 +57,10 @@ class Institution
       photo.position = params['photo'].index(photo.id.to_s) + 1
       photo.save!
     end
+  end
+  
+  def is_root?
+    institution_type == 'root'
   end
       
 end

@@ -75,7 +75,7 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line4">4</a>     link_target = nav_item.page ? church_page_path(@church, nav_item.page) : nav_item.target</pre></td>
+            <td><pre><a name="line4">4</a>     link_target = nav_item.page ? church_page_path(@institution, nav_item.page) : nav_item.target</pre></td>
           </tr>
         
           
@@ -129,7 +129,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line13">13</a>     unless church == @church</pre></td>
+            <td><pre><a name="line13">13</a>     unless church == @institution</pre></td>
           </tr>
         
           
@@ -165,7 +165,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line19">19</a>     if church == @church || church == @parish</pre></td>
+            <td><pre><a name="line19">19</a>     if church == @institution || church == @root</pre></td>
           </tr>
         
           
@@ -213,7 +213,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line27">27</a>     if @parish == @church</pre></td>
+            <td><pre><a name="line27">27</a>     if @root == @institution</pre></td>
           </tr>
         
           

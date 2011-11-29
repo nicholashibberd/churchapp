@@ -1,15 +1,15 @@
 module ApplicationHelper
   
   def logo
-    if @church.is_a?(Church)
-      link_to image_tag("sanderstead/#{@church.slug}-logo.png"), church_home_path(@church)
+    if @institution.is_a?(Church)
+      link_to image_tag("sanderstead/#{@institution.slug}-logo.png"), church_home_path(@institution)
     else
       link_to image_tag("sanderstead/parish-logo.png"), parish_home_path
     end
   end
   
   def sub_logo
-    if @church.is_a?(Church)
+    if @institution.is_a?(Church)
       link_to image_tag("sanderstead/parish-logo-small.png"), parish_home_path
     end
   end
@@ -35,8 +35,12 @@ module ApplicationHelper
     access_to_institution? and (permitted_to? action, controller)
   end
   
-  def access_to_institution?(church = @church)
+  def access_to_institution?(church = @institution)
     current_user.institution.type == Parish || church == current_user.institution ? true : false
+  end
+  
+  def default_layout
+    !@site.theme.nil? ? @site.theme : 'application'
   end
     
 end

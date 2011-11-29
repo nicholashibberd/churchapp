@@ -1,5 +1,5 @@
-<%= form_for(@photo, form_path(@photo, @church), :html => {:multipart => true}) do |f| %>
-	<%= f.hidden_field :institution_id, :value => @church.id %>
+<%= form_for(@photo, form_path(@photo, @institution), :html => {:multipart => true}) do |f| %>
+	<%= f.hidden_field :institution_id, :value => @institution.id %>
   <div class="field">
     <%= f.label :caption %><br />
     <%= f.text_field :caption %>

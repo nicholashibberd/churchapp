@@ -111,13 +111,13 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line10">10</a>     @church = @site.find_institution(params[:church_id])</pre></td>
+            <td><pre><a name="line10">10</a>     @institution = @site.find_institution(params[:church_id])</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line11">11</a>     @parish = @church.is_a?(Parish) ? @church : @church.parish</pre></td>
+            <td><pre><a name="line11">11</a>     @root = @institution.is_a?(Parish) ? @institution : @institution.parish</pre></td>
           </tr>
         
           

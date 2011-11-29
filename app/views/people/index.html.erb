@@ -1,15 +1,15 @@
-<h1 class="admin_header"><%= @church.name %> People</h1>
+<h1 class="admin_header"><%= @institution.name %> People</h1>
 
 <% @people.each do |person| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-			<%= link_to 'Edit', edit_person_path(@church, person) if permitted_to? :edit, :people %>
-			<%= link_to 'Delete', person_path(@church, person), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :people %>
+			<%= link_to 'Edit', edit_person_path(@institution, person) if permitted_to? :edit, :people %>
+			<%= link_to 'Delete', person_path(@institution, person), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :people %>
 		</div>
-		<%= display_permitted_to_link(:edit, :people, person.name, edit_person_path(@church, person)) %>
+		<%= display_permitted_to_link(:edit, :people, person.name, edit_person_path(@institution, person)) %>
 	</div>
 <% end %>
 
 <div class="button new_button">
-	<%= link_to 'New Person', new_person_path(@church) %>
+	<%= link_to 'New Person', new_person_path(@institution) %>
 </div>

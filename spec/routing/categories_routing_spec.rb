@@ -6,7 +6,7 @@ describe "routes to the categories controller" do
     setup_site
     @category = Factory(:category)
     
-    {:get => category_articles_path(@church, @category)}.
-      should route_to(:controller => "categories", :action => "category_articles", :church_id => @church.slug, :category_id => @category.slug)
+    {:get => category_articles_path(@institution, @category)}.
+      should route_to(:controller => "categories", :action => "category_articles", :church_id => @institution.slug, :category_id => @category.slug)
   end
 end

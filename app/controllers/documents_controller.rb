@@ -13,13 +13,11 @@ class DocumentsController < ApplicationController
   end
   
   def index
-    @photos = @church.photos.all
+    @photos = @institution.photos.all
   end
   
   def show
     @document = Document.find(params[:id])
-    #raise @document.pdf.path(:original).inspect
-    #return send_file @document.pdf.path(:original), :type => "application/pdf", :filename => "making_space.pdf", :disposition => 'inline'
     redirect_to @document.pdf.url(:original)
   end
   

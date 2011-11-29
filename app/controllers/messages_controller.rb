@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   layout 'admin'
   
   def index
-    @messages = @church.messages
+    @messages = @institution.messages
   end
 
   def show

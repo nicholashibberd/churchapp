@@ -22,7 +22,7 @@
 <div class="admin_page_widgets" id="admin_page_widgets_fixed">
 	<% @page.widgets.asc(:position).each do |widget| %>
 		<div class="admin_widget admin_widget_fixed" id="widget_<%= widget.id %>">
-				<%= link_to 'Edit', edit_page_widget_path(@church, @page, widget), :class => 'fancybox admin_page_widget_edit_button grey_button' %>					
+				<%= link_to 'Edit', edit_page_widget_path(@institution, @page, widget), :class => 'fancybox admin_page_widget_edit_button grey_button' %>					
 			<%= render_widget(@page, 'show', widget) %>
 		</div>
 	<% end %>

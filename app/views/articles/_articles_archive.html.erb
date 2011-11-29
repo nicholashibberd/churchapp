@@ -2,9 +2,9 @@
 	<h2><%= category.name %> Archive</h2>
 	<% (0..11).each do |number_of_months| %>
 		<% month = (Date.today - number_of_months.months) %>
-		<% unless category.find_articles_by_church(@church, month.strftime('%m-%Y')).empty? %>		
+		<% unless category.find_articles_by_church(@institution, month.strftime('%m-%Y')).empty? %>		
 			<div class="articles_archive_month">
-				<%= link_to (l month, :format => :month_name_year), category_articles_path(@church, category, :month => (l month, :format => :month_year)) %>
+				<%= link_to (l month, :format => :month_name_year), category_articles_path(@institution, category, :month => (l month, :format => :month_year)) %>
 			</div>
 		<% end %>
 	<% end %>

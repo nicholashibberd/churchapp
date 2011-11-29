@@ -6,14 +6,14 @@
 <h1 class="admin_header"><%= @page.name %></h1>
 
 <div class="top_right_button button">
-	<%= link_to 'View page', church_page_path(@church, @page) %>
+	<%= link_to 'View page', church_page_path(@institution, @page) %>
 </div>
 
 <%= render 'form' %>
 
 <h2 class="admin_header">Page Content</h2>
 		<div id="admin_edit_page_layout">
-		  <%= form_for(@page, form_path(@page, @church)) do |f| -%>
+		  <%= form_for(@page, form_path(@page, @institution)) do |f| -%>
 				<%= f.radio_button :content_layout, :fixed %> <%= f.label :fixed_layout %>
 				<%= f.radio_button :content_layout, :fluid %> <%= f.label :fluid_layout %>
 				<%= f.submit :Update_layout %>
@@ -24,31 +24,31 @@
 		
 		<div id="add_widgets_section">
 			<div class="button inline grey_button">
-				<%= link_to 'Text', new_page_widget_path(@church, @page, :widget_type => 'content_widget'), :class => 'fancybox' %>
+				<%= link_to 'Text', new_page_widget_path(@institution, @page, :widget_type => 'content_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="button inline grey_button">				
-				<%= link_to 'Map', new_page_widget_path(@church, @page, :widget_type => 'map_widget'), :class => 'fancybox' %>
+				<%= link_to 'Map', new_page_widget_path(@institution, @page, :widget_type => 'map_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="button inline grey_button">
-				<%= link_to 'Events', new_page_widget_path(@church, @page, :widget_type => 'events_widget'), :class => 'fancybox' %>
+				<%= link_to 'Events', new_page_widget_path(@institution, @page, :widget_type => 'events_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="button inline grey_button">				
-				<%= link_to 'Calendar', new_page_widget_path(@church, @page, :widget_type => 'calendar_widget'), :class => 'fancybox' %>
+				<%= link_to 'Calendar', new_page_widget_path(@institution, @page, :widget_type => 'calendar_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="button inline grey_button">				
-				<%= link_to 'Profile', new_page_widget_path(@church, @page, :widget_type => 'profile_widget'), :class => 'fancybox' %>
+				<%= link_to 'Profile', new_page_widget_path(@institution, @page, :widget_type => 'profile_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="button inline grey_button">				
-				<%= link_to 'Gallery', new_page_widget_path(@church, @page, :widget_type => 'gallery_widget'), :class => 'fancybox' %>
+				<%= link_to 'Gallery', new_page_widget_path(@institution, @page, :widget_type => 'gallery_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="button inline grey_button">				
-				<%= link_to 'Articles', new_page_widget_path(@church, @page, :widget_type => 'articles_widget'), :class => 'fancybox' %>
+				<%= link_to 'Articles', new_page_widget_path(@institution, @page, :widget_type => 'articles_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="button inline grey_button">				
-				<%= link_to 'Contact Form', new_page_widget_path(@church, @page, :widget_type => 'contact_form_widget'), :class => 'fancybox' %>
+				<%= link_to 'Contact Form', new_page_widget_path(@institution, @page, :widget_type => 'contact_form_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="button inline grey_button">				
-				<%= link_to 'PDF', new_page_widget_path(@church, @page, :widget_type => 'pdf_widget'), :class => 'fancybox' %>
+				<%= link_to 'PDF', new_page_widget_path(@institution, @page, :widget_type => 'pdf_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="spacer"></div>
 		</div>

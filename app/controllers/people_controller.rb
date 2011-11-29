@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(params[:person])
     if @person.save
-      redirect_to(people_path(@church), :notice => 'Person was successfully created.')
+      redirect_to(people_path(@institution), :notice => 'Person was successfully created.')
     else
       flash[:error] = "There was an error creating the person"
       render :action => "new"
@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
 
     if @person.update_attributes(params[:person])
-      redirect_to(people_path(@church), :notice => 'Person was successfully updated.')
+      redirect_to(people_path(@institution), :notice => 'Person was successfully updated.')
     else
       flash[:error] = "There was an error updating the person"
       render :action => "edit"
@@ -43,6 +43,6 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @person.destroy
 
-    redirect_to(people_path(@church))
+    redirect_to(people_path(@institution))
   end
 end

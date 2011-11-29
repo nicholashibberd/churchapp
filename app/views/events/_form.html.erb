@@ -1,5 +1,5 @@
-<%= form_for(@event, form_path(@event, @church)) do |f| %>
-	<%= f.hidden_field :institution_id, :value => @church.id %>
+<%= form_for(@event, form_path(@event, @institution)) do |f| %>
+	<%= f.hidden_field :institution_id, :value => @institution.id %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>

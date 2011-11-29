@@ -1,10 +1,10 @@
 <div class="article">
 	<div class="article_title">
 		<%= date_icon(article.date).html_safe %>
-		<h2><%= link_to article.title, single_article_path(@church, article) %></h2>
+		<h2><%= link_to article.title, single_article_path(@institution, article) %></h2>
 	</div>
 	<div class="article_content">
-		<%= truncate_html article.content, :length => snippet_size, :omission => link_to(' ...(read more)', single_article_path(@church, article)) %>
+		<%= truncate_html article.content, :length => snippet_size, :omission => link_to(' ...(read more)', single_article_path(@institution, article)) %>
 	</div>
 	<div class="article_details">
 		<div class="article_author">

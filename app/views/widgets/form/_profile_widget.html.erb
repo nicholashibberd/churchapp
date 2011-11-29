@@ -1,6 +1,6 @@
 <div class="field">
   <%= f.label :people %><br />
-	<% @parish.people.each do |person| %>
+	<% @root.people.each do |person| %>
 	  <div class="profile_widget_person">
 			<%= check_box_tag 'profile_widget[person_ids][]', person.id, @widget.people.include?(person) %>
 			<%= label_tag person.name %>

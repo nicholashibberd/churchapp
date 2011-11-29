@@ -15,7 +15,7 @@ describe CategoriesController do
       @category.articles << [@article1, @article2]
       Category.should_receive(:find_by_slug).and_return(@category)
       @category.should_receive(:find_articles_by_church).and_return([@article1, @article2])
-      get 'category_articles', :category_id => @category.id, :church_id => @church.slug
+      get 'category_articles', :category_id => @category.id, :church_id => @institution.slug
       response.should be_success
     end
     

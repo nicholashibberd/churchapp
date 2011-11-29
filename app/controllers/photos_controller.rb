@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   layout 'admin', :except => :show
   
   def index
-    @photos = @church.photos.all
+    @photos = @institution.photos.all
   end
 
   def new
@@ -26,7 +26,7 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     if @photo.update_attributes(params[:photo])
-      redirect_to photos_path(@church), :notice  => "Successfully updated photo."
+      redirect_to photos_path(@institution), :notice  => "Successfully updated photo."
     else
       flash[:error] = "There was an error updating the photo"
       render :action => 'edit'
@@ -37,11 +37,11 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @photo.destroy
 
-    redirect_to(photos_path(@church))
+    redirect_to(photos_path(@institution))
   end
   
   def order_photos
-    @church.order_photos(params)
+    @institution.order_photos(params)
     render :nothing => true
   end  
   

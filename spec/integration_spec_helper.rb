@@ -17,6 +17,6 @@ end
 
 def setup_site
   @site = Factory(:site)
-  @parish = Factory(:parish, :site_id => @site.id)
-  @church = Factory(:church, :parish_id => @parish.id, :site_id => @site.id)
+  @root = Factory(:parish, :site_id => @site.id)
+  @institution = Factory(:church, :parish_id => @root.id, :site_id => @site.id)
 end

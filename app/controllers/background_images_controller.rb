@@ -10,7 +10,7 @@ class BackgroundImagesController < ApplicationController
   end
   
   def index
-    @background_images = @church.background_images.all
+    @background_images = @institution.background_images.all
   end
   
   def create
@@ -30,7 +30,7 @@ class BackgroundImagesController < ApplicationController
   def update
     @background_image = BackgroundImage.find(params[:id])
     if @background_image.update_attributes(params[:background_image])
-      redirect_to photos_path(@church), :notice  => "Successfully updated background_image."
+      redirect_to photos_path(@institution), :notice  => "Successfully updated background_image."
     else
       flash[:error] = "There was an error updating the background_image"
       render :action => 'edit'
@@ -41,7 +41,7 @@ class BackgroundImagesController < ApplicationController
     @background_image = BackgroundImage.find(params[:id])
     @background_image.destroy
 
-    redirect_to(background_images_path(@church))
+    redirect_to(background_images_path(@institution))
   end
   
   

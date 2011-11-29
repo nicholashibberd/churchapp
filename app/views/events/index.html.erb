@@ -1,12 +1,12 @@
-<h1 class="admin_header"><%= @church.name %> Events</h1>
+<h1 class="admin_header"><%= @institution.name %> Events</h1>
 
-<% @church.events.asc(:start_time).limit(10).each do |event| %>
+<% @institution.events.asc(:start_time).limit(10).each do |event| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-			<%= link_to 'Edit', edit_event_path(@church, event) if permitted_to? :edit, event %>
-			<%= link_to 'Delete', event_path(@church, event), :confirm => 'Are you sure?', :method => :delete if permitted_to? :delete, event %>
+			<%= link_to 'Edit', edit_event_path(@institution, event) if permitted_to? :edit, event %>
+			<%= link_to 'Delete', event_path(@institution, event), :confirm => 'Are you sure?', :method => :delete if permitted_to? :delete, event %>
 		</div>
-		<%= display_permitted_to_link(:edit, :events, event.title, edit_event_path(@church, event)) %>
+		<%= display_permitted_to_link(:edit, :events, event.title, edit_event_path(@institution, event)) %>
 		<div class='event_details'>
 			<%= event.category %> | <%= l event.start_date, :format => :long %>
 		</div>
@@ -14,5 +14,5 @@
 <% end %>
 
 <div class="button new_button">
-	<%= link_to 'New Event', new_event_path(@church) %>
+	<%= link_to 'New Event', new_event_path(@institution) %>
 </div>

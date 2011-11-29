@@ -4,15 +4,15 @@ module WidgetsHelper
   end
   
   def path_for_widget(page, widget)
-    widget.new_record? ? page_widgets_path(@church, page) : page_widget_path(@church, page, widget)
+    widget.new_record? ? page_widgets_path(@institution, page) : page_widget_path(@institution, page, widget)
   end
 
   def path_for_comment(article, comment)
-    comment.new_record? ? article_comments_path(@church, article) : article_comment_path(@church, article, comment)
+    comment.new_record? ? article_comments_path(@institution, article) : article_comment_path(@institution, article, comment)
   end
 
   def path_for_nav_item(nav_menu, nav_item)
-    nav_item.new_record? ? nav_menu_nav_items_path(@church, nav_menu) : nav_menu_nav_item_path(@church, nav_menu, nav_item)
+    nav_item.new_record? ? nav_menu_nav_items_path(@institution, nav_menu) : nav_menu_nav_item_path(@institution, nav_menu, nav_item)
   end
   
   def gallery_item_class(widget, index)

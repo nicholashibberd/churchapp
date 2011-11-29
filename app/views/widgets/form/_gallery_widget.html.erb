@@ -5,7 +5,7 @@
 
 <div class="field">
   <%= f.label :photos %><br />
-	<% @parish.photos.in_groups_of(3, false).each do |row| %>
+	<% @root.photos.in_groups_of(3, false).each do |row| %>
 		<div class="gallery_widget_row">
 			<% row.each do |photo| %>
 	    <div class="gallery_widget_form_item">

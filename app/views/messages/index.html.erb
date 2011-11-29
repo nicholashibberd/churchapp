@@ -1,9 +1,9 @@
 <h1 class="admin_header">Messages</h1>
 
-<% @church.messages.each do |message| %>
+<% @institution.messages.each do |message| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-			<%= link_to 'Delete', message_path(@church, message), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :messages %>
+			<%= link_to 'Delete', message_path(@institution, message), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :messages %>
 		</div>
 		<%= message.message %>
 		<div class="message_details">

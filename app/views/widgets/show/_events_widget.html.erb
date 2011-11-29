@@ -1,6 +1,6 @@
 <div class="widget" id="<%= widget.css_id %>">
 	<h2>Upcoming <%= widget.event_category.pluralize %></h2>
-	<% @church.events_by_date(widget.event_category, widget.number_to_display).each do |day, events| %>
+	<% @institution.events_by_date(widget.event_category, widget.number_to_display).each do |day, events| %>
 		<div class='event_day'>
 			<%= date_icon(day).html_safe %>
 			<% events.each do |event| %>

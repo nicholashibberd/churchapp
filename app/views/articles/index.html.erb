@@ -1,13 +1,13 @@
 <h1 class="admin_header">Articles index page</h1>
 
-<% @church.articles.desc(:date).limit(10).each do |article| %>
+<% @institution.articles.desc(:date).limit(10).each do |article| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
-			<%= link_to 'View', single_article_path(@church.slug, article.id) if permitted_to? :read, :articles %>
-			<%= link_to 'Edit', edit_article_path(@church, article) if permitted_to? :edit, :articles %>			
-			<%= link_to 'Delete', article_path(@church, article), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :articles %>
+			<%= link_to 'View', single_article_path(@institution.slug, article.id) if permitted_to? :read, :articles %>
+			<%= link_to 'Edit', edit_article_path(@institution, article) if permitted_to? :edit, :articles %>			
+			<%= link_to 'Delete', article_path(@institution, article), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :articles %>
 		</div>
-		<%= display_permitted_to_link(:edit, :articles, article.title, edit_article_path(@church, article)) %>			
+		<%= display_permitted_to_link(:edit, :articles, article.title, edit_article_path(@institution, article)) %>			
 		<div class='article_categories'>
 			<%= article.category.name %> | <%= l article.date, :format => :long %>
 		</div>
@@ -15,5 +15,5 @@
 <% end %>
 
 <div class="button new_button">
-	<%= link_to 'New Article', new_article_path(@church) %>
+	<%= link_to 'New Article', new_article_path(@institution) %>
 </div>

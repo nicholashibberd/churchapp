@@ -1,39 +1,39 @@
-<h1 class="admin_header"><%= @church.name %> Admin</h1>
+<h1 class="admin_header"><%= @institution.name %> Admin</h1>
 
 <% permitted_to? :create, :pages do %>
-	<%= link_to 'Pages', pages_path(@church), :class => 'admin_home_icon' %>
+	<%= link_to 'Pages', pages_path(@institution), :class => 'admin_home_icon' %>
 <% end %>
 
-<% display_for_parish_only(@church) do %>
+<% display_for_parish_only(@institution) do %>
 	<% permitted_to? :create, :people do %>
-		<%= link_to 'People', people_path(@church), :class => 'admin_home_icon' %>
+		<%= link_to 'People', people_path(@institution), :class => 'admin_home_icon' %>
 	<% end %>
 <% end %>
 
 <% permitted_to? :create, :articles do %>
 	<% Category.all.each do |category| %>
-		<%= link_to category.name, category_path(@church, category), :class => 'admin_home_icon' %>
+		<%= link_to category.name, category_path(@institution, category), :class => 'admin_home_icon' %>
 	<% end %>
 <% end %>
 
 <% permitted_to? :create, :events do %>
-	<%= link_to 'Events', events_path(@church), :class => 'admin_home_icon' %>
+	<%= link_to 'Events', events_path(@institution), :class => 'admin_home_icon' %>
 <% end %>
 
-<% display_for_parish_only(@church) do %>
+<% display_for_parish_only(@institution) do %>
 	<% permitted_to? :create, :photos do %>
-		<%= link_to 'Photos', photos_path(@church), :class => 'admin_home_icon' %>
+		<%= link_to 'Photos', photos_path(@institution), :class => 'admin_home_icon' %>
 	<% end %>
 <% end %>
 
 <% permitted_to? :create, :documents do %>
-	<%= link_to 'Documents', documents_path(@church), :class => 'admin_home_icon' %>
+	<%= link_to 'Documents', documents_path(@institution), :class => 'admin_home_icon' %>
 <% end %>
 
 <% permitted_to? :create, :nav_menus do %>
-	<%= link_to 'Links', edit_nav_menu_path(@church, @church.main_nav), :class => 'admin_home_icon' %>
+	<%= link_to 'Links', edit_nav_menu_path(@institution, @institution.main_nav), :class => 'admin_home_icon' %>
 <% end %>
 
-<% display_for_parish_only(@church) do %>
+<% display_for_parish_only(@institution) do %>
 	<%= link_to 'Parish Information', parish_information_path, :class => 'admin_home_icon' %>
 <% end %>

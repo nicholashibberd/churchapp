@@ -11,9 +11,9 @@
 <% @categories.each do |category| %>
   <tr>
     <td><%= category.name %></td>
-    <td><%= link_to 'Show', category_path(@church, category) %></td>
-    <td><%= link_to 'Edit', edit_category_path(@church, category) %></td>
-    <td><%= link_to 'Destroy', category_path(@church, category), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', category_path(@institution, category) %></td>
+    <td><%= link_to 'Edit', edit_category_path(@institution, category) %></td>
+    <td><%= link_to 'Destroy', category_path(@institution, category), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

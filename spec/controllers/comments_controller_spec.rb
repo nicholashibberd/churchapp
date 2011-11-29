@@ -15,7 +15,7 @@ describe CommentsController do
   describe "when logged in" do
       
     it "should request login credentials before allowing the edit request" do
-      get 'edit', :article_id => @article.id, :id => @comment.id, :church_id => @church.slug
+      get 'edit', :article_id => @article.id, :id => @comment.id, :church_id => @institution.slug
       response.should be_redirect
       response.location.should == 'http://www.example.com/signin'
     end
