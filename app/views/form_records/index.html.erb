@@ -1,0 +1,17 @@
+<h1 class="admin_header"><%= @form.name %> Records</h1>
+
+<div>
+	<% @form.form_records.each do |form_record| %>
+		<div class="controls">
+			<%= link_to 'Delete', form_form_record_path(@institution, @form, form_record), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :forms %>
+		</div>
+		<div class="form_record">
+			<% form_record.user_defined_attributes.keys.each do |attribute| %>
+				<div class="form_record_attribute">
+			  	<span class="form_record_attribute_label"><%= attribute.titleize %></span>: <%= form_record.attributes[attribute].to_s %>
+				</div>
+			<% end %>
+			<div class="spacer"></div>
+		</div>
+	<% end %>		
+</div>

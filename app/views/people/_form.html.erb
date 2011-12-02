@@ -1,4 +1,4 @@
-<%= form_for(@person, form_path(@person, @institution), :html => {:multipart => true}) do |f| %>
+<%= form_for(@person, form_action_path(@person, @institution), :html => {:multipart => true}) do |f| %>
 
   <div class="field">
     <%= f.label :name %><br />

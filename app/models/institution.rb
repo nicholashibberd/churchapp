@@ -11,6 +11,7 @@ class Institution
   has_many :nav_menus
   has_many :photos
   has_many :messages
+  has_many :forms
   has_many :churches
   has_many :users
   has_many :documents

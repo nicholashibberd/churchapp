@@ -1,4 +1,4 @@
-<%= form_for(@category, form_path(@category, @institution)) do |f| %>
+<%= form_for(@category, form_action_path(@category, @institution)) do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>

@@ -1,0 +1,63 @@
+/***********************************
+Common elements
+***********************************/
+
+a, a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a img {
+	border: none;
+}
+
+/***********************************
+Layout
+***********************************/
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Lucida Grande, Arial;
+}
+
+#wrapper {
+	margin: auto;
+	width: 960px;
+}
+
+#advent_calendar_display {
+	float: left;
+	height: 500px;
+}
+
+#advent_calendar_days {
+	width: 350px;
+	margin-left: 400px;
+}
+
+a.advent_calendar_day {
+	display: block;
+	float: left;
+	margin: 0 20px 20px 0;
+	height: 35px;
+	width: 50px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+a.advent_calendar_day_open {
+	background-color: #eee;	
+}
+
+a.advent_calendar_day_closed {
+	background-color: #ccc;
+}
+
+#advent_calendar_hidden {
+	display: none;
+}

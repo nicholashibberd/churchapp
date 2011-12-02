@@ -1,0 +1,18 @@
+<h1 class="admin_header"><%= @institution.name %> Forms</h1>
+
+<div>
+	<% @institution.forms.each do |form| %>
+		<div class="index_item form_index_item" id="form_<%= form.id %>">
+			<div class="controls">
+				<%= link_to 'View data', form_form_records_path(@institution, form) if permitted_to? :read, :forms %>
+				<%= link_to 'Edit', edit_form_path(@institution, form) if permitted_to? :edit, :forms %>
+				<%= link_to 'Delete', form_path(@institution, form), :method => :delete, :confirm => 'Are you sure?' if permitted_to? :delete, :forms %>
+			</div>
+			<%= display_permitted_to_link(:edit, :forms, form.name, edit_form_path(@institution, form)) %>
+		</div>
+	<% end %>
+</div>
+
+<div class="button new_button">
+	<%= link_to 'New Form', new_form_path(@institution) %>
+</div>

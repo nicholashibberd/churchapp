@@ -34,6 +34,10 @@
 	<%= link_to 'Links', edit_nav_menu_path(@institution, @institution.main_nav), :class => 'admin_home_icon' %>
 <% end %>
 
+<% permitted_to? :create, :forms do %>
+	<%= link_to 'Forms', forms_path(@institution), :class => 'admin_home_icon' %>
+<% end %>
+
 <% display_for_parish_only(@institution) do %>
 	<%= link_to 'Parish Information', parish_information_path, :class => 'admin_home_icon' %>
 <% end %>

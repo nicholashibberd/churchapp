@@ -68,6 +68,11 @@ class PagesController < ApplicationController
   end
   
   def choose_layout
-    request[:action] == 'show' ? default_layout : 'admin'  
+    if request[:action] == 'advent_calendar'
+      'advent_calendar'
+    else
+      request[:action] == 'show' ? default_layout : 'admin'  
+    end
+    
   end
 end

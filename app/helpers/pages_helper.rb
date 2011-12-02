@@ -21,4 +21,8 @@ module PagesHelper
       
   end
   
+  def advent_calendar_days
+    ['father_christmas', 'fish', 'fish', 'snowman', 'snowman', 'bird', 'bird', 'bird', 'reindeer', 'reindeer', 'santa', 'fish', 'fish', 'fish', 'snowman', 'snowman', 'bird', 'bird', 'bird', 'reindeer', 'reindeer', 'santa', 'santa', 'santa']
+  end
+  
 end

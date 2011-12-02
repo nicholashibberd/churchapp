@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag 'advent_calendar' %>
+  <%= javascript_include_tag "jquery", "rails" %>
+  <%= csrf_meta_tag %>
+	<%= yield :head %>
+</head>
+<body>
+	<div id='wrapper'>
+		<%= yield %>
+	</div>
+</body>
+</html>

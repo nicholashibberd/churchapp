@@ -20,7 +20,7 @@ a img {
 	border: none;
 }
 
-#spacer {
+#spacer, .spacer {
 	clear: both;
 }
 
@@ -292,8 +292,9 @@ textarea {
 	width: 480px;
 }
 
-.field, .fields {
+.field .fields {
 	margin-bottom: 20px;
+	height: 70px;
 }
 
 .marker_address input, .marker_description input {
@@ -368,12 +369,12 @@ Widgets
 	text-align: center;
 }
 
-.marker_address {
+.marker_address, .form_field_address {
 	float: left;
 	margin-right: 10px;
 }
 
-.marker_remove {
+.marker_remove, .form_field_remove {
 	padding-top: 30px;
 	float: right;
 	margin-left: -10px;
@@ -509,6 +510,26 @@ Messages
 	float: left;
 	margin-right: 20px;
 	color: #666;
+}
+
+/****************************************************
+Form
+*****************************************************/
+
+.form_record {
+	clear: left;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+}
+
+.form_record_attribute {
+	float: left;
+	margin-right: 10px;
+}
+
+span.form_record_attribute_label {
+	font-weight: bold;
 }
 
 /****************************************************

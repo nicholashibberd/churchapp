@@ -1,0 +1,4 @@
+<div class="field">
+  <%= f.label :form %><br />
+  <%= f.select :form, options_from_collection_for_select(@root.forms, 'id', 'name', (@widget.form.id if @widget.form)) %>
+</div>

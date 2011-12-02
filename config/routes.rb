@@ -6,6 +6,7 @@ Churchapp::Application.routes.draw do
     end
   end
   
+  match 'advent_calendar' => 'pages#advent_calendar', :as => :advent_calendar
   match 'signin' => 'users#signin', :as => :signin
   match 'register' => 'users#new', :as => :register
   match '/signout' => 'users#signout', :as => :signout
@@ -33,6 +34,9 @@ Churchapp::Application.routes.draw do
     resources :photos   
     resources :background_images    
     resources :messages 
+    resources :forms do
+      resources :form_records
+    end
     resources :documents
   end
   
@@ -41,6 +45,8 @@ Churchapp::Application.routes.draw do
       get :change_password
     end
   end
+  
+  #post 'form_records/create'
   
   match "admin/parish_information", :to => 'admin#parish_information', :as => :parish_information
   match "/admin/(:institution_id)", :to => 'admin#church_admin', :as => :church_admin  

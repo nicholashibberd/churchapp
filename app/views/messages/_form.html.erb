@@ -1,4 +1,4 @@
-<%= form_for(message, form_path(message, @institution)) do |f| %>
+<%= form_for(message, form_action_path(message, @institution)) do |f| %>
 	<%= f.hidden_field :institution_id, :value => @institution.id %>
 	<%= hidden_field_tag :page_id, @page.id if @page %>
   <div class="field">

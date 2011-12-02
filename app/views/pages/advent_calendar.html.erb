@@ -1,0 +1,39 @@
+<% content_for :head do %>
+  <script>
+    $(function() {
+      $('a.advent_calendar_day_open').click(function() {
+        var choc = $(this).attr('choc');
+        $('#advent_calendar_display').html($('#' + choc).html());
+        return false;
+      });
+			
+			$('a.advent_calendar_day_closed').click(function() {
+				alert("Naughty!! You'll have to wait!!")
+        return false;
+      });
+    });
+  </script>
+
+<% end %>
+
+<% day = Date.today.day %>
+
+<h1>Advent Calendar</h1>
+<div id="advent_calendar_display">
+	<%= image_tag "advent_calendar/#{advent_calendar_days[day - 1]}.png" %>
+</div>
+
+<div id="advent_calendar_days">
+<% advent_calendar_days.each_with_index do |choc, index| %>
+  <% state = index < day ? 'advent_calendar_day_open' : 'advent_calendar_day_closed' %>
+	<%= link_to index + 1, '#', :class => "advent_calendar_day #{state}", :choc => choc %>
+<% end %>
+</div>
+
+<div id="advent_calendar_hidden">
+	<% ['fish', 'snowman', 'santa', 'father_christmas', 'reindeer', 'bird'].each do |choc| %>
+		<div class="advent_calendar_choc", id="<%= choc %>">
+			<%= image_tag "advent_calendar/#{choc}.png" %>
+		</div>
+	<% end %>
+</div>

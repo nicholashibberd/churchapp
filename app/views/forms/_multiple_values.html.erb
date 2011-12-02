@@ -1,0 +1,6 @@
+<% field.values_to_array.each do |value| %>
+	<div>
+	<%= radio_button_tag "form_record[#{field.slug}]", value %>
+	<%= label_tag value %>
+	</div>
+<% end %>

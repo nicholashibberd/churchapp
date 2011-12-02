@@ -1,0 +1,20 @@
+<div id="<%= widget.css_id %>" class="form_widget widget">
+	<%= form_for widget.form.form_records.new, :url => form_form_records_path(@institution, widget.form) do |f| %>
+	<%= f.hidden_field :form_id  %>
+	<%= hidden_field_tag :page_id, @page.id if @page %>
+	
+	<% widget.form.form_fields.each do |field| %>
+		<div>
+			<div>
+				<%= label_tag field.name %>
+			</div>
+			<div>
+				<%= render_form_field_tag(field) %>
+			</div>
+		</div>
+	<% end %>
+		<div>
+			<%= submit_tag %>
+		</div>
+	<% end %>
+</div>

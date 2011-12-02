@@ -2,7 +2,7 @@
 	<%= javascript_include_tag 'jquery-ui' %>
 <% end %>
 
-<%= form_for(@nav_menu, form_path(@nav_menu, @institution)) do |f| %>
+<%= form_for(@nav_menu, form_action_path(@nav_menu, @institution)) do |f| %>
 	<%= f.hidden_field :institution_id, :value => @institution.id %>
 	
 	<div class="field" id="sortable_nav_items">

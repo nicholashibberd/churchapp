@@ -1,0 +1,31 @@
+<%= nested_form_for(@form, form_action_path(@form, @institution)) do |f| %>
+	<%= f.hidden_field :institution_id, :value => @institution.id %>
+  <div class="field">
+	  <%= f.label :name %><br />
+	  <%= f.text_field :name %>
+	</div>
+	<div class="field">
+	  <%= f.label :form_fields %><br />
+		<%= f.fields_for :form_fields do |form_field| %>
+			<div class="form_field_remove controls">
+		  	<%= form_field.link_to_remove "Delete" %>
+			</div>
+		  <div class="marker_address">
+				<%= f.label :name %><br />
+			  <%= form_field.text_field :name %>
+			</div>
+			<div class="marker_description">
+			  <%= f.label :field_type %><br />
+				<%= form_field.select :field_type, options_for_select(['text_field', 'text_area', 'select', 'check_boxes', 'radio_buttons'], form_field.object.field_type) %>
+			</div>
+			<div>
+				<%= f.label :values %><br />
+			  <%= form_field.text_field :values %>
+			</div>
+		<% end %>
+		<%= f.link_to_add "Add field", :form_fields, :id => 'add_new_form_field' %>
+	</div>
+	<div class="button confirm_button">
+  	<%= f.submit %>
+	</div>
+<% end -%>

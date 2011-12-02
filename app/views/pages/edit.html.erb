@@ -13,7 +13,7 @@
 
 <h2 class="admin_header">Page Content</h2>
 		<div id="admin_edit_page_layout">
-		  <%= form_for(@page, form_path(@page, @institution)) do |f| -%>
+		  <%= form_for(@page, form_action_path(@page, @institution)) do |f| -%>
 				<%= f.radio_button :content_layout, :fixed %> <%= f.label :fixed_layout %>
 				<%= f.radio_button :content_layout, :fluid %> <%= f.label :fluid_layout %>
 				<%= f.submit :Update_layout %>
@@ -49,6 +49,9 @@
 			</div>
 			<div class="button inline grey_button">				
 				<%= link_to 'PDF', new_page_widget_path(@institution, @page, :widget_type => 'pdf_widget'), :class => 'fancybox' %>
+			</div>
+			<div class="button inline grey_button">				
+				<%= link_to 'Form', new_page_widget_path(@institution, @page, :widget_type => 'form_widget'), :class => 'fancybox' %>
 			</div>
 			<div class="spacer"></div>
 		</div>
