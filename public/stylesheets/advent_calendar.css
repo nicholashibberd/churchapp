@@ -23,21 +23,41 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: Lucida Grande, Arial;
+	background: url(/images/advent_calendar/advent_calendar_background.jpg) no-repeat;		
+	color: #2c7f98;
 }
 
 #wrapper {
 	margin: auto;
-	width: 960px;
+	width: 690px;
+	height: 530px;
+	text-align: center;
+}
+
+h4.date_header {
+	margin-top: -20px;
 }
 
 #advent_calendar_display {
 	float: left;
-	height: 500px;
+	height: 360px;
+	background-color: white;
+	box-shadow: 0px 0px 10px #888;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;		
 }
 
 #advent_calendar_days {
 	width: 350px;
-	margin-left: 400px;
+	margin-left: 290px;
+	height: 320px;
+	background-color: white;
+	padding: 20px 0px 20px 20px;
+	box-shadow: 0px 0px 10px #888;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;	
 }
 
 a.advent_calendar_day {
@@ -48,14 +68,22 @@ a.advent_calendar_day {
 	width: 50px;
 	text-align: center;
 	padding-top: 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;	
+	box-shadow: 0px 0px 2px #000;	
 }
 
 a.advent_calendar_day_open {
-	background-color: #eee;	
+	background-color: #eaf5fe;	
+	background: -webkit-linear-gradient(top, #fff, #eaf5fe);
+  background: -moz-linear-gradient(top, #fff, #eaf5fe);	
 }
 
 a.advent_calendar_day_closed {
-	background-color: #ccc;
+	background: #bcdfff;
+	background: -webkit-linear-gradient(top, #eaf5fe, #bcdfff);
+  background: -moz-linear-gradient(top, #eaf5fe, #bcdfff);
 }
 
 #advent_calendar_hidden {

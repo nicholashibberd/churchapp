@@ -18,9 +18,11 @@
 
 <% day = Date.today.day %>
 
-<h1>Advent Calendar</h1>
+<h1><%= image_tag "advent_calendar/header.gif" %></h1>
+	<h4 class="date_header"><%= Date.today.strftime('%A %d %B') %></h4>
 <div id="advent_calendar_display">
-	<%= image_tag "advent_calendar/#{advent_calendar_days[day - 1]}.png" %>
+	<h3>Today's chocolate is...</h3>
+	<%= image_tag "advent_calendar/#{advent_calendar_days[day - 1]}.gif" %>
 </div>
 
 <div id="advent_calendar_days">
@@ -33,7 +35,8 @@
 <div id="advent_calendar_hidden">
 	<% ['fish', 'snowman', 'santa', 'father_christmas', 'reindeer', 'bird'].each do |choc| %>
 		<div class="advent_calendar_choc", id="<%= choc %>">
-			<%= image_tag "advent_calendar/#{choc}.png" %>
+			<h3>Today's chocolate is...</h3>
+			<%= image_tag "advent_calendar/#{choc}.gif" %>
 		</div>
 	<% end %>
 </div>
