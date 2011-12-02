@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   include ChurchesHelper
   layout :choose_layout
-  skip_before_filter :login_required, :only => 'show'
+  skip_before_filter :login_required, :only => ['show', 'advent_calendar']
   filter_access_to :edit, :attribute_check => true, :load_method => lambda { @institution.find_page(params[:id]) }
   
   def index
