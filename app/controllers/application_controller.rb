@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     @site = Site.where(:domain => request.domain(2)).first
     @site ||= Site.first
 
-    @institution = @site.find_institution(params[:institution_id])    
+    @institution = @site.find_institution(params[:institution_id])
     @root = @site.root
   end
   

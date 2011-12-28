@@ -1,0 +1,177 @@
+/************************************
+Brown - #8D8469
+************************************/
+
+/************************************
+Common elements
+************************************/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a, a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+/************************************
+Layout
+************************************/
+
+body {
+	font-family: Georgia;
+	background: #F1E5CE;
+	color: #666;
+}
+
+#wrapper, #footer {
+	margin: auto;
+	width: 830px;
+	padding: 15px;
+}
+
+#wrapper {
+	background: #fff;
+	box-shadow: 0 0 6px #999;
+}
+
+#footer {
+	text-align: center;
+}
+
+.content {
+	padding: 15px 0;
+}
+
+#background_image {
+	margin-top: -15px;
+}
+
+/************************************
+Header
+************************************/
+
+#header {
+	color: #8D8469;
+	text-align: center;
+	padding-top: 20px;
+}
+
+#header_date {
+	padding: 10px 0 20px 0;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+#top_nav_wrapper {
+	position: relative;
+	margin: 0 -27px;	
+}
+
+#top_nav {
+	height: 36px;
+	padding: 15px 30px;
+	background: url(/images/jenandandrew/backgrounds/top_nav.jpg) repeat-x;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px #333;
+	box-shadow: 0px 2px 2px #666;
+}
+
+#top_nav a {
+	float: left;
+	display: block;
+	font-size: 18px;
+	color: #FFF;
+	padding: 8px 12px;
+	margin-right: 10px;	
+}
+
+#top_nav a.selected {
+	background: #FFF5DE;
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF5DE), to(#E2D5B7));
+	background: -moz-linear-gradient(top,  #FFF5DE,  #E2D5B7);
+	color: #8D8469;
+	border: 1px solid #CFBF9D;
+	text-shadow: none;
+	border-radius: 3px;
+}
+
+.top_nav_shadow {
+	position: absolute;
+	bottom: -8px;
+	height: 7px;
+	width: 12px;
+	background: url(/images/jenandandrew/backgrounds/top_nav_shadow.gif) no-repeat;
+	z-index: -1;
+}
+
+#top_nav_shadow_left {
+	left: 0px;
+}
+
+#top_nav_shadow_right {
+	right: 0px;
+	background-position: -12px 0;
+}
+
+
+/***********************************
+Inputs and Buttons
+***********************************/
+
+input[type=text] {
+	background: url(/images/admin/input_330_45.png);
+	width: 300px;
+	height: 35px;
+	padding: 5px 15px;
+	border: 1px solid #999;
+	font-size: 14px;
+}
+
+textarea {
+	width: 480px;
+	height: 180px;
+	background: url(/images/admin/textarea_800_600.png) no-repeat;	
+	border: 1px solid #999;	
+	padding: 10px;
+}
+
+.field, .fields {
+	margin-bottom: 20px;
+}
+
+.button {
+	height: 50px;
+	margin-top: 20px;
+}
+
+.button a {
+	padding: 10px 15px;
+}
+
+.button a, .button input {
+	display: block;
+	float: left;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.button input {
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 9px 15px;
+}
+
+.confirm_button input {
+	background: #84BE84;
+	background: -webkit-gradient(linear, left top, left bottom, from(#84BE84), to(#339933));
+	background: -moz-linear-gradient(top,  #84BE84,  #339933);
+}
+
+.form_field {
+	margin-bottom: 20px;
+}
+

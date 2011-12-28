@@ -2,11 +2,11 @@
 	<%= javascript_include_tag "ckeditor/ckeditor.js" %>
 <% end %>
 
-<h1 class="admin_header">Parish Information</h1>
-<%= form_tag update_parish_info_path do -%>
+<h1 class="admin_header">Site Information</h1>
+<%= form_tag update_site_info_path do -%>
 	<div class="field">
 	  <%= label_tag :footer_content %><br />
-		<%= cktext_area_tag 'parish[footer_content]', @root.footer_content %>
+		<%= cktext_area_tag 'site[footer_content]', @site.footer_content %>
 	</div>
   <div class="button confirm_button">
     <%= submit_tag %>

@@ -4,8 +4,8 @@ module FormHelper
       when 'text_field' then text_field_tag "form_record[#{field.slug}]"
       when 'text_area' then text_area_tag "form_record[#{field.slug}]"
       when 'select' then select_tag "form_record[#{field.slug}]", options_for_select(field.values_to_array)
-      when 'radio_buttons' then render 'forms/multiple_values', :field => field
-      when 'check_boxes' then check_box_tag "form_record[#{field.slug}]"
+      when 'radio_buttons' then render 'forms/multiple_values', :field => field, :field_type => :radio_buttons
+      when 'check_boxes' then render 'forms/multiple_values', :field => field, :field_type => :check_boxes
     end
   end
   
@@ -18,4 +18,7 @@ module FormHelper
     end
   end
   
+  def show_form_field_values?(form_field)
+    ['select', 'check_boxes', 'radio_buttons'].include?(form_field.object.field_type) ? 'show' : 'hide'
+  end
 end

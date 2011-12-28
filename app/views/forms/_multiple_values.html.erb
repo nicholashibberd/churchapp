@@ -1,6 +1,19 @@
-<% field.values_to_array.each do |value| %>
-	<div>
-	<%= radio_button_tag "form_record[#{field.slug}]", value %>
-	<%= label_tag value %>
-	</div>
+<% if field_type == 'radio_buttons' %>
+
+	<% field.values_to_array.each do |value| %>
+		<div>
+		<%= radio_button_tag "form_record[#{field.slug}]", value %>
+		<%= label_tag value %>
+		</div>
+	<% end %>
+
+<% else %>
+
+	<% field.values_to_array.each do |value| %>
+		<div>
+		<%= check_box_tag "form_record[#{field.slug}]", value %>
+		<%= label_tag value %>
+		</div>
+	<% end %>
+
 <% end %>

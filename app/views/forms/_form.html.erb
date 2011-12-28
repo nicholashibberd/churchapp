@@ -10,15 +10,16 @@
 			<div class="form_field_remove controls">
 		  	<%= form_field.link_to_remove "Delete" %>
 			</div>
-		  <div class="marker_address">
+		  <div class="form_field_name">
 				<%= f.label :name %><br />
 			  <%= form_field.text_field :name %>
 			</div>
-			<div class="marker_description">
+			<div class="form_field_field_type">
 			  <%= f.label :field_type %><br />
-				<%= form_field.select :field_type, options_for_select(['text_field', 'text_area', 'select', 'check_boxes', 'radio_buttons'], form_field.object.field_type) %>
+				<% form_field.object.field_type %>
+				<%= form_field.select :field_type, options_for_select(['text_field', 'text_area', 'select', 'check_boxes', 'radio_buttons'], form_field.object.field_type), {}, {:class => 'field_type_select'} %>
 			</div>
-			<div>
+			<div class="<%= show_form_field_values?(form_field) %> form_field_value">
 				<%= f.label :values %><br />
 			  <%= form_field.text_field :values %>
 			</div>

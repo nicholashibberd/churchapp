@@ -16,4 +16,11 @@ class FormRecordsController < ApplicationController
     end
     redirect_to church_page_path(institution, page), :notice => notice
   end
+  
+  def destroy
+    form_record = FormRecord.find(params[:id])
+    form = form_record.form
+    form_record.destroy
+    redirect_to form_form_records_path(form)
+  end
 end

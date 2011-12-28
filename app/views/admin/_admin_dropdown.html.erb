@@ -8,7 +8,7 @@
 	<div class="admin_dropdown_hidden" id="admin_dropdown_hidden_<%= institution.slug %>">
 		<%= admin_left_nav_item('Pages', pages_path(institution), :read, :pages) %>
 		
-		<% display_for_parish_only(institution) do %>
+		<% display_for_root_only(institution) do %>
 			<%= admin_left_nav_item('People', people_path(institution), :read, :people) %>
 		<% end %>
 		
@@ -18,7 +18,7 @@
 		
 		<%= admin_left_nav_item('Events', events_path(institution), :read, :events) %>
 		
-		<% display_for_parish_only(institution) do %>
+		<% display_for_root_only(institution) do %>
 			<%= admin_left_nav_item('Photos', photos_path(institution), :read, :photos) %>
 		<% end %>
 		
@@ -27,6 +27,8 @@
 		<%= admin_left_nav_item('Links', edit_nav_menu_path(institution, institution.main_nav), :read, :nav_menus) if institution.main_nav %>
 		
 		<%= admin_left_nav_item('Messages', messages_path(institution), :read, :messages) %>
+		
+		<%= admin_left_nav_item('Forms', forms_path(institution), :create, :forms) %>
 		
 		<%= admin_left_nav_item('Site Admins', users_path(institution), :read, :users) %>
 	</div>

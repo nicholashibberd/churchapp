@@ -1,7 +1,7 @@
 module ChurchesHelper
   
-  def display_for_parish_only(church, &block)
-    if church.is_a?(Parish)
+  def display_for_root_only(institution, &block)
+    if institution.is_root?
       content_tag(:div, &block)
     end
   end

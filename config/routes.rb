@@ -11,9 +11,9 @@ Churchapp::Application.routes.draw do
   match 'register' => 'users#new', :as => :register
   match '/signout' => 'users#signout', :as => :signout
   match 'download_pdf' => 'widgets#download_pdf', :as => :download_pdf
-  match "update_parish_info", :to => 'admin#update_parish_info', :via => 'post', :as => :update_parish_info
+  match "update_site_info", :to => 'admin#update_site_info', :via => 'post', :as => :update_site_info
 
-  match "/", :to => 'pages#show', :as => :parish_home
+  match "/", :to => 'pages#show', :as => :root
   match "/(:institution_id)/cat/:category_id", :to => 'categories#category_articles', :as => :category_articles
   
   scope '/admin/(:institution_id)' do
@@ -48,7 +48,7 @@ Churchapp::Application.routes.draw do
   
   #post 'form_records/create'
   
-  match "admin/parish_information", :to => 'admin#parish_information', :as => :parish_information
+  match "admin/site_information", :to => 'admin#site_information', :as => :site_information
   match "/admin/(:institution_id)", :to => 'admin#church_admin', :as => :church_admin  
   match "/:institution_id", :to => 'pages#show', :as => :church_home  
   match "admin/pages/order_widgets", :to => 'pages#order_widgets', :as => :order_widgets

@@ -1,5 +1,5 @@
 <% unless (request.path == '/') %>
-	<%= link_to 'Parish home', parish_home_path %>
+	<%= link_to 'Parish home', root_path %>
 <% end %>
 <% @root.churches.each do |church| %>
 	<%= parish_nav_item(church) %>

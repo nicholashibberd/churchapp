@@ -4,7 +4,7 @@
 	<%= link_to 'Pages', pages_path(@institution), :class => 'admin_home_icon' %>
 <% end %>
 
-<% display_for_parish_only(@institution) do %>
+<% display_for_root_only(@institution) do %>
 	<% permitted_to? :create, :people do %>
 		<%= link_to 'People', people_path(@institution), :class => 'admin_home_icon' %>
 	<% end %>
@@ -20,7 +20,7 @@
 	<%= link_to 'Events', events_path(@institution), :class => 'admin_home_icon' %>
 <% end %>
 
-<% display_for_parish_only(@institution) do %>
+<% display_for_root_only(@institution) do %>
 	<% permitted_to? :create, :photos do %>
 		<%= link_to 'Photos', photos_path(@institution), :class => 'admin_home_icon' %>
 	<% end %>
@@ -38,6 +38,6 @@
 	<%= link_to 'Forms', forms_path(@institution), :class => 'admin_home_icon' %>
 <% end %>
 
-<% display_for_parish_only(@institution) do %>
-	<%= link_to 'Parish Information', parish_information_path, :class => 'admin_home_icon' %>
+<% display_for_root_only(@institution) do %>
+	<%= link_to 'Site Information', site_information_path, :class => 'admin_home_icon' %>
 <% end %>

@@ -1,8 +1,10 @@
 class Site
   include Mongoid::Document
+  field :name
   field :domain
   field :theme
   field :site_type
+  field :footer_content
   
   has_many :institutions
   has_many :users

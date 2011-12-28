@@ -11,12 +11,18 @@
 		<div id='header'>
 			<div id="logo">
 				<h1><%= logo %></h1>
+				<div id="header_date">18th August 2012</div>
 			</div>
 		</div>
-		<div id='top_nav'>
-			<%= render 'layouts/top_nav' %>
-		</div>		
+		<div id="top_nav_wrapper">
+			<div id="top_nav_shadow_left" class="top_nav_shadow"></div>
+			<div id="top_nav_shadow_right" class="top_nav_shadow"></div>
+			<div id='top_nav'>
+				<%= render 'layouts/top_nav' %>
+			</div>		
+		</div>
 		<div id="<%= page_id %>" class="content <%= request[:controller] %>_<%= request[:action] %>_content <%= content_layout %>">
+			<%= yield :background_image %>
 			<%= render 'layouts/flash', :flash => flash %>
 			<%= yield %>
 		</div>

@@ -3,14 +3,16 @@ module ApplicationHelper
   def logo
     if @institution.is_a?(Church)
       link_to image_tag("sanderstead/#{@institution.slug}-logo.png"), church_home_path(@institution)
+    elsif @institution.is_a?(Parish)
+      link_to image_tag("sanderstead/parish-logo.png"), root_path
     else
-      link_to image_tag("sanderstead/parish-logo.png"), parish_home_path
+      link_to image_tag("#{@site.theme}/logo.png"), root_path
     end
   end
   
   def sub_logo
     if @institution.is_a?(Church)
-      link_to image_tag("sanderstead/parish-logo-small.png"), parish_home_path
+      link_to image_tag("sanderstead/parish-logo-small.png"), root_path
     end
   end
   

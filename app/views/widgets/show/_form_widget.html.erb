@@ -4,7 +4,7 @@
 	<%= hidden_field_tag :page_id, @page.id if @page %>
 	
 	<% widget.form.form_fields.each do |field| %>
-		<div>
+		<div class="form_field">
 			<div>
 				<%= label_tag field.name %>
 			</div>
@@ -14,7 +14,7 @@
 		</div>
 	<% end %>
 		<div>
-			<%= submit_tag %>
+			<%= submit_tag 'Submit' %>
 		</div>
 	<% end %>
 </div>

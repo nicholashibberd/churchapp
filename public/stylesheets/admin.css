@@ -24,6 +24,10 @@ a img {
 	clear: both;
 }
 
+.hide {
+	display: none;
+}
+
 /***********************************
 Layout
 ***********************************/
@@ -140,7 +144,7 @@ a.admin_parish_nav_item_header.selected {
 	width: 240px;
 	position: absolute;
 	z-index: 1;
-	top: 41px;
+	top: 38px;
 }
 
 .admin_dropdown_hidden a {
@@ -181,6 +185,21 @@ Header
 	top: 70px;
 	right: 0px;
 	color: #fff;
+}
+
+#admin_logo {
+	font-size: 36px;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: #000 1px 1px 0px;
+}
+
+#admin_logo a {
+	text-decoration: none;
+}	
+
+span.admin_logo_yellow {
+	color: #EFBF00;
 }
 
 /***********************************
@@ -454,6 +473,11 @@ a.admin_page_widget_edit_button {
 
 #fancybox-outer {
 	padding: 20px;
+}
+
+.form_field_name, .form_field_field_type {
+	float: left;
+	margin-right: 20px;
 }
 
 /***********************************

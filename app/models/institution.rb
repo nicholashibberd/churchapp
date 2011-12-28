@@ -22,6 +22,7 @@ class Institution
   field :institution_type
   
   before_create :generate_slug
+  after_create :create_main_nav
   
   def to_param
     slug
@@ -29,6 +30,10 @@ class Institution
   
   def generate_slug
     self.slug = name.gsub("'", "").parameterize
+  end
+  
+  def create_main_nav
+    nav_menus.create(:name => 'Main Navigation', :menu_type => 'main_navigation')
   end
   
   def find_page(slug)
@@ -63,5 +68,9 @@ class Institution
   def is_root?
     institution_type == 'root'
   end
-      
+  
+  def background_image_size
+    "800x800"
+  end
+        
 end
