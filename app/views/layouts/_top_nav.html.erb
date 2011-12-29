@@ -1,7 +1,7 @@
 <div id="top_nav_<%= content_layout %>" class="top_nav_background">
 </div>
 <div id="top_nav_links">
-	<% @institution.main_navigation_items.each do |nav_item| %>
+	<% @institution.find_navigation_items('main_navigation').each do |nav_item| %>
 		<%= nav_link(nav_item) %>
 	<% end %>
 </div>

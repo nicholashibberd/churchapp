@@ -40,12 +40,12 @@ class Institution
     pages.select {|page| page.slug == slug}.first
   end
   
-  def main_nav
-    nav_menus.where(:menu_type => 'main_navigation').first
+  def find_nav(nav_menu_type)
+    nav_menus.where(:menu_type => nav_menu_type).first
   end
   
-  def main_navigation_items
-    main_nav.nav_items.asc(:position) rescue []
+  def find_navigation_items(nav_menu_type)
+    find_nav(nav_menu_type).nav_items.asc(:position) rescue []
   end
   
   def find_events
