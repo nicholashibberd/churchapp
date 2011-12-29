@@ -21,18 +21,22 @@
     <%= f.text_field :title %>
   </div>
 
-	<h2 class="admin_header">Background Images</h2>	
-	<div class="field">
-	  <% @root.background_images.each do |background_image| %>
-	    <div class="admin_page_background_image_item">
-				<div class="admin_page_background_image_item_checkbox">
-		    	<%= check_box_tag 'page[background_image_ids][]', background_image.id, @page.background_images.include?(background_image) %>
-				</div>
-	    <%= image_tag background_image.image.url(:preview) %>
-	    </div>
-	  <% end %>
-		<div class="spacer"></div>
-	</div>
+	<% unless @page.new_record? %>
+
+		<h2 class="admin_header">Background Images</h2>	
+		<div class="field">
+		  <% @root.background_images.each do |background_image| %>
+		    <div class="admin_page_background_image_item">
+					<div class="admin_page_background_image_item_checkbox">
+			    	<%= check_box_tag 'page[background_image_ids][]', background_image.id, @page.background_images.include?(background_image) %>
+					</div>
+		    <%= image_tag background_image.image.url(:preview) %>
+		    </div>
+		  <% end %>
+			<div class="spacer"></div>
+		</div>
+	
+	<% end %>
 	
 	<div class="button confirm_button" id="admin_edit_page_submit_button">
 	  <%= f.submit %>

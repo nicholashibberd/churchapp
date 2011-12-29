@@ -45,6 +45,21 @@ body {
 	padding: 15px 0;
 }
 
+.content.background_image_layout {
+	
+}
+
+#page_content {
+	min-height: 400px;
+	position: relative;
+	margin-top: 15px;
+}
+
+* html #page_content {
+	height: 400px;
+}
+
+
 #background_image {
 	margin-top: -15px;
 }

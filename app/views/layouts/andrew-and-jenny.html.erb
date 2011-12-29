@@ -22,9 +22,11 @@
 			</div>		
 		</div>
 		<div id="<%= page_id %>" class="content <%= request[:controller] %>_<%= request[:action] %>_content <%= content_layout %>">
-			<%= yield :background_image %>
 			<%= render 'layouts/flash', :flash => flash %>
-			<%= yield %>
+			<%= yield :background_image %>			
+			<div id="page_content">
+				<%= yield %>
+			</div>
 		</div>
 	</div>
 	<div id="footer">
