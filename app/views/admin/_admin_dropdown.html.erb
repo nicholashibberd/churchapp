@@ -1,10 +1,9 @@
 <div class="admin_parish_nav_item" id="<%= institution.slug %>">
-	  <%= if institution == @institution
-      link_to institution.name, church_admin_path(institution), :class => 'admin_parish_nav_item_header selected', :id => institution.slug
-    else
-      link_to institution.name, church_admin_path(institution), :class => 'admin_parish_nav_item_header', :id => institution.slug
-    end
-     %>
+	<%
+		css_class = institution == @institution ? 'admin_parish_nav_item_header selected' : 'admin_parish_nav_item_header'
+	 	institution_name = @site.is_standalone? ? 'Admin links' : institution.name	
+	%>
+  <%= link_to institution_name, church_admin_path(institution), :class => css_class, :id => institution.slug %>
 	<div class="admin_dropdown_hidden" id="admin_dropdown_hidden_<%= institution.slug %>">
 
 		<% if @institution.find_nav('admin') %>

@@ -1,5 +1,20 @@
 <h1 class="admin_header">New nav_menu</h1>
 
-<%= render 'form' %>
+<%= form_for(@nav_menu, form_action_path(@nav_menu, @institution)) do |f| %>
+	<%= f.hidden_field :institution_id, :value => @institution.id %>	
+	<div class="field">
+	  <%= f.label :name %><br />
+	  <%= f.text_field :name %>
+	</div>
+	<div class="field">
+	  <%= f.label :menu_type %><br />
+	  <%= f.select :menu_type, options_for_select([['Admin', 'admin'],['Main Nav', 'main_nav'], ['Footer', 'footer']]) %>
+	</div>
+
+  <div class="button confirm_button">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Back', nav_menus_path %>

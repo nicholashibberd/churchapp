@@ -19,4 +19,8 @@ class Site
     institutions.select {|institution| institution.institution_type == 'root'}.first
   end
   
+  def is_standalone?
+    site_type == 'standalone'
+  end
+  
 end
