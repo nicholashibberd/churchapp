@@ -73,7 +73,7 @@ Header
 #top_nav {
 	height: 36px;
 	padding: 15px 30px;
-	background: url(/images/jenandandrew/backgrounds/top_nav.jpg) repeat-x;
+	background: url(/images/andrew-and-jenny/backgrounds/top_nav.jpg) repeat-x;
 	text-transform: uppercase;
 	text-shadow: 1px 1px 1px #333;
 	box-shadow: 0px 2px 2px #666;
@@ -103,7 +103,7 @@ Header
 	bottom: -8px;
 	height: 7px;
 	width: 12px;
-	background: url(/images/jenandandrew/backgrounds/top_nav_shadow.gif) no-repeat;
+	background: url(/images/andrew-and-jenny/backgrounds/top_nav_shadow.gif) no-repeat;
 	z-index: -1;
 }
 
