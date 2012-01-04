@@ -4,6 +4,16 @@
 </div>
 
 <div class="field">
+  <%= f.label :display_caption %><br />
+  <%= f.select :display_caption, options_for_select([['Yes', true], ['No', false]], @widget.display_caption) %>
+</div>
+
+<div class="field">
+  <%= f.label :display_in_lightbox %><br />
+  <%= f.select :display_in_lightbox, options_for_select([['Yes', true], ['No', false]], @widget.display_in_lightbox) %>
+</div>
+
+<div class="field">
   <%= f.label :photos %><br />
 	<% @root.photos.in_groups_of(3, false).each do |row| %>
 		<div class="gallery_widget_row">

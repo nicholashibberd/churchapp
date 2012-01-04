@@ -4,6 +4,7 @@ class Photo
     
   field :caption
   field :position, :type => Integer
+  field :link
   
   belongs_to :institution
   has_and_belongs_to_many :gallery_widgets
