@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   layout 'admin'
 
   def index
-    @people = Person.all
+    @people = @root.people
   end
 
   def show
@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   end
 
   def new
-    @person = Person.new
+    @person = @root.people.new
   end
 
   def edit

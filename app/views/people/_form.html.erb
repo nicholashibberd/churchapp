@@ -1,5 +1,5 @@
 <%= form_for(@person, form_action_path(@person, @institution), :html => {:multipart => true}) do |f| %>
-
+	<%= f.hidden_field :institution_id, :value => @root.id %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
