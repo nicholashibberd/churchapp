@@ -294,6 +294,11 @@ Gallery
 	float: left;
 }
 
+.gallery_widget_caption {
+	margin-top: 10px;
+	text-align: center;
+}
+
 /***********************************
 Articles
 ***********************************/
