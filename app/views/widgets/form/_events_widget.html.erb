@@ -1,4 +1,8 @@
 <div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
   <%= f.label :event_category %><br />
   <%= f.select :event_category, options_for_select(Event::CATEGORIES, @widget.event_category) %>
 </div>
