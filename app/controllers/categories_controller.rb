@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   def category_articles
     @category = Category.find_by_slug(params[:category_id])
     @articles = @category.find_articles_by_church(@institution, params[:month])
+    @snippet_size = 300
   end
   
   def show

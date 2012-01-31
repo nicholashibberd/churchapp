@@ -15,7 +15,6 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.9.8'
 gem 'declarative_authorization'
-gem 'ruby-debug'
 gem 'rakismet', '>= 1.0.0'
 gem 'ckeditor'
 gem "truncate_html"
@@ -33,4 +32,5 @@ group :test, :development do
 	gem "factory_girl_rails"
 end
 
-gem 'SystemTimer', '1.2.3'
+#gem 'SystemTimer', '1.2.3'
+

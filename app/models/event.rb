@@ -22,7 +22,7 @@ class Event
   validates_presence_of :start_time
   
   scope :services, :where => {:category => 'Service'}
-  scope :upcoming, where(:start_time.gte => Time.now)
+  scope :upcoming, where(:start_time.gte => Time.now).asc(:start_time)
   scope :church, lambda { |church| where(:church_id => church.id) }
   scope :parish, lambda { |parish| where(:parish_id => parish.id) }
   
