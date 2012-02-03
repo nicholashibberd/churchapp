@@ -129,7 +129,7 @@ a.admin_parish_nav_item_header.selected {
 
 .admin_parish_nav_item a {
 	display: block;
-	padding: 13px 20px;
+	padding: 13px 20px 20px 20px;
 }
 
 .admin_parish_nav_item:hover {
