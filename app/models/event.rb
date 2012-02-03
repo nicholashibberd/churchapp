@@ -42,13 +42,15 @@ class Event
   ]
   
   CATEGORIES = [
-              "None",
+              "All",
               "Service",
               "Coffee Morning",
               "Charity",
               "Fundraising",
               "Speaker",
-              "Concert"
+              "Concert",
+              "Meeting",
+              "Social"
   ]
     
   def start_date

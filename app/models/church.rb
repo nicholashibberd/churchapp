@@ -10,7 +10,8 @@ class Church < Institution
   after_create :create_main_nav
     
   def events_by_date(category, number_to_display)
-    upcoming_events = events.upcoming.where(:category => category).limit(number_to_display).asc(:date)
+    events_by_category = category == 'All' ? events.upcoming : events.upcoming.where(:category => category)
+    upcoming_events = events_by_category.limit(number_to_display).asc(:date)
     upcoming_events.group_by {|event| event.start_date}
   end
   
