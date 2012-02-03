@@ -29,7 +29,6 @@
 			<% end %>
 			<%= admin_left_nav_item('Documents', documents_path(institution), :read, :documents) %>
 			<%= admin_left_nav_item('Links', nav_menu_nav_items_path(institution, institution.find_nav('main_navigation')), :read, :nav_menus) if institution.find_nav('main_navigation') %>
-			<%= admin_left_nav_item('Messages', messages_path(institution), :read, :messages) %>	
 			<% display_for_root_only(institution) do %>
 				<%= admin_left_nav_item('Forms', forms_path(institution), :create, :forms) %>
 			<% end %>
