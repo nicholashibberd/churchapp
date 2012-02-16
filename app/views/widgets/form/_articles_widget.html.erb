@@ -1,6 +1,7 @@
 <div class="field">
   <%= f.label :category %><br />
-  <%= f.select :category_id, options_from_collection_for_select(Category.all, 'id', 'name') %>
+	<% cat = @widget.category.id if @widget.category %>
+  <%= f.select :category_id, options_from_collection_for_select(Category.all, 'id', 'name', cat) %>
 </div>
 <div class="field">
   <%= f.label :number_to_display %><br />
