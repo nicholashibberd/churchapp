@@ -72,5 +72,11 @@ class Institution
   def background_image_size
     "800x800"
   end
+  
+  def events_by_date(category, number_to_display)
+    events_by_category = category == 'All' ? events.upcoming : events.upcoming.where(:category => category)
+    upcoming_events = events_by_category.limit(number_to_display).asc(:date)
+    upcoming_events.group_by {|event| event.start_date}
+  end  
         
 end
