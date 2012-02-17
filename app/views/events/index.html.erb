@@ -1,6 +1,6 @@
 <h1 class="admin_header"><%= @institution.name %> Events</h1>
 
-<% @institution.events.asc(:start_time).limit(10).each do |event| %>
+<% @institution.events.upcoming.asc(:start_time).each do |event| %>
 	<div class="index_item page_index_item">
 		<div class="controls">
 			<%= link_to 'Edit', edit_event_path(@institution, event) if permitted_to? :edit, event %>
